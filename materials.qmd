@@ -2,7 +2,9 @@
 title: "Material"
 ---
 
-0. [Statistical Revision](Revision_Presentation.pdf)
+## Slides
+
+0. [Statistical Revision](00_Statistical_revision.qmd)
 1. [SLR](01_SLR.qmd)
 2. [MLR](02_MLR.qmd)
 3. [Inference](03_Inference.qmd)
@@ -13,3 +15,11 @@ title: "Material"
 8. [R](08_R.qmd)
 9. [Time Series](09_Time%20Series.qmd)
 10. [Time Series - Panel](10_Time%20Series%20Panel.qmd)
+
+## Notes
+
+1. [SLR](01_SLR_review.qmd)
+2. [MLR](02_MLR_review.qmd)
+3. [OVB IV](04_OVB_IV_review.qmd)
+4. [IV 2SLS](06_IV_2SLS_review.qmd)
+5. [Heteroskedasticity](07_heteroskedasticity_review.qmd)

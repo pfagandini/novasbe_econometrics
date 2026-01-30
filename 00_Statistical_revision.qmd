@@ -1,0 +1,250 @@
+---
+title: "Statistical Revision"
+author: "Paulo Fagandini"
+institute: "Nova SBE"
+format: 
+  revealjs:
+    theme: default
+    logo: pictures/NovaPrincipalV2.svg
+    slide-number: true
+    cross-ref: true
+    incremental: true
+    math: 
+      method: mathjax
+    transition: slide
+    footer: "Econometrics"
+    from: markdown+emoji
+    code-overflow: wrap
+    code-block-font-size: 0.75em
+    progress: true
+editor: source
+execute:
+  enabled: true
+engine: knitr
+---
+
+# Introduction
+
+## Introduction
+
+* :man_teacher: Paulo Fagandini  
+* :e-mail: paulo.fagandini@novasbe.pt  
+* :book: Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach
+
+## Introduction
+
+Assessment key points:
+
+1. 5 Random Quizzes, total 10%
+2. 1 Midterm, 15%
+3. Empirical project, 25% (min grade 8.00)
+4. Exam, 50% (min grade 8.00)
+
+. . .
+
+Resit *replaces* the Regular Exam, it is **not** worth 100%. You cannot take resit if you missed the Regular Exam.
+
+## Introduction
+
+* Medical justifications are not accepted by us. They must be presented directly to the School, which will then inform us of the situation.
+* Because of the random nature of the quizzes, missed quizzes cannot be justified. Since unforeseen circumstances may occur and you might miss one, only the best four (out of five) quiz scores will count toward the final grade.
+
+## Introduction
+
+Portability of work projects from previous semesters:
+
+* Work projects executed in group cannot be resubmitted.
+* Work projects done individually with a grade 12.00 or better can be reutilized in the next 2 semesters. Note, however, that their grade may be modified.
+
+## Introduction
+
+The course has theory and practical lectures:
+
+1. Theory lectures cover theory. This will be present in the assessments.
+2. Practical lectures focuses mostly on applications, which also enter in the assessments.
+
+. . .
+
+Theory and practical lectures are **not substitutes**!!
+
+**A typical mistake:** Focus only on the practical part; neglect the theory and book. Exam is usually 50%/50% each!
+
+# Statistical Revision
+
+## Random Variables
+
+* $X$ is a random variable (*rv*) if it takes on numerical values and has an outcome that is determined by an experiment:
+  * A discrete *rv* can take on only a finite or countably infinite number of values.
+  * A continuous *rv* can take on any real value with zero probability.
+
+## Random Variables
+
+* A probability distribution is associateed with each *rv*.
+* Examples:
+  * Coin-flipping example: number of heads in 10 flips of a coin
+  * Height of a selected student
+
+## Expected Value
+
+* If $X$ is a *rv*, the expected value is a weighted average of all values of $X$
+* The probability density function (*pdf*) determines the weights
+* Let $f(x)$ denote the *pdf* of $X$ and $X$ be a discrete random variable over a finite number of values $\{x_1,\dots,x_n\}$ $$\mu(X)=E[X]\equiv \sum_{i=1}^n f(x_i)x_i$$
+
+## Expected Value: Properties
+
+1. $E[c]=c$ for $c$ a constant.
+2. $E\left[E[X]\right]=E[X]=\mu(X)$
+3. For any $a,b\in\mathbb{R}$, $E[aX+b]=aE[X]+b$
+4. $E[X-\mu(X)]=0$
+5. $E\left[(a X)^2\right]=a^2 E[X^2]$
+6. $X$ and $Y$ are independent $\Leftrightarrow$ $E[XY]=E[X]E[Y]$
+
+## Expected Value: Properties
+
+7. If $\{a_1,\dots,a_n\}$ are constants and $X_1,\dots,X_n$ are *rv*s, then: $$E\left[\sum_{i=1}^n a_i X_i\right] = \sum_{i=1}^n a_i E[X_i]$$
+
+## Variance
+
+* The variance of $X$ is a measure of the dispersion of the distribution
+* Let $\mu_X=E[X]$. Then the variance is the expected of the squared deviation from the mean: $$\sigma_X^2=V[X]=E\left[(X-\mu_X)^2\right]$$
+* Notice that: $$ E[(X-\mu_X)^2]=E\left[X^2\right]-\mu_X^2$$
+
+## Standard Deviation
+
+* The square root of $V[X]$ is the standard deviation of $X$: $$\sigma_X=sd(X)\equiv \sqrt{V[X]}$$
+
+## The variance: Properties
+
+1. For any constant $c$, $V[c]=0$
+2. For $a,b$ constants, and $X$ a *rv*, $V[aX+b]=a^2V[X]$
+3. $V[X+Y]=V[X]+V[Y]+2Cov[X,Y]$
+4. $V[X-Y]=V[X]+V[Y]-2Cov[X,Y]$
+5. $X$ and $Y$ independent $\Leftrightarrow$ $V[X\pm Y]=V[X]+V[Y]$
+
+## The Covariance
+
+* Concerns the relationship between two variables describing a population
+* Let $\mu_X=E[X]$ and $\mu_Y=E[Y]$ with $X$ and $Y$ some *rv*s.
+$$
+\begin{aligned}
+    \sigma_{XY}=Cov(X,Y)&\equiv E\left[(X-\mu_X)(Y-\mu_Y)\right]\\
+    &=E[XY]-\mu_X\mu_Y
+\end{aligned}
+$$
+
+## The Covariance: Properties
+
+1. If $X$ and $Y$ are independent, then $Cov(X,Y)=0$
+2. For any constants $a_1,b_1$ and $a_2,b_2$: $$Cov(a_1 X+b_1,a_2 Y+b_2)=a_1a_2Cov(X,Y)$$
+3. Cauchy-Schwartz Inequality: $$|Cov(X,Y)|\leq \sigma_X \sigma_Y$$
+
+## The correlation coefficient
+
+* The covariance between two random variables depends on the units of measurement.
+* The correlation coefficient overcomes this issue:$$\rho_{XY}=Corr(X,Y)\equiv \frac{\sigma_{XY}}{\sigma_X\sigma_Y}=$$
+* Since $\sigma_X$ and $\sigma_Y$ are positive, then $Cov(X,Y)$ and $Corr(X,Y)$ have the same sign.
+* $Corr(X,Y)=0$ $\Leftrightarrow$ $Cov(X,Y)=0$
+
+## The correlation coefficient
+
+1. $-1\leq Corr(X,Y)\leq 1$
+   * $Corr(X,Y)=Cov(X,Y)=0\ \Rightarrow\ $ $X$ and $Y$ are independent.
+   * $Corr(X,Y)=1$, then $X$ and $Y$ are perfectly positively correlated.
+   * $Corr(X,Y)=-1$, then $X$ and $Y$ are perfectly negatively correlated
+2. For any constants $a_1, b_1, a_2, b_2$ with $a_1\neq 0$ and $a_2\neq 0$:$$Corr(a_1X+b_1,a_2 Y + b_2)=\frac{a_1 a_2}{|a_1 a_2|} Corr(X,Y)$$
+
+## Variance of Sums of *RV*s
+
+* For any constants $a$ and $b$: $$V[aX+bY]=a^2V[X]+b^2V[Y]=2ab Cov(X,Y)$$
+* If $X$ and $Y$ are uncorrelated, $$V[X\pm Y]=V[X]+V[Y]$$
+  
+## Variance of Sums of *RV*s
+
+Generalizing,
+* Let $\{X_1,\dots,X_n\}$ be pairwise uncorrelated *rv*s and $\{a_1,\dots,a_n\}$ constants, then:$$V\left[\sum_{i=1}^n a_i X_i\right]=\sum_{i=1}^n a_i^2 V[X_i] $$
+
+## Conditional Expectation
+
+1. For any function $c(X)$ $E[c(X)|X=x]=c(X)$
+2. For any functions $a(X)$ and $b(X)$:$$E[a(x)Y+b(X)|X]=a(X)E[Y|X]+b(X)$$
+3. If $X$ and $Y$ are independent, then $E[Y|X]=E[Y]$.
+
+## Conditional Expectation
+
+4. $E\left[E[Y|X]\right]=E[Y]$
+5. $E[Y|X]=E\left[E[Y|X,Z]|X\right]$
+6. $E[Y|X]=E[X]$ then $Cov(X,Y)=Corr(X,Y)=0$
+
+## Conditional Variation
+
+1. $V[Y|X=x]=E[Y^2|X=x]-\left[E[Y|X=x]^2\right]$
+2. If $X$ and $Y$ are independent, then $V[Y|X]=V[Y]$.
+
+# Linear Algebra Revision
+
+## Vector Operations
+
+Let $v$ and $u$ be $n\times 1$ vectors:
+
+1. For $a\in\mathbb{R}$, $(av)_i=a v_i$.
+2. $(v+u)_i=v_i+u_i$.
+3. $v^T$ is a $1\times n$ vector
+4. $v^T v = \sum_{i=1}^n v_i^2$
+5. $v^T u = u^T v = \sum_{i=1}^n u_i v_u$. This is crucial, it is a linear combination of the elements of $v$ or $u$.
+
+## Vector Operations
+
+Let $1_n$ be a vector of 1, of size $n\times 1$, then:
+
+1. For $a\in\mathbb{R}$, $(a 1_n)_i=a$
+2. $v^T 1_n = \sum_{i=1}^n v_i$
+
+## System of equations
+
+The system:
+
+$$
+\begin{aligned}
+    y_{1}&=&\beta_0 &+& \beta_1 x_1 &+& u_1\\
+    y_{2}&=&\beta_0 &+& \beta_1 x_2 &+& u_2\\
+    \vdots &=& \vdots &+& \vdots &+& \vdots \\
+    y_{n}&=& \beta_0 &+& \beta_1 x_n &+& u_n
+\end{aligned}
+$$
+
+Is equivalent to $$Y = \beta_0 1_n + \beta_1 X + u$$ where $Y$, $X$, and $u$ are vectors $n\times 1$.
+
+## Matrix Multiplication
+
+If you have a matrix $M$ of size $m\times n$, then it can be:
+
+1. pre multiplied by a matrix or vector, as long as it has $m$ columns.
+2. post multiplied by a matrix or vector, as long as it has $n$ rows.
+
+## Matrix Multiplication
+
+Say $A=\begin{pmatrix}a_{11} & a_{12}\\ a_{21} & a_{22}\end{pmatrix}$ and $B=\begin{pmatrix}b_{11} & b_{12}\\ b_{21} & b_{22}\end{pmatrix}$, we have that
+
+$$
+A\times B = \begin{pmatrix}a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22}\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\end{pmatrix}
+$$
+
+## Matrix Multiplication
+
+More generally, the element $(i,j)$ of the matrix multiplication $A$ of size $n_a\times T$, and $B$ of size $T\times m_b$ is:
+
+$$\left[AB\right]_{ij}=\sum_{q=1}^m a_{im}b_{mj}$$
+
+Or the sum of the products of the elements of the $i^{th}$ row of $A$ with the elements of the $j^{th}$ column of $B$. Better, a linear combination of the elements of the $i^{th}$ row of $A$, or a linear combination of the $j^{th}$ column of $B$.
+
+## System of equations
+
+The system of equations $$Y = \beta_0 1_n + \beta_1 X + u$$ where $Y$, $X$, and $u$ are vectors $n\times 1$ can be rewritten as:
+
+$$Y = \begin{pmatrix}1_n & X\end{pmatrix} \begin{pmatrix}\beta_0 \\ \beta_1\end{pmatrix} + u$$
+
+## System of equations
+
+If we rename $X$ as the matrix $\begin{pmatrix}1_n & X\end{pmatrix}$ and we call $\beta=\begin{pmatrix}\beta_0\\ \beta_1\end{pmatrix}$ we have that the system can be written as: $$Y=X\beta+u$$
+
+Where $X$ is now a matrix size $n\times (k+1)$, where $n$ will be the number of observations, and $k$ the number of variables we use to explain $Y$ (we will see in the future that we can have more than 1 variable $X$). In any case, this representation encompases all the cases!
