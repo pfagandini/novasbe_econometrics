@@ -437,15 +437,15 @@
     "objectID": "01_SLR.html#review-1",
     "href": "01_SLR.html#review-1",
     "title": "SLR",
-    "section": "",
-    "text": "SLR\nLog transformations\n\\(SST = SSR + SSE\\)"
+    "section": "Review",
+    "text": "Review\n\nSLR\nLog transformations\n\\(SST = SSR + SSE\\)"
   },
   {
     "objectID": "01_SLR.html#exercises",
     "href": "01_SLR.html#exercises",
     "title": "SLR",
-    "section": "",
-    "text": "https://moodle.novasbe.pt/mod/folder/view.php?id=4021"
+    "section": "Exercises",
+    "text": "Exercises\nhttps://moodle.novasbe.pt/mod/folder/view.php?id=4021"
   },
   {
     "objectID": "01_SLR.html#question-1.1-1",
@@ -480,7 +480,7 @@
     "href": "01_SLR.html#question-1.2-3",
     "title": "SLR",
     "section": "Question 1.2",
-    "text": "Question 1.2\n\n\nLevel-level: \\(\\widehat{asylum}=2,569-0.12 GDP\\) with \\(n=166\\) and \\(R^2=0.0447\\)\nLog-level : \\(\\widehat{log(asylum)}=5.64-0.0002 GDP\\) with \\(n=166\\) and \\(R^2=0.2585\\)\nLevel-log : \\(\\widehat{asylum}=7,804-731.97 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.0368\\)\nLog-log : \\(\\widehat{log(asylum)}=17.56-1.65 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.2673\\)"
+    "text": "Question 1.2\n\nLevel-level: \\(\\widehat{asylum}=2,569-0.12 GDP\\) with \\(n=166\\) and \\(R^2=0.0447\\)\nLog-level : \\(\\widehat{log(asylum)}=5.64-0.0002 GDP\\) with \\(n=166\\) and \\(R^2=0.2585\\)\nLevel-log : \\(\\widehat{asylum}=7,804-731.97 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.0368\\)\nLog-log : \\(\\widehat{log(asylum)}=17.56-1.65 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.2673\\)"
   },
   {
     "objectID": "01_SLR.html#question-1.2-4",
@@ -1528,56 +1528,56 @@
   {
     "objectID": "00_Statistical_revision.html#introduction-1",
     "href": "00_Statistical_revision.html#introduction-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Introduction",
     "text": "Introduction\n\n👨‍🏫 Paulo Fagandini\n\n📧 paulo.fagandini@novasbe.pt\n\n📖 Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach"
   },
   {
     "objectID": "00_Statistical_revision.html#introduction-2",
     "href": "00_Statistical_revision.html#introduction-2",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Introduction",
     "text": "Introduction\nAssessment key points:\n\n5 Random Quizzes, total 10%\n1 Midterm, 15%\nEmpirical project, 25% (min grade 8.00)\nExam, 50% (min grade 8.00)\n\n\nResit replaces the Regular Exam, it is not worth 100%. You cannot take resit if you missed the Regular Exam."
   },
   {
     "objectID": "00_Statistical_revision.html#introduction-3",
     "href": "00_Statistical_revision.html#introduction-3",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Introduction",
     "text": "Introduction\n\nMedical justifications are not accepted by us. They must be presented directly to the School, which will then inform us of the situation.\nBecause of the random nature of the quizzes, missed quizzes cannot be justified. Since unforeseen circumstances may occur and you might miss one, only the best four (out of five) quiz scores will count toward the final grade."
   },
   {
     "objectID": "00_Statistical_revision.html#introduction-4",
     "href": "00_Statistical_revision.html#introduction-4",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Introduction",
     "text": "Introduction\nPortability of work projects from previous semesters:\n\nWork projects executed in group cannot be resubmitted.\nWork projects done individually with a grade 12.00 or better can be reutilized in the next 2 semesters. Note, however, that their grade may be modified."
   },
   {
     "objectID": "00_Statistical_revision.html#introduction-5",
     "href": "00_Statistical_revision.html#introduction-5",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Introduction",
     "text": "Introduction\nThe course has theory and practical lectures:\n\nTheory lectures cover theory. This will be present in the assessments.\nPractical lectures focuses mostly on applications, which also enter in the assessments.\n\n\nTheory and practical lectures are not substitutes!!\nA typical mistake: Focus only on the practical part; neglect the theory and book. Exam is usually 50%/50% each!"
   },
   {
     "objectID": "00_Statistical_revision.html#random-variables",
     "href": "00_Statistical_revision.html#random-variables",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Random Variables",
     "text": "Random Variables\n\n\\(X\\) is a random variable (rv) if it takes on numerical values and has an outcome that is determined by an experiment:\n\nA discrete rv can take on only a finite or countably infinite number of values.\nA continuous rv can take on any real value with zero probability."
   },
   {
     "objectID": "00_Statistical_revision.html#expected-value",
     "href": "00_Statistical_revision.html#expected-value",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Expected Value",
     "text": "Expected Value\n\nIf \\(X\\) is a rv, the expected value is a weighted average of all values of \\(X\\)\nThe probability density function (pdf) determines the weights\nLet \\(f(x)\\) denote the pdf of \\(X\\) and \\(X\\) be a discrete random variable over a finite number of values \\(\\{x_1,\\dots,x_n\\}\\) \\[\\mu(X)=E[X]\\equiv \\sum_{i=1}^n f(x_i)x_i\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#random-variables-1",
     "href": "00_Statistical_revision.html#random-variables-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Random Variables",
     "text": "Random Variables\n\nA probability distribution is associateed with each rv.\nExamples:\n\nCoin-flipping example: number of heads in 10 flips of a coin\nHeight of a selected student"
   },
@@ -1591,21 +1591,21 @@
   {
     "objectID": "00_Statistical_revision.html#expected-value-properties",
     "href": "00_Statistical_revision.html#expected-value-properties",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Expected Value: Properties",
     "text": "Expected Value: Properties\n\n\\(E[c]=c\\) for \\(c\\) a constant.\n\\(E\\left[E[X]\\right]=E[X]=\\mu(X)\\)\nFor any \\(a,b\\in\\mathbb{R}\\), \\(E[aX+b]=aE[X]+b\\)\n\\(E[X-\\mu(X)]=0\\)\n\\(E\\left[(a X)^2\\right]=a^2 E[X^2]\\)\n\\(X\\) and \\(Y\\) are independent \\(\\Leftrightarrow\\) \\(E[XY]=E[X]E[Y]\\)"
   },
   {
     "objectID": "00_Statistical_revision.html#expected-value-properties-1",
     "href": "00_Statistical_revision.html#expected-value-properties-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Expected Value: Properties",
     "text": "Expected Value: Properties\n\nIf \\(\\{a_1,\\dots,a_n\\}\\) are constants and \\(X_1,\\dots,X_n\\) are rvs, then: \\[E\\left[\\sum_{i=1}^n a_i X_i\\right] = \\sum_{i=1}^n a_i E[X_i]\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#variance",
     "href": "00_Statistical_revision.html#variance",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Variance",
     "text": "Variance\n\nThe variance of \\(X\\) is a measure of the dispersion of the distribution\nLet \\(\\mu_X=E[X]\\). Then the variance is the expected of the squared deviation from the mean: \\[\\sigma_X^2=V[X]=E\\left[(X-\\mu_X)^2\\right]\\]\nNotice that: \\[ E[(X-\\mu_X)^2]=E\\left[X^2\\right]-\\mu_X^2\\]"
   },
@@ -1619,77 +1619,77 @@
   {
     "objectID": "00_Statistical_revision.html#standard-deviation",
     "href": "00_Statistical_revision.html#standard-deviation",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Standard Deviation",
     "text": "Standard Deviation\n\nThe square root of \\(V[X]\\) is the standard deviation of \\(X\\): \\[\\sigma_X=sd(X)\\equiv \\sqrt{V[X]}\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#the-variance-properties",
     "href": "00_Statistical_revision.html#the-variance-properties",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "The variance: Properties",
     "text": "The variance: Properties\n\nFor any constant \\(c\\), \\(V[c]=0\\)\nFor \\(a,b\\) constants, and \\(X\\) a rv, \\(V[aX+b]=a^2V[X]\\)\n\\(V[X+Y]=V[X]+V[Y]+2Cov[X,Y]\\)\n\\(V[X-Y]=V[X]+V[Y]-2Cov[X,Y]\\)\n\\(X\\) and \\(Y\\) independent \\(\\Leftrightarrow\\) \\(V[X\\pm Y]=V[X]+V[Y]\\)"
   },
   {
     "objectID": "00_Statistical_revision.html#the-covariance",
     "href": "00_Statistical_revision.html#the-covariance",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "The Covariance",
     "text": "The Covariance\n\nConcerns the relationship between two variables describing a population\nLet \\(\\mu_X=E[X]\\) and \\(\\mu_Y=E[Y]\\) with \\(X\\) and \\(Y\\) some rvs. \\[\n\\begin{aligned}\n  \\sigma_{XY}=Cov(X,Y)&\\equiv E\\left[(X-\\mu_X)(Y-\\mu_Y)\\right]\\\\\n  &=E[XY]-\\mu_X\\mu_Y\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#the-covariance-properties",
     "href": "00_Statistical_revision.html#the-covariance-properties",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "The Covariance: Properties",
     "text": "The Covariance: Properties\n\nIf \\(X\\) and \\(Y\\) are independent, then \\(Cov(X,Y)=0\\)\nFor any constants \\(a_1,b_1\\) and \\(a_2,b_2\\): \\[Cov(a_1 X+b_1,a_2 Y+b_2)=a_1a_2Cov(X,Y)\\]\nCauchy-Schwartz Inequality: \\[|Cov(X,Y)|\\leq \\sigma_X \\sigma_Y\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#the-correlation-coefficient",
     "href": "00_Statistical_revision.html#the-correlation-coefficient",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "The correlation coefficient",
     "text": "The correlation coefficient\n\nThe covariance between two random variables depends on the units of measurement.\nThe correlation coefficient overcomes this issue:\\[\\rho_{XY}=Corr(X,Y)\\equiv \\frac{\\sigma_{XY}}{\\sigma_X\\sigma_Y}=\\]\nSince \\(\\sigma_X\\) and \\(\\sigma_Y\\) are positive, then \\(Cov(X,Y)\\) and \\(Corr(X,Y)\\) have the same sign.\n\\(Corr(X,Y)=0\\) \\(\\Leftrightarrow\\) \\(Cov(X,Y)=0\\)"
   },
   {
     "objectID": "00_Statistical_revision.html#the-correlation-coefficient-1",
     "href": "00_Statistical_revision.html#the-correlation-coefficient-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "The correlation coefficient",
     "text": "The correlation coefficient\n\n\\(-1\\leq Corr(X,Y)\\leq 1\\)\n\n\\(Corr(X,Y)=Cov(X,Y)=0\\ \\Rightarrow\\ \\) \\(X\\) and \\(Y\\) are independent.\n\\(Corr(X,Y)=1\\), then \\(X\\) and \\(Y\\) are perfectly positively correlated.\n\\(Corr(X,Y)=-1\\), then \\(X\\) and \\(Y\\) are perfectly negatively correlated\n\nFor any constants \\(a_1, b_1, a_2, b_2\\) with \\(a_1\\neq 0\\) and \\(a_2\\neq 0\\):\\[Corr(a_1X+b_1,a_2 Y + b_2)=\\frac{a_1 a_2}{|a_1 a_2|} Corr(X,Y)\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs",
     "href": "00_Statistical_revision.html#variance-of-sums-of-rvs",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Variance of Sums of RVs",
     "text": "Variance of Sums of RVs\n\nFor any constants \\(a\\) and \\(b\\): \\[V[aX+bY]=a^2V[X]+b^2V[Y]=2ab Cov(X,Y)\\]\nIf \\(X\\) and \\(Y\\) are uncorrelated, \\[V[X\\pm Y]=V[X]+V[Y]\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
     "href": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Variance of Sums of RVs",
     "text": "Variance of Sums of RVs\nGeneralizing, * Let \\(\\{X_1,\\dots,X_n\\}\\) be pairwise uncorrelated rvs and \\(\\{a_1,\\dots,a_n\\}\\) constants, then:\\[V\\left[\\sum_{i=1}^n a_i X_i\\right]=\\sum_{i=1}^n a_i^2 V[X_i] \\]"
   },
   {
     "objectID": "00_Statistical_revision.html#conditional-expectation",
     "href": "00_Statistical_revision.html#conditional-expectation",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Conditional Expectation",
     "text": "Conditional Expectation\n\nFor any function \\(c(X)\\) \\(E[c(X)|X=x]=c(X)\\)\nFor any functions \\(a(X)\\) and \\(b(X)\\):\\[E[a(x)Y+b(X)|X]=a(X)E[Y|X]+b(X)\\]\nIf \\(X\\) and \\(Y\\) are independent, then \\(E[Y|X]=E[Y]\\)."
   },
   {
     "objectID": "00_Statistical_revision.html#conditional-expectation-1",
     "href": "00_Statistical_revision.html#conditional-expectation-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Conditional Expectation",
     "text": "Conditional Expectation\n\n\\(E\\left[E[Y|X]\\right]=E[Y]\\)\n\\(E[Y|X]=E\\left[E[Y|X,Z]|X\\right]\\)\n\\(E[Y|X]=E[X]\\) then \\(Cov(X,Y)=Corr(X,Y)=0\\)"
   },
   {
     "objectID": "00_Statistical_revision.html#conditional-variation",
     "href": "00_Statistical_revision.html#conditional-variation",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Conditional Variation",
     "text": "Conditional Variation\n\n\\(V[Y|X=x]=E[Y^2|X=x]-\\left[E[Y|X=x]^2\\right]\\)\nIf \\(X\\) and \\(Y\\) are independent, then \\(V[Y|X]=V[Y]\\)."
   },
@@ -1703,56 +1703,56 @@
   {
     "objectID": "00_Statistical_revision.html#vector-operations",
     "href": "00_Statistical_revision.html#vector-operations",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Vector Operations",
     "text": "Vector Operations\nLet \\(v\\) and \\(u\\) be \\(n\\times 1\\) vectors:\n\nFor \\(a\\in\\mathbb{R}\\), \\((av)_i=a v_i\\).\n\\((v+u)_i=v_i+u_i\\).\n\\(v^T\\) is a \\(1\\times n\\) vector\n\\(v^T v = \\sum_{i=1}^n v_i^2\\)\n\\(v^T u = u^T v = \\sum_{i=1}^n u_i v_u\\). This is crucial, it is a linear combination of the elements of \\(v\\) or \\(u\\)."
   },
   {
     "objectID": "00_Statistical_revision.html#vector-operations-1",
     "href": "00_Statistical_revision.html#vector-operations-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Vector Operations",
     "text": "Vector Operations\nLet \\(1_n\\) be a vector of 1, of size \\(n\\times 1\\), then:\n\nFor \\(a\\in\\mathbb{R}\\), \\((a 1_n)_i=a\\)\n\\(v^T 1_n = \\sum_{i=1}^n v_i\\)"
   },
   {
     "objectID": "00_Statistical_revision.html#system-of-equations",
     "href": "00_Statistical_revision.html#system-of-equations",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "System of equations",
     "text": "System of equations\nThe system:\n\\[\n\\begin{aligned}\n    y_{1}&=&\\beta_0 &+& \\beta_1 x_1 &+& u_1\\\\\n    y_{2}&=&\\beta_0 &+& \\beta_1 x_2 &+& u_2\\\\\n    \\vdots &=& \\vdots &+& \\vdots &+& \\vdots \\\\\n    y_{n}&=& \\beta_0 &+& \\beta_1 x_n &+& u_n\n\\end{aligned}\n\\]\nIs equivalent to \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\)."
   },
   {
     "objectID": "00_Statistical_revision.html#matrix-multiplication",
     "href": "00_Statistical_revision.html#matrix-multiplication",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Matrix Multiplication",
     "text": "Matrix Multiplication\nIf you have a matrix \\(M\\) of size \\(m\\times n\\), then it can be:\n\npre multiplied by a matrix or vector, as long as it has \\(m\\) columns.\npost multiplied by a matrix or vector, as long as it has \\(n\\) rows."
   },
   {
     "objectID": "00_Statistical_revision.html#system-of-equations-1",
     "href": "00_Statistical_revision.html#system-of-equations-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "System of equations",
     "text": "System of equations\nThe system of equations \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\) can be rewritten as:\n\\[Y = \\begin{pmatrix}1_n & X\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix} + u\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#system-of-equations-2",
     "href": "00_Statistical_revision.html#system-of-equations-2",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "System of equations",
     "text": "System of equations\nIf we rename \\(X\\) as the matrix \\(\\begin{pmatrix}1_n & X\\end{pmatrix}\\) and we call \\(\\beta=\\begin{pmatrix}\\beta_0\\\\ \\beta_1\\end{pmatrix}\\) we have that the system can be written as: \\[Y=X\\beta+u\\]\nWhere \\(X\\) is now a matrix size \\(n\\times (k+1)\\), where \\(n\\) will be the number of observations, and \\(k\\) the number of variables we use to explain \\(Y\\) (we will see in the future that we can have more than 1 variable \\(X\\)). In any case, this representation encompases all the cases!"
   },
   {
     "objectID": "00_Statistical_revision.html#matrix-multiplication-1",
     "href": "00_Statistical_revision.html#matrix-multiplication-1",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Matrix Multiplication",
     "text": "Matrix Multiplication\nSay \\(A=\\begin{pmatrix}a_{11} & a_{12}\\\\ a_{21} & a_{22}\\end{pmatrix}\\) and \\(B=\\begin{pmatrix}b_{11} & b_{12}\\\\ b_{21} & b_{22}\\end{pmatrix}\\), we have that\n\\[\nA\\times B = \\begin{pmatrix}a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22}\\\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\\end{pmatrix}\n\\]"
   },
   {
     "objectID": "00_Statistical_revision.html#matrix-multiplication-2",
     "href": "00_Statistical_revision.html#matrix-multiplication-2",
-    "title": "Statistical Revision",
+    "title": "Time Series 3",
     "section": "Matrix Multiplication",
     "text": "Matrix Multiplication\nMore generally, the element \\((i,j)\\) of the matrix multiplication \\(A\\) of size \\(n_a\\times T\\), and \\(B\\) of size \\(T\\times m_b\\) is:\n\\[\\left[AB\\right]_{ij}=\\sum_{q=1}^m a_{im}b_{mj}\\]\nOr the sum of the products of the elements of the \\(i^{th}\\) row of \\(A\\) with the elements of the \\(j^{th}\\) column of \\(B\\). Better, a linear combination of the elements of the \\(i^{th}\\) row of \\(A\\), or a linear combination of the \\(j^{th}\\) column of \\(B\\)."
   },
