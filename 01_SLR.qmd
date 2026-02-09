@@ -154,3 +154,13 @@ Poor households (do not have enough money to make a living and just buy necessit
 households (have more discretion).
 
 :::
+
+## Question 1.9
+
+Consider the standard SLR model $y=\beta_0+\beta_1 x + u$ under all the GM assumptions. Let $\tilde{\beta}_1$ be the estimator of $\beta_1$ obtained by assuming $\beta_0=0$.
+
+1. Compute $\tilde{\beta}_1$ by OLS.
+2. Check if and when $\tilde{\beta}_1$ is unbiased.
+3. Find $V[\tilde{\beta}_1]$ (always conditional on $X$)
+4. Show that $V[\tilde{\beta}_1]\leq V[\hat{\beta}_1]$ where $\hat{\beta}$ is the traditional estimator for $\beta_1$ under OLS.
+5. Discuss the tradeoff between $\tilde{\beta}_1$ and $\hat{\beta}_1$ regarding bias and variance.
