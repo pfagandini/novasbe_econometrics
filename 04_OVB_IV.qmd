@@ -27,7 +27,6 @@ engine: knitr
 
 ## Review
 
-* *Corrigendum*: Economics vs Statistical Significance
 * OVB
 * IV Estimator
 
