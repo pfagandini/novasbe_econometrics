@@ -17,7 +17,6 @@ format:
     code-overflow: wrap
     code-block-font-size: 0.75em
     progress: true
-    embed-resources: true
 editor: source
 execute:
   enabled: true
