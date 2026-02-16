@@ -2,6 +2,4 @@
 title: "temp"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This website has the materials for the practical lectures of Econometrics at the bachelor programs at Nova SBE.
