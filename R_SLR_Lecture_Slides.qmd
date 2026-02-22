@@ -1,0 +1,801 @@
+---
+title: "Simple Linear Regression"
+subtitle: "From Theory to Practice in R"
+author: "Econometrics - Nova SBE"
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    code-line-numbers: false
+    code-overflow: wrap
+    highlight-style: github
+    fig-align: center
+    fig-width: 9
+    fig-height: 5.5
+    transition: fade
+    incremental: false
+    smaller: false
+    self-contained: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  fig-dpi: 150
+---
+
+## Roadmap {.smaller}
+
+In the previous lectures we covered the algebra of Simple Linear Regression on the whiteboard.
+
+Today we bring it to life with **data, code, and simulations**.
+
+::: {.incremental}
+1. Quick R warm-up
+2. Exploring a real dataset
+3. The OLS estimator — **by hand**
+4. Using `lm()` — R does it for us
+5. Inference — **by hand** vs. `summary()`
+6. ⭐ **Simulation:** $\hat{\beta}_1$ is a random variable
+7. What affects precision?
+8. Residual diagnostics
+9. Confidence and prediction bands
+:::
+
+---
+
+# Part I: R Basics {background-color="#2C3E50"}
+
+## Vectors: the building block of R
+
+```{r}
+# A vector is the most basic data structure in R
+x <- c(1, 2, 3, 4, 5)
+x
+```
+
+. . .
+
+```{r}
+# R is vectorized: operations apply element by element
+x^2
+```
+
+. . .
+
+```{r}
+# Summary statistics
+cat("Mean:", mean(x), " | Variance:", var(x), " | Std Dev:", sd(x), "\n")
+```
+
+::: {.callout-note}
+`var()` uses $n-1$ (sample variance), not $n$.
+:::
+
+## Quick plotting
+
+```{r}
+#| fig-width: 7
+#| fig-height: 5
+y <- c(2.1, 3.9, 6.2, 7.8, 10.1)
+
+plot(x, y, pch = 19, col = "steelblue",
+     main = "My First Scatter Plot", xlab = "x", ylab = "y")
+grid()
+```
+
+---
+
+# Part II: A Real Dataset {background-color="#2C3E50"}
+
+## The `mtcars` dataset
+
+Built into R: data on 32 automobiles (1974 Motor Trend magazine).
+
+**Our question:** *How does the weight of a car affect its fuel consumption?*
+
+$$\text{mpg}_i = \beta_0 + \beta_1 \cdot \text{wt}_i + u_i$$
+
+```{r}
+data(mtcars)
+head(mtcars[, c("mpg", "wt", "hp", "cyl")], 8)
+```
+
+## Descriptive statistics
+
+```{r}
+y <- mtcars$mpg   # miles per gallon (dependent variable)
+x <- mtcars$wt    # weight in 1000 lbs (independent variable)
+```
+
+```{r}
+summary(y)
+```
+
+```{r}
+summary(x)
+```
+
+## Visual exploration
+
+```{r}
+#| fig-width: 20
+#| fig-height: 4.5
+par(mfrow = c(1, 3), mar = c(4, 4, 3, 1))
+
+hist(y, breaks = 10, col = "steelblue", border = "white",
+     main = "Distribution of mpg", xlab = "Miles per Gallon")
+
+hist(x, breaks = 10, col = "coral", border = "white",
+     main = "Distribution of Weight", xlab = "Weight (1000 lbs)")
+
+plot(x, y, pch = 19, col = "steelblue",
+     main = "mpg vs Weight", xlab = "Weight (1000 lbs)", ylab = "mpg")
+grid()
+```
+
+## Correlation
+
+```{r}
+cor(x, y)
+```
+
+**Strong negative linear relationship.** Heavier cars tend to have lower fuel efficiency.
+
+. . .
+
+> **Question:** Looking at the scatter plot, does a straight line seem reasonable? What sign should the slope have?
+
+---
+
+# Part III: OLS by Hand {background-color="#2C3E50"}
+
+## The formulas (from the whiteboard)
+
+$$\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2} = \frac{S_{xy}}{S_{xx}}$$
+
+$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$
+
+Let's compute this **step by step**.
+
+## Step 1: Means
+
+```{r}
+n <- length(x)
+x_bar <- mean(x)
+y_bar <- mean(y)
+cat("n =", n, "\n")
+cat("x̄ =", x_bar, "\n")
+cat("ȳ =", y_bar, "\n")
+```
+
+## Step 2: Deviations from the mean
+
+```{r}
+dx <- x - x_bar
+dy <- y - y_bar
+
+# First 6 observations
+data.frame(
+  car = rownames(mtcars)[1:6],
+  x = x[1:6], y = y[1:6],
+  dx = round(dx[1:6], 3), dy = round(dy[1:6], 3),
+  dx_times_dy = round(dx[1:6] * dy[1:6], 3)
+)
+```
+
+## Step 3: $S_{xy}$ and $S_{xx}$
+
+```{r}
+Sxy <- sum(dx * dy)
+Sxx <- sum(dx^2)
+cat("Sxy =", Sxy, "\n")
+cat("Sxx =", Sxx, "\n")
+```
+
+. . .
+
+## Step 4: The estimates
+
+```{r}
+beta1_hat <- Sxy / Sxx
+beta0_hat <- y_bar - beta1_hat * x_bar
+
+cat("β̂₀ =", round(beta0_hat, 4), "\n")
+cat("β̂₁ =", round(beta1_hat, 4), "\n")
+cat("\nFor each additional 1000 lbs of weight,\n")
+cat("mpg decreases by", round(abs(beta1_hat), 2), "miles per gallon.\n")
+```
+
+## The fitted line
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+plot(x, y, pch = 19, col = "steelblue", cex = 1.3,
+     main = "OLS Regression Line (computed by hand)",
+     xlab = "Weight (1000 lbs)", ylab = "Miles per Gallon")
+abline(a = beta0_hat, b = beta1_hat, col = "red", lwd = 2.5)
+points(x_bar, y_bar, pch = 4, col = "red", cex = 2.5, lwd = 3)
+text(x_bar + 0.15, y_bar + 1.2,
+     expression(paste("(", bar(x), ", ", bar(y), ")")), col = "red", cex = 1.1)
+grid()
+legend("topright",
+       legend = c(paste0("ŷ = ", round(beta0_hat, 2), " + (",
+                         round(beta1_hat, 2), ") × wt"), "Point of means"),
+       col = c("red", "red"), lty = c(1, NA), pch = c(NA, 4),
+       lwd = c(2.5, 3), bty = "n")
+```
+
+## Important property
+
+The OLS regression line **always** passes through the point of means $(\bar{x}, \bar{y})$.
+
+. . .
+
+**Why?** From the formula:
+
+$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$
+
+Substitute $x = \bar{x}$:
+
+$$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x} = (\bar{y} - \hat{\beta}_1 \bar{x}) + \hat{\beta}_1 \bar{x} = \bar{y}$$
+
+## Visualizing the residuals
+
+```{r}
+#| fig-width: 8
+#| fig-height: 5.5
+y_hat <- beta0_hat + beta1_hat * x
+resid <- y - y_hat
+
+plot(x, y, pch = 19, col = "steelblue", cex = 1.3,
+     main = "Residuals: the vertical distances",
+     xlab = "Weight (1000 lbs)", ylab = "Miles per Gallon")
+abline(a = beta0_hat, b = beta1_hat, col = "red", lwd = 2)
+segments(x0 = x, y0 = y, x1 = x, y1 = y_hat, col = "gray40", lty = 2)
+points(x, y_hat, pch = 1, col = "red", cex = 1)
+grid()
+legend("topright",
+       legend = c("Observed (y)", "Fitted (ŷ)", "Residual (y − ŷ)"),
+       col = c("steelblue", "red", "gray40"),
+       pch = c(19, 1, NA), lty = c(NA, NA, 2), bty = "n")
+```
+
+## Properties of residuals
+
+```{r}
+cat("Sum of residuals:", round(sum(resid), 10), "\n")
+cat("  → Should be (essentially) 0\n\n")
+
+cat("Cor(x, residuals):", round(cor(x, resid), 10), "\n")
+cat("  → Should be (essentially) 0\n\n")
+
+cat("Mean of fitted values:", round(mean(y_hat), 4), "\n")
+cat("Mean of y:            ", round(mean(y), 4), "\n")
+cat("  → They are equal!\n")
+```
+
+---
+
+# Part IV: `lm()` — R Does It for Us {background-color="#2C3E50"}
+
+## Fitting and verifying
+
+```{r}
+model <- lm(mpg ~ wt, data = mtcars)
+coef(model)
+```
+
+. . .
+
+```{r}
+cat("By hand:  β̂₀ =", round(beta0_hat, 4), "  β̂₁ =", round(beta1_hat, 4), "\n")
+cat("lm():     β̂₀ =", round(coef(model)[1], 4),
+    "  β̂₁ =", round(coef(model)[2], 4), "\n")
+cat("\n✓ They match!")
+```
+
+---
+
+# Part V: Inference by Hand {background-color="#2C3E50"}
+
+## Step 1: Estimate $\sigma^2$
+
+$$\hat{\sigma}^2 = \frac{\text{SSR}}{n - 2} = \frac{\sum_{i=1}^{n} \hat{u}_i^2}{n - 2}$$
+
+```{r}
+SSR <- sum(resid^2)
+df <- n - 2
+sigma2_hat <- SSR / df
+sigma_hat <- sqrt(sigma2_hat)
+
+cat("SSR =", round(SSR, 4), "\n")
+cat("df  = n - 2 =", df, "\n")
+cat("σ̂²  =", round(sigma2_hat, 4), "\n")
+cat("σ̂   =", round(sigma_hat, 4), " (Residual Standard Error)\n")
+```
+
+## Step 2: Standard errors
+
+$$\text{se}(\hat{\beta}_1) = \frac{\hat{\sigma}}{\sqrt{S_{xx}}} \qquad \text{se}(\hat{\beta}_0) = \hat{\sigma}\sqrt{\frac{1}{n} + \frac{\bar{x}^2}{S_{xx}}}$$
+
+```{r}
+se_beta1 <- sigma_hat / sqrt(Sxx)
+se_beta0 <- sigma_hat * sqrt(1/n + x_bar^2 / Sxx)
+
+cat("se(β̂₀) =", round(se_beta0, 4), "\n")
+cat("se(β̂₁) =", round(se_beta1, 4), "\n")
+```
+
+## Step 3: t-statistics and p-values
+
+Under $H_0: \beta_j = 0$: $\quad t = \frac{\hat{\beta}_j}{\text{se}(\hat{\beta}_j)} \sim t_{n-2}$
+
+```{r}
+t_beta0 <- beta0_hat / se_beta0
+t_beta1 <- beta1_hat / se_beta1
+p_beta0 <- 2 * pt(abs(t_beta0), df = df, lower.tail = FALSE)
+p_beta1 <- 2 * pt(abs(t_beta1), df = df, lower.tail = FALSE)
+
+cat(sprintf("         Estimate   Std.Error   t-value    p-value\n"))
+cat(sprintf("β̂₀  %10.4f  %10.4f  %8.3f   %.2e\n",
+            beta0_hat, se_beta0, t_beta0, p_beta0))
+cat(sprintf("β̂₁  %10.4f  %10.4f  %8.3f   %.2e\n",
+            beta1_hat, se_beta1, t_beta1, p_beta1))
+```
+
+## Visualizing the t-test for $\beta_1$
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5
+alpha <- 0.05
+t_crit <- qt(1 - alpha/2, df = df)
+
+curve(dt(x, df = df), from = -15, to = 15, n = 500, lwd = 2, col = "steelblue",
+      main = expression(paste("t-test for ", H[0], ": ", beta[1], " = 0")),
+      xlab = "t", ylab = "Density")
+
+x_left <- seq(-15, -t_crit, length.out = 200)
+x_right <- seq(t_crit, 15, length.out = 200)
+polygon(c(x_left, rev(x_left)), c(dt(x_left, df), rep(0, 200)),
+        col = rgb(1, 0, 0, 0.3), border = NA)
+polygon(c(x_right, rev(x_right)), c(dt(x_right, df), rep(0, 200)),
+        col = rgb(1, 0, 0, 0.3), border = NA)
+
+abline(v = t_beta1, col = "red", lwd = 2.5, lty = 2)
+text(t_beta1 + 1.5, 0.15, paste0("t = ", round(t_beta1, 2)),
+     col = "red", cex = 1.2, font = 2)
+abline(v = c(-t_crit, t_crit), col = "gray40", lty = 3)
+legend("topleft",
+       legend = c("t(30) distribution", "Rejection region (α = 0.05)", "Our t-statistic"),
+       col = c("steelblue", rgb(1,0,0,0.3), "red"),
+       lwd = c(2, 8, 2.5), lty = c(1, 1, 2), bty = "n")
+```
+
+## Confidence intervals (by hand)
+
+$$\hat{\beta}_j \pm t_{\alpha/2, \, n-2} \cdot \text{se}(\hat{\beta}_j)$$
+
+```{r}
+cat("Critical value t_{0.025, 30} =", round(t_crit, 4), "\n\n")
+
+ci_beta0 <- beta0_hat + c(-1, 1) * t_crit * se_beta0
+ci_beta1 <- beta1_hat + c(-1, 1) * t_crit * se_beta1
+
+cat("95% CI for β₀: [", round(ci_beta0[1], 4), ",", round(ci_beta0[2], 4), "]\n")
+cat("95% CI for β₁: [", round(ci_beta1[1], 4), ",", round(ci_beta1[2], 4), "]\n")
+cat("\nNote: 0 is NOT inside the CI for β₁ → we reject H₀: β₁ = 0")
+```
+
+## Comparing with `summary()`
+
+```{r}
+summary(model)
+```
+
+## Confidence intervals: automatic
+
+```{r}
+confint(model)
+```
+
+. . .
+
+**Everything matches our hand calculations.** ✓
+
+## $R^2$ decomposition
+
+```{r}
+SST <- sum((y - y_bar)^2)
+SSE <- sum((y_hat - y_bar)^2)
+R2 <- 1 - SSR / SST
+cat("R² =", round(R2, 4), "\n")
+cat("Weight explains", round(R2 * 100, 1), "% of the variation in mpg.\n")
+```
+
+```{r}
+#| fig-width: 7
+#| fig-height: 4
+par(mar = c(4, 4, 3, 1))
+barplot(c(SST = SST, SSE = SSE, SSR = SSR),
+        col = c("gray70", "steelblue", "coral"),
+        main = "Decomposition: SST = SSE + SSR", ylab = "Sum of Squares", border = NA)
+text(0.7, SST/2, paste0("SST\n", round(SST, 1)), cex = 1, font = 2)
+text(1.9, SSE/2, paste0("SSE\n", round(SSE, 1), "\n(", round(SSE/SST*100,1), "%)"),
+     cex = 1, font = 2)
+text(3.1, SSR/2, paste0("SSR\n", round(SSR, 1), "\n(", round(SSR/SST*100,1), "%)"),
+     cex = 1, font = 2)
+```
+
+---
+
+# Part VI: ⭐ $\hat{\beta}_1$ Is a Random Variable {background-color="#C0392B" style="color: white;"}
+
+## The key insight
+
+We said $\hat{\beta}_1 = \frac{S_{xy}}{S_{xx}}$ depends on the **sample**.
+
+. . .
+
+If we took a **different sample** from the same population, we would get a **different** $\hat{\beta}_1$.
+
+. . .
+
+Let's **simulate** this!
+
+- True model: $y = 5 + 3x + u$, where $u \sim N(0, 16)$
+- Draw 1000 samples of size $n = 50$
+- Estimate $\hat{\beta}_1$ each time
+
+## Running the simulation
+
+```{r}
+beta0_true <- 5;  beta1_true <- 3;  sigma_true <- 4
+set.seed(42)
+
+n_sim <- 1000;  n_obs <- 50
+x_sim <- runif(n_obs, min = 0, max = 10)
+
+beta1_estimates <- numeric(n_sim)
+beta0_estimates <- numeric(n_sim)
+
+for (i in 1:n_sim) {
+  u <- rnorm(n_obs, mean = 0, sd = sigma_true)
+  y_sim <- beta0_true + beta1_true * x_sim + u
+  fit <- lm(y_sim ~ x_sim)
+  beta0_estimates[i] <- coef(fit)[1]
+  beta1_estimates[i] <- coef(fit)[2]
+}
+
+cat("Done:", n_sim, "regressions, each with n =", n_obs, "observations.\n")
+```
+
+## 20 different samples → 20 different lines
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5.5
+plot(NULL, xlim = c(0, 10), ylim = c(-5, 45),
+     main = "20 Different Samples → 20 Different Regression Lines",
+     xlab = "x", ylab = "y")
+for (i in 1:20) {
+  abline(a = beta0_estimates[i], b = beta1_estimates[i],
+         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)
+}
+abline(a = beta0_true, b = beta1_true, col = "red", lwd = 3)
+legend("topleft",
+       legend = c("True line: y = 5 + 3x", "Estimated lines (one per sample)"),
+       col = c("red", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = "n")
+grid()
+```
+
+## The sampling distribution of $\hat{\beta}_1$
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5.5
+se_theory <- sigma_true / sqrt(sum((x_sim - mean(x_sim))^2))
+
+hist(beta1_estimates, breaks = 40, freq = FALSE,
+     col = "steelblue", border = "white",
+     main = expression(paste("Sampling Distribution of ", hat(beta)[1],
+                             " (1000 simulations)")),
+     xlab = expression(hat(beta)[1]),
+     xlim = c(beta1_true - 1.5, beta1_true + 1.5))
+abline(v = beta1_true, col = "red", lwd = 3)
+abline(v = mean(beta1_estimates), col = "orange", lwd = 2, lty = 2)
+curve(dnorm(x, mean = beta1_true, sd = se_theory), add = TRUE,
+      col = "red", lwd = 2, lty = 2)
+legend("topright",
+       legend = c(paste0("True β₁ = ", beta1_true),
+                  paste0("Mean(β̂₁) = ", round(mean(beta1_estimates), 4)),
+                  "Theoretical N(β₁, σ²/Sxx)"),
+       col = c("red", "orange", "red"),
+       lwd = c(3, 2, 2), lty = c(1, 2, 2), bty = "n")
+```
+
+## Unbiasedness confirmed
+
+```{r}
+cat("True β₁              =", beta1_true, "\n")
+cat("Mean of β̂₁           =", round(mean(beta1_estimates), 4), "\n")
+cat("  → UNBIASED: E[β̂₁] ≈ β₁ ✓\n\n")
+
+cat("Std Dev of β̂₁ (simulated) =", round(sd(beta1_estimates), 4), "\n")
+cat("Std Dev of β̂₁ (theory)    =", round(se_theory, 4), "\n")
+cat("  → MATCHES: se(β̂₁) = σ/√Sxx ✓\n\n")
+
+cat("True β₀              =", beta0_true, "\n")
+cat("Mean of β̂₀           =", round(mean(beta0_estimates), 4), "\n")
+cat("  → UNBIASED: E[β̂₀] ≈ β₀ ✓\n")
+```
+
+## Key takeaways from the simulation
+
+::: {.incremental}
+- Each sample gives a **different** $\hat{\beta}_1$ — the estimator is a **random variable**
+- On average, $\hat{\beta}_1$ equals the true $\beta_1$ → **unbiasedness**
+- The spread of $\hat{\beta}_1$ is captured by the **standard error**
+- The histogram matches the theoretical normal → this **justifies our t-tests and CIs**
+:::
+
+---
+
+# Part VII: What Affects Precision? {background-color="#2C3E50"}
+
+## The formula tells us everything
+
+$$\text{se}(\hat{\beta}_1) = \frac{\sigma}{\sqrt{S_{xx}}}$$
+
+Three things affect precision:
+
+::: {.incremental}
+1. **Sample size** $n$ → more data → larger $S_{xx}$ → smaller se
+2. **Spread of** $x$ → more variation → larger $S_{xx}$ → smaller se
+3. **Error variance** $\sigma^2$ → noisier data → larger se
+:::
+
+## Effect of sample size
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+set.seed(123)
+sample_sizes <- c(20, 50, 100, 500)
+n_reps <- 1000
+
+par(mfrow = c(2, 2), mar = c(4, 4, 3, 1))
+for (nn in sample_sizes) {
+  x_temp <- runif(nn, 0, 10)
+  b1_vec <- numeric(n_reps)
+  for (j in 1:n_reps) {
+    u_temp <- rnorm(nn, 0, sigma_true)
+    y_temp <- beta0_true + beta1_true * x_temp + u_temp
+    b1_vec[j] <- coef(lm(y_temp ~ x_temp))[2]
+  }
+  hist(b1_vec, breaks = 35, freq = FALSE, col = "steelblue", border = "white",
+       main = paste0("n = ", nn, "  (sd = ", round(sd(b1_vec), 3), ")"),
+       xlab = expression(hat(beta)[1]), xlim = c(1.5, 4.5))
+  abline(v = beta1_true, col = "red", lwd = 2)
+}
+```
+
+## Effect of noise level $\sigma$
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5
+set.seed(456)
+sigmas <- c(1, 4, 8, 16)
+nn_fixed <- 50;  x_temp <- runif(nn_fixed, 0, 10)
+
+par(mfrow = c(2, 2), mar = c(4, 4, 3, 1))
+for (ss in sigmas) {
+  b1_vec <- numeric(n_reps)
+  for (j in 1:n_reps) {
+    u_temp <- rnorm(nn_fixed, 0, ss)
+    y_temp <- beta0_true + beta1_true * x_temp + u_temp
+    b1_vec[j] <- coef(lm(y_temp ~ x_temp))[2]
+  }
+  hist(b1_vec, breaks = 35, freq = FALSE, col = "coral", border = "white",
+       main = bquote(sigma == .(ss) ~ " (sd = " * .(round(sd(b1_vec), 3)) * ")"),
+       xlab = expression(hat(beta)[1]), xlim = c(-1, 7))
+  abline(v = beta1_true, col = "red", lwd = 2)
+}
+```
+
+## Observation
+
+More data → **tighter** distribution.
+
+More noise → **wider** distribution.
+
+In **both cases**, the estimator remains **centered on the true value** (unbiased).
+
+---
+
+# Part VIII: Subsampling from Real Data {background-color="#2C3E50"}
+
+## Different subsamples, different estimates
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5.5
+set.seed(2024)
+plot(mtcars$wt, mtcars$mpg, pch = 19, col = "gray70", cex = 1.2,
+     main = "8 Random Subsamples (n = 20) from mtcars",
+     xlab = "Weight (1000 lbs)", ylab = "Miles per Gallon")
+
+colors <- c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+            "#FF7F00", "#A65628", "#F781BF", "#999999")
+sub_betas <- numeric(8)
+for (i in 1:8) {
+  idx <- sample(1:32, size = 20, replace = FALSE)
+  fit_sub <- lm(mpg ~ wt, data = mtcars[idx, ])
+  abline(fit_sub, col = colors[i], lwd = 2)
+  sub_betas[i] <- coef(fit_sub)[2]
+}
+abline(model, col = "black", lwd = 3, lty = 2)
+legend("topright",
+       legend = c("Full sample (n=32)", "Subsample lines (n=20)"),
+       col = c("black", "steelblue"), lwd = c(3, 2), lty = c(2, 1), bty = "n")
+grid()
+```
+
+---
+
+# Part IX: Residual Diagnostics {background-color="#2C3E50"}
+
+## Four diagnostic plots
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+par(mfrow = c(2, 2), mar = c(4, 4, 3, 1))
+
+plot(fitted(model), residuals(model), pch = 19, col = "steelblue",
+     main = "Residuals vs Fitted", xlab = "Fitted Values (ŷ)", ylab = "Residuals (û)")
+abline(h = 0, col = "red", lwd = 2, lty = 2); grid()
+
+hist(residuals(model), breaks = 10, freq = FALSE,
+     col = "steelblue", border = "white",
+     main = "Distribution of Residuals", xlab = "Residuals")
+curve(dnorm(x, mean = 0, sd = sigma_hat), add = TRUE, col = "red", lwd = 2)
+
+qqnorm(residuals(model), pch = 19, col = "steelblue", main = "Normal Q-Q Plot")
+qqline(residuals(model), col = "red", lwd = 2)
+
+plot(fitted(model), sqrt(abs(rstandard(model))), pch = 19, col = "steelblue",
+     main = "Scale-Location", xlab = "Fitted Values",
+     ylab = expression(sqrt("Standardized Residuals")))
+grid()
+```
+
+## How to read them
+
+- **Residuals vs Fitted:** Random scatter around 0 = good. Curve or funnel = problems.
+- **Histogram / Q-Q:** Check approximate normality.
+- **Scale-Location:** Roughly constant spread = homoscedasticity.
+
+---
+
+# Part X: Confidence & Prediction Bands {background-color="#2C3E50"}
+
+## Two types of intervals
+
+```{r}
+#| fig-width: 9
+#| fig-height: 5.5
+x_grid <- data.frame(wt = seq(min(mtcars$wt) - 0.2, max(mtcars$wt) + 0.2,
+                               length.out = 200))
+pred_ci <- predict(model, newdata = x_grid, interval = "confidence")
+pred_pi <- predict(model, newdata = x_grid, interval = "prediction")
+
+plot(mtcars$wt, mtcars$mpg, pch = 19, col = "steelblue", cex = 1.2,
+     main = "Confidence and Prediction Intervals",
+     xlab = "Weight (1000 lbs)", ylab = "Miles per Gallon",
+     ylim = c(min(pred_pi[,"lwr"]) - 1, max(pred_pi[,"upr"]) + 1))
+polygon(c(x_grid$wt, rev(x_grid$wt)),
+        c(pred_pi[,"lwr"], rev(pred_pi[,"upr"])),
+        col = rgb(1, 0.6, 0.4, 0.2), border = NA)
+polygon(c(x_grid$wt, rev(x_grid$wt)),
+        c(pred_ci[,"lwr"], rev(pred_ci[,"upr"])),
+        col = rgb(0.3, 0.5, 0.8, 0.3), border = NA)
+lines(x_grid$wt, pred_ci[,"fit"], col = "red", lwd = 2.5)
+points(mtcars$wt, mtcars$mpg, pch = 19, col = "steelblue", cex = 1.2)
+legend("topright",
+       legend = c("OLS line", "95% CI for E[Y|X]", "95% PI for new Y"),
+       col = c("red", rgb(0.3,0.5,0.8,0.5), rgb(1,0.6,0.4,0.4)),
+       lwd = c(2.5, 8, 8), bty = "n")
+grid()
+```
+
+## Interpretation
+
+**Confidence interval** (blue): Where the **true regression line** likely is. Narrower near $\bar{x}$.
+
+**Prediction interval** (orange): Where a **new observation** would fall. Always wider because it includes both line uncertainty **and** the noise $\sigma^2$.
+
+---
+
+# Part XI: CI Coverage Simulation {background-color="#2C3E50"}
+
+## Does "95% confidence" really mean 95%?
+
+```{r}
+set.seed(789)
+n_cover <- 200;  nn_cov <- 50
+x_cov <- runif(nn_cov, 0, 10)
+
+ci_lower <- ci_upper <- numeric(n_cover)
+for (i in 1:n_cover) {
+  u_cov <- rnorm(nn_cov, 0, sigma_true)
+  y_cov <- beta0_true + beta1_true * x_cov + u_cov
+  fit_cov <- lm(y_cov ~ x_cov)
+  ci <- confint(fit_cov, "x_cov", level = 0.95)
+  ci_lower[i] <- ci[1]; ci_upper[i] <- ci[2]
+}
+covers <- (ci_lower <= beta1_true) & (ci_upper >= beta1_true)
+cat("Coverage:", sum(covers), "/", n_cover, "=", mean(covers)*100, "%\n")
+```
+
+## Visualizing 50 confidence intervals
+
+```{r}
+#| fig-width: 9
+#| fig-height: 6
+n_show <- 50
+plot(NULL, xlim = c(min(ci_lower[1:n_show]) - 0.2, max(ci_upper[1:n_show]) + 0.2),
+     ylim = c(1, n_show),
+     main = paste0("50 Confidence Intervals for β₁  (coverage: ",
+                   round(mean(covers)*100, 1), "%)"),
+     xlab = expression(hat(beta)[1]), ylab = "Simulation #", yaxt = "n")
+abline(v = beta1_true, col = "red", lwd = 2)
+for (i in 1:n_show) {
+  col_i <- ifelse(covers[i], "steelblue", "red")
+  segments(ci_lower[i], i, ci_upper[i], i, col = col_i, lwd = 1.5)
+  points((ci_lower[i] + ci_upper[i])/2, i, pch = 19, col = col_i, cex = 0.6)
+}
+legend("topleft",
+       legend = c(paste0("Contains β₁ = ", beta1_true), "Misses β₁"),
+       col = c("steelblue", "red"), lwd = 2, bty = "n")
+```
+
+## What "95% confidence" means
+
+Each horizontal line = one CI from one sample.
+
+~95% (blue) contain the true $\beta_1 = 3$.
+
+~5% (red) miss — **by design**.
+
+This is what "95% confidence" means: if we repeated the procedure many times, about 95% of the intervals would contain the true parameter.
+
+---
+
+# Summary {background-color="#2C3E50"}
+
+## Key R functions
+
+| Task | Code |
+|------|------|
+| Fit model | `lm(y ~ x, data = df)` |
+| Coefficients | `coef(model)` |
+| Full output | `summary(model)` |
+| CIs | `confint(model)` |
+| Fitted values | `fitted(model)` |
+| Residuals | `residuals(model)` |
+| Predict | `predict(model, newdata)` |
+| $R^2$ | `summary(model)$r.squared` |
+
+## Takeaways
+
+::: {.incremental}
+1. **OLS minimizes** the sum of squared residuals
+2. **$\hat{\beta}_1$ is a random variable** — it changes with the sample
+3. **Unbiasedness:** $E[\hat{\beta}_1] = \beta_1$ — on average, OLS gets it right
+4. **Standard errors** decrease with more data and less noise
+5. **t-tests and CIs** follow from the sampling distribution
+6. **R makes all of this easy** — but understanding what's behind it is essential!
+:::
