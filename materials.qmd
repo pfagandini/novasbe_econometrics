@@ -16,6 +16,8 @@ title: "Material"
 9. [Time Series](09_Time%20Series.qmd)
 10. [Time Series - Panel](10_Time%20Series%20Panel.qmd)
 
+[R Extra](R_SLR_Lecture_Slides.qmd)
+
 ## Notes
 
 1. [SLR](01_SLR_review.qmd)

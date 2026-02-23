@@ -1530,14 +1530,14 @@
     "href": "materials.html",
     "title": "Material",
     "section": "",
-    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel"
+    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\nR Extra"
   },
   {
     "objectID": "materials.html#slides",
     "href": "materials.html#slides",
     "title": "Material",
     "section": "",
-    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel"
+    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\nR Extra"
   },
   {
     "objectID": "materials.html#notes",
@@ -1628,7 +1628,7 @@
     "href": "R_SLR_Lecture_Slides.html#roadmap",
     "title": "Simple Linear Regression",
     "section": "Roadmap",
-    "text": "Roadmap\nIn the previous lectures we covered the algebra of Simple Linear Regression on the whiteboard.\nToday we bring it to life with data, code, and simulations.\n\nQuick R warm-up\nExploring a real dataset\nThe OLS estimator — by hand\nUsing lm() — R does it for us\nInference — by hand vs. summary()\n⭐ Simulation: \\(\\hat{\\beta}_1\\) is a random variable\nWhat affects precision?\nResidual diagnostics\nConfidence and prediction bands"
+    "text": "Roadmap\nIn the previous lectures we covered the algebra of Simple Linear Regression on the whiteboard.\nToday we bring it to life with data, code, and simulations.\n\nKaggle\nQuick R warm-up\nExploring a real dataset\nThe OLS estimator — by hand\nUsing lm() — R does it for us\nInference — by hand vs. summary()\n⭐ Simulation: \\(\\hat{\\beta}_1\\) is a random variable\nWhat affects precision?\nResidual diagnostics\nConfidence and prediction bands"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#vectors-the-building-block-of-r",
@@ -1705,14 +1705,14 @@
     "href": "R_SLR_Lecture_Slides.html#step-4-the-estimates",
     "title": "Simple Linear Regression",
     "section": "Step 4: The estimates",
-    "text": "Step 4: The estimates\n\nbeta1_hat &lt;- Sxy / Sxx\nbeta0_hat &lt;- y_bar - beta1_hat * x_bar\n\ncat(\"β̂₀ =\", round(beta0_hat, 4), \"\\n\")\n\nβ̂₀ = 37.2851 \n\ncat(\"β̂₁ =\", round(beta1_hat, 4), \"\\n\")\n\nβ̂₁ = -5.3445 \n\ncat(\"\\nFor each additional 1000 lbs of weight,\\n\")\n\n\nFor each additional 1000 lbs of weight,\n\ncat(\"mpg decreases by\", round(abs(beta1_hat), 2), \"miles per gallon.\\n\")\n\nmpg decreases by 5.34 miles per gallon."
+    "text": "Step 4: The estimates\n\nbeta1_hat &lt;- Sxy / Sxx\nbeta0_hat &lt;- y_bar - beta1_hat * x_bar\n\ncat(\"β̂₀ =\", round(beta0_hat, 4), \"\\n\")\n\nβ̂₀ = 37.2851 \n\ncat(\"β̂₁ =\", round(beta1_hat, 4), \"\\n\")\n\nβ̂₁ = -5.3445 \n\ncat(\"\\nFor each additional 1000 lbs of weight,\\n\")\n\n\nFor each additional 1000 lbs of weight,\n\ncat(\"mpg decreases by\", round(abs(beta1_hat), 2), \"miles per gallon\\n\")\n\nmpg decreases by 5.34 miles per gallon\n\ncat(\"on average, ceteris paribus.\")\n\non average, ceteris paribus."
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#the-fitted-line",
     "href": "R_SLR_Lecture_Slides.html#the-fitted-line",
     "title": "Simple Linear Regression",
     "section": "The fitted line",
-    "text": "The fitted line\n\nplot(x, y, pch = 19, col = \"steelblue\", cex = 1.3,\n     main = \"OLS Regression Line (computed by hand)\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\nabline(a = beta0_hat, b = beta1_hat, col = \"red\", lwd = 2.5)\npoints(x_bar, y_bar, pch = 4, col = \"red\", cex = 2.5, lwd = 3)\ntext(x_bar + 0.15, y_bar + 1.2,\n     expression(paste(\"(\", bar(x), \", \", bar(y), \")\")), col = \"red\", cex = 1.1)\ngrid()\nlegend(\"topright\",\n       legend = c(paste0(\"ŷ = \", round(beta0_hat, 2), \" + (\",\n                         round(beta1_hat, 2), \") × wt\"), \"Point of means\"),\n       col = c(\"red\", \"red\"), lty = c(1, NA), pch = c(NA, 4),\n       lwd = c(2.5, 3), bty = \"n\")"
+    "text": "The fitted line\n\n\nCode\nplot(x, y, pch = 19, col = \"steelblue\", cex = 1.3,\n     main = \"OLS Regression Line (computed by hand)\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\n\nabline(a = beta0_hat, b = beta1_hat, col = \"red\", lwd = 2.5)\n\npoints(x_bar, y_bar, pch = 4, col = \"red\", cex = 2.5, lwd = 3)\n\ntext(x_bar + 0.15, y_bar + 1.2,\n     expression(paste(\"(\", bar(x), \", \", bar(y), \")\")), col = \"red\", cex = 1.1)\n\ngrid()\n\nlegend(\"topright\",\n       legend = c(paste0(\"ŷ = \", round(beta0_hat, 2), \" + (\",\n                         round(beta1_hat, 2), \") × wt\"), \"Point of means\"),\n       col = c(\"red\", \"red\"), lty = c(1, NA), pch = c(NA, 4),\n       lwd = c(2.5, 3), bty = \"n\")"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#important-property",
@@ -1726,14 +1726,14 @@
     "href": "R_SLR_Lecture_Slides.html#visualizing-the-residuals",
     "title": "Simple Linear Regression",
     "section": "Visualizing the residuals",
-    "text": "Visualizing the residuals\n\ny_hat &lt;- beta0_hat + beta1_hat * x\nresid &lt;- y - y_hat\n\nplot(x, y, pch = 19, col = \"steelblue\", cex = 1.3,\n     main = \"Residuals: the vertical distances\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\nabline(a = beta0_hat, b = beta1_hat, col = \"red\", lwd = 2)\nsegments(x0 = x, y0 = y, x1 = x, y1 = y_hat, col = \"gray40\", lty = 2)\npoints(x, y_hat, pch = 1, col = \"red\", cex = 1)\ngrid()\nlegend(\"topright\",\n       legend = c(\"Observed (y)\", \"Fitted (ŷ)\", \"Residual (y − ŷ)\"),\n       col = c(\"steelblue\", \"red\", \"gray40\"),\n       pch = c(19, 1, NA), lty = c(NA, NA, 2), bty = \"n\")"
+    "text": "Visualizing the residuals\n\n\nCode\ny_hat &lt;- beta0_hat + beta1_hat * x\nresid &lt;- y - y_hat\n\nplot(x, y, pch = 19, col = \"steelblue\", cex = 1.3,\n     main = \"Residuals: the vertical distances\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\nabline(a = beta0_hat, b = beta1_hat, col = \"red\", lwd = 2)\nsegments(x0 = x, y0 = y, x1 = x, y1 = y_hat, col = \"gray40\", lty = 2)\npoints(x, y_hat, pch = 1, col = \"red\", cex = 1)\ngrid()\nlegend(\"topright\",\n       legend = c(\"Observed (y)\", \"Fitted (ŷ)\", \"Residual (y − ŷ)\"),\n       col = c(\"steelblue\", \"red\", \"gray40\"),\n       pch = c(19, 1, NA), lty = c(NA, NA, 2), bty = \"n\")"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#properties-of-residuals",
     "href": "R_SLR_Lecture_Slides.html#properties-of-residuals",
     "title": "Simple Linear Regression",
     "section": "Properties of residuals",
-    "text": "Properties of residuals\n\ncat(\"Sum of residuals:\", round(sum(resid), 10), \"\\n\")\n\nSum of residuals: 0 \n\ncat(\"  → Should be (essentially) 0\\n\\n\")\n\n  → Should be (essentially) 0\n\ncat(\"Cor(x, residuals):\", round(cor(x, resid), 10), \"\\n\")\n\nCor(x, residuals): 0 \n\ncat(\"  → Should be (essentially) 0\\n\\n\")\n\n  → Should be (essentially) 0\n\ncat(\"Mean of fitted values:\", round(mean(y_hat), 4), \"\\n\")\n\nMean of fitted values: 20.0906 \n\ncat(\"Mean of y:            \", round(mean(y), 4), \"\\n\")\n\nMean of y:             20.0906 \n\ncat(\"  → They are equal!\\n\")\n\n  → They are equal!"
+    "text": "Properties of residuals\n\ncat(\"Sum of residuals:\", round(sum(resid), 10), \"\\n\")\n\nSum of residuals: 0 \n\ncat(\"Cor(x, residuals):\", round(cor(x, resid), 10), \"\\n\")\n\nCor(x, residuals): 0 \n\ncat(\"Mean of fitted values:\", round(mean(y_hat), 4), \"\\n\")\n\nMean of fitted values: 20.0906 \n\ncat(\"Mean of y:            \", round(mean(y), 4), \"\\n\")\n\nMean of y:             20.0906 \n\ncat(\"  → They are equal!\\n\")\n\n  → They are equal!"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#fitting-and-verifying",
@@ -1754,28 +1754,28 @@
     "href": "R_SLR_Lecture_Slides.html#step-2-standard-errors",
     "title": "Simple Linear Regression",
     "section": "Step 2: Standard errors",
-    "text": "Step 2: Standard errors\n\\[\\text{se}(\\hat{\\beta}_1) = \\frac{\\hat{\\sigma}}{\\sqrt{S_{xx}}} \\qquad \\text{se}(\\hat{\\beta}_0) = \\hat{\\sigma}\\sqrt{\\frac{1}{n} + \\frac{\\bar{x}^2}{S_{xx}}}\\]\n\nse_beta1 &lt;- sigma_hat / sqrt(Sxx)\nse_beta0 &lt;- sigma_hat * sqrt(1/n + x_bar^2 / Sxx)\n\ncat(\"se(β̂₀) =\", round(se_beta0, 4), \"\\n\")\n\nse(β̂₀) = 1.8776 \n\ncat(\"se(β̂₁) =\", round(se_beta1, 4), \"\\n\")\n\nse(β̂₁) = 0.5591"
+    "text": "Step 2: Standard errors\n\\[\\text{se}(\\hat{\\beta}_1) = \\frac{\\hat{\\sigma}}{\\sqrt{S_{xx}}}\\]\n\nse_beta1 &lt;- sigma_hat / sqrt(Sxx)\n\ncat(\"se(β̂₁) =\", round(se_beta1, 4), \"\\n\")\n\nse(β̂₁) = 0.5591"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#step-3-t-statistics-and-p-values",
     "href": "R_SLR_Lecture_Slides.html#step-3-t-statistics-and-p-values",
     "title": "Simple Linear Regression",
     "section": "Step 3: t-statistics and p-values",
-    "text": "Step 3: t-statistics and p-values\nUnder \\(H_0: \\beta_j = 0\\): \\(\\quad t = \\frac{\\hat{\\beta}_j}{\\text{se}(\\hat{\\beta}_j)} \\sim t_{n-2}\\)\n\nt_beta0 &lt;- beta0_hat / se_beta0\nt_beta1 &lt;- beta1_hat / se_beta1\np_beta0 &lt;- 2 * pt(abs(t_beta0), df = df, lower.tail = FALSE)\np_beta1 &lt;- 2 * pt(abs(t_beta1), df = df, lower.tail = FALSE)\n\ncat(sprintf(\"         Estimate   Std.Error   t-value    p-value\\n\"))\n\n         Estimate   Std.Error   t-value    p-value\n\ncat(sprintf(\"β̂₀  %10.4f  %10.4f  %8.3f   %.2e\\n\",\n            beta0_hat, se_beta0, t_beta0, p_beta0))\n\nβ̂₀     37.2851      1.8776    19.858   8.24e-19\n\ncat(sprintf(\"β̂₁  %10.4f  %10.4f  %8.3f   %.2e\\n\",\n            beta1_hat, se_beta1, t_beta1, p_beta1))\n\nβ̂₁     -5.3445      0.5591    -9.559   1.29e-10"
+    "text": "Step 3: t-statistics and p-values\nUnder \\(H_0: \\beta_j = 0\\): \\(\\quad t = \\frac{\\hat{\\beta}_j}{\\text{se}(\\hat{\\beta}_j)} \\sim t_{n-2}\\)\n\nt_beta1 &lt;- beta1_hat / se_beta1\np_beta1 &lt;- 2 * pt(abs(t_beta1), df = df, lower.tail = FALSE)\n\ncat(sprintf(\"         Estimate   Std.Error   t-value    p-value\\n\"))\n\n         Estimate   Std.Error   t-value    p-value\n\ncat(sprintf(\"β̂₁  %10.4f  %10.4f  %8.3f   %.2e\\n\",\n            beta1_hat, se_beta1, t_beta1, p_beta1))\n\nβ̂₁     -5.3445      0.5591    -9.559   1.29e-10"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#visualizing-the-t-test-for-beta_1",
     "href": "R_SLR_Lecture_Slides.html#visualizing-the-t-test-for-beta_1",
     "title": "Simple Linear Regression",
     "section": "Visualizing the t-test for \\(\\beta_1\\)",
-    "text": "Visualizing the t-test for \\(\\beta_1\\)\n\nalpha &lt;- 0.05\nt_crit &lt;- qt(1 - alpha/2, df = df)\n\ncurve(dt(x, df = df), from = -15, to = 15, n = 500, lwd = 2, col = \"steelblue\",\n      main = expression(paste(\"t-test for \", H[0], \": \", beta[1], \" = 0\")),\n      xlab = \"t\", ylab = \"Density\")\n\nx_left &lt;- seq(-15, -t_crit, length.out = 200)\nx_right &lt;- seq(t_crit, 15, length.out = 200)\npolygon(c(x_left, rev(x_left)), c(dt(x_left, df), rep(0, 200)),\n        col = rgb(1, 0, 0, 0.3), border = NA)\npolygon(c(x_right, rev(x_right)), c(dt(x_right, df), rep(0, 200)),\n        col = rgb(1, 0, 0, 0.3), border = NA)\n\nabline(v = t_beta1, col = \"red\", lwd = 2.5, lty = 2)\ntext(t_beta1 + 1.5, 0.15, paste0(\"t = \", round(t_beta1, 2)),\n     col = \"red\", cex = 1.2, font = 2)\nabline(v = c(-t_crit, t_crit), col = \"gray40\", lty = 3)\nlegend(\"topleft\",\n       legend = c(\"t(30) distribution\", \"Rejection region (α = 0.05)\", \"Our t-statistic\"),\n       col = c(\"steelblue\", rgb(1,0,0,0.3), \"red\"),\n       lwd = c(2, 8, 2.5), lty = c(1, 1, 2), bty = \"n\")"
+    "text": "Visualizing the t-test for \\(\\beta_1\\)\n\n\nCode\nalpha &lt;- 0.05\nt_crit &lt;- qt(1 - alpha/2, df = df)\n\ncurve(dt(x, df = df), from = -15, to = 15, n = 500, lwd = 2, col = \"steelblue\",\n      main = expression(paste(\"t-test for \", H[0], \": \", beta[1], \" = 0\")),\n      xlab = \"t\", ylab = \"Density\")\n\nx_left &lt;- seq(-15, -t_crit, length.out = 200)\nx_right &lt;- seq(t_crit, 15, length.out = 200)\npolygon(c(x_left, rev(x_left)), c(dt(x_left, df), rep(0, 200)),\n        col = rgb(1, 0, 0, 0.3), border = NA)\npolygon(c(x_right, rev(x_right)), c(dt(x_right, df), rep(0, 200)),\n        col = rgb(1, 0, 0, 0.3), border = NA)\n\nabline(v = t_beta1, col = \"red\", lwd = 2.5, lty = 2)\ntext(t_beta1 + 1.5, 0.15, paste0(\"t = \", round(t_beta1, 2)),\n     col = \"red\", cex = 1.2, font = 2)\nabline(v = c(-t_crit, t_crit), col = \"gray40\", lty = 3)\nlegend(\"topleft\",\n       legend = c(\"t(30) distribution\", \"Rejection region (α = 0.05)\", \"Our t-statistic\"),\n       col = c(\"steelblue\", rgb(1,0,0,0.3), \"red\"),\n       lwd = c(2, 8, 2.5), lty = c(1, 1, 2), bty = \"n\")"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#confidence-intervals-by-hand",
     "href": "R_SLR_Lecture_Slides.html#confidence-intervals-by-hand",
     "title": "Simple Linear Regression",
     "section": "Confidence intervals (by hand)",
-    "text": "Confidence intervals (by hand)\n\\[\\hat{\\beta}_j \\pm t_{\\alpha/2, \\, n-2} \\cdot \\text{se}(\\hat{\\beta}_j)\\]\n\ncat(\"Critical value t_{0.025, 30} =\", round(t_crit, 4), \"\\n\\n\")\n\nCritical value t_{0.025, 30} = 2.0423 \n\nci_beta0 &lt;- beta0_hat + c(-1, 1) * t_crit * se_beta0\nci_beta1 &lt;- beta1_hat + c(-1, 1) * t_crit * se_beta1\n\ncat(\"95% CI for β₀: [\", round(ci_beta0[1], 4), \",\", round(ci_beta0[2], 4), \"]\\n\")\n\n95% CI for β₀: [ 33.4505 , 41.1198 ]\n\ncat(\"95% CI for β₁: [\", round(ci_beta1[1], 4), \",\", round(ci_beta1[2], 4), \"]\\n\")\n\n95% CI for β₁: [ -6.4863 , -4.2026 ]\n\ncat(\"\\nNote: 0 is NOT inside the CI for β₁ → we reject H₀: β₁ = 0\")\n\n\nNote: 0 is NOT inside the CI for β₁ → we reject H₀: β₁ = 0"
+    "text": "Confidence intervals (by hand)\n\\[\\hat{\\beta}_j \\pm t_{\\alpha/2, \\, n-2} \\cdot \\text{se}(\\hat{\\beta}_j)\\]\n\ncat(\"Critical value t_{0.025, 30} =\", round(t_crit, 4), \"\\n\\n\")\n\nCritical value t_{0.025, 30} = 2.0423 \n\nci_beta1 &lt;- beta1_hat + c(-1, 1) * t_crit * se_beta1\n\ncat(\"95% CI for β₁: [\", round(ci_beta1[1], 4), \",\", round(ci_beta1[2], 4), \"]\\n\")\n\n95% CI for β₁: [ -6.4863 , -4.2026 ]\n\ncat(\"\\nNote: 0 is NOT inside the CI for β₁ → we reject H₀: β₁ = 0\")\n\n\nNote: 0 is NOT inside the CI for β₁ → we reject H₀: β₁ = 0"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#comparing-with-summary",
@@ -1789,14 +1789,14 @@
     "href": "R_SLR_Lecture_Slides.html#confidence-intervals-automatic",
     "title": "Simple Linear Regression",
     "section": "Confidence intervals: automatic",
-    "text": "Confidence intervals: automatic\n\nconfint(model)\n\n                2.5 %    97.5 %\n(Intercept) 33.450500 41.119753\nwt          -6.486308 -4.202635\n\n\n\nEverything matches our hand calculations. ✓"
+    "text": "Confidence intervals: automatic\n\nconfint(model)\n\n                2.5 %    97.5 %\n(Intercept) 33.450500 41.119753\nwt          -6.486308 -4.202635\n\n\n\nEverything matches our hand calculations."
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#r2-decomposition",
     "href": "R_SLR_Lecture_Slides.html#r2-decomposition",
     "title": "Simple Linear Regression",
     "section": "\\(R^2\\) decomposition",
-    "text": "\\(R^2\\) decomposition\n\nSST &lt;- sum((y - y_bar)^2)\nSSE &lt;- sum((y_hat - y_bar)^2)\nR2 &lt;- 1 - SSR / SST\ncat(\"R² =\", round(R2, 4), \"\\n\")\n\nR² = 0.7528 \n\ncat(\"Weight explains\", round(R2 * 100, 1), \"% of the variation in mpg.\\n\")\n\nWeight explains 75.3 % of the variation in mpg.\n\n\n\npar(mar = c(4, 4, 3, 1))\nbarplot(c(SST = SST, SSE = SSE, SSR = SSR),\n        col = c(\"gray70\", \"steelblue\", \"coral\"),\n        main = \"Decomposition: SST = SSE + SSR\", ylab = \"Sum of Squares\", border = NA)\ntext(0.7, SST/2, paste0(\"SST\\n\", round(SST, 1)), cex = 1, font = 2)\ntext(1.9, SSE/2, paste0(\"SSE\\n\", round(SSE, 1), \"\\n(\", round(SSE/SST*100,1), \"%)\"),\n     cex = 1, font = 2)\ntext(3.1, SSR/2, paste0(\"SSR\\n\", round(SSR, 1), \"\\n(\", round(SSR/SST*100,1), \"%)\"),\n     cex = 1, font = 2)"
+    "text": "\\(R^2\\) decomposition\n\nSST &lt;- sum((y - y_bar)^2)\nSSE &lt;- sum((y_hat - y_bar)^2)\nR2 &lt;- 1 - SSR / SST\ncat(\"R² =\", round(R2, 4), \"\\n\")\n\nR² = 0.7528 \n\ncat(\"Weight explains\", round(R2 * 100, 1), \"% of the variation in mpg.\\n\")\n\nWeight explains 75.3 % of the variation in mpg."
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#the-key-insight",
@@ -1817,14 +1817,14 @@
     "href": "R_SLR_Lecture_Slides.html#different-samples-20-different-lines",
     "title": "Simple Linear Regression",
     "section": "20 different samples → 20 different lines",
-    "text": "20 different samples → 20 different lines\n\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
+    "text": "20 different samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#the-sampling-distribution-of-hatbeta_1",
     "href": "R_SLR_Lecture_Slides.html#the-sampling-distribution-of-hatbeta_1",
     "title": "Simple Linear Regression",
     "section": "The sampling distribution of \\(\\hat{\\beta}_1\\)",
-    "text": "The sampling distribution of \\(\\hat{\\beta}_1\\)\n\nse_theory &lt;- sigma_true / sqrt(sum((x_sim - mean(x_sim))^2))\n\nhist(beta1_estimates, breaks = 40, freq = FALSE,\n     col = \"steelblue\", border = \"white\",\n     main = expression(paste(\"Sampling Distribution of \", hat(beta)[1],\n                             \" (1000 simulations)\")),\n     xlab = expression(hat(beta)[1]),\n     xlim = c(beta1_true - 1.5, beta1_true + 1.5))\nabline(v = beta1_true, col = \"red\", lwd = 3)\nabline(v = mean(beta1_estimates), col = \"orange\", lwd = 2, lty = 2)\ncurve(dnorm(x, mean = beta1_true, sd = se_theory), add = TRUE,\n      col = \"red\", lwd = 2, lty = 2)\nlegend(\"topright\",\n       legend = c(paste0(\"True β₁ = \", beta1_true),\n                  paste0(\"Mean(β̂₁) = \", round(mean(beta1_estimates), 4)),\n                  \"Theoretical N(β₁, σ²/Sxx)\"),\n       col = c(\"red\", \"orange\", \"red\"),\n       lwd = c(3, 2, 2), lty = c(1, 2, 2), bty = \"n\")"
+    "text": "The sampling distribution of \\(\\hat{\\beta}_1\\)\n\n\nCode\nse_theory &lt;- sigma_true / sqrt(sum((x_sim - mean(x_sim))^2))\n\nhist(beta1_estimates, breaks = 40, freq = FALSE,\n     col = \"steelblue\", border = \"white\",\n     main = expression(paste(\"Sampling Distribution of \", hat(beta)[1],\n                             \" (1000 simulations)\")),\n     xlab = expression(hat(beta)[1]),\n     xlim = c(beta1_true - 1.5, beta1_true + 1.5))\nabline(v = beta1_true, col = \"red\", lwd = 3)\nabline(v = mean(beta1_estimates), col = \"orange\", lwd = 2, lty = 2)\ncurve(dnorm(x, mean = beta1_true, sd = se_theory), add = TRUE,\n      col = \"red\", lwd = 2, lty = 2)\nlegend(\"topright\",\n       legend = c(paste0(\"True β₁ = \", beta1_true),\n                  paste0(\"Mean(β̂₁) = \", round(mean(beta1_estimates), 4)),\n                  \"Theoretical N(β₁, σ²/Sxx)\"),\n       col = c(\"red\", \"orange\", \"red\"),\n       lwd = c(3, 2, 2), lty = c(1, 2, 2), bty = \"n\")"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#unbiasedness-confirmed",
@@ -1852,14 +1852,14 @@
     "href": "R_SLR_Lecture_Slides.html#effect-of-sample-size",
     "title": "Simple Linear Regression",
     "section": "Effect of sample size",
-    "text": "Effect of sample size\n\nset.seed(123)\nsample_sizes &lt;- c(20, 50, 100, 500)\nn_reps &lt;- 1000\n\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\nfor (nn in sample_sizes) {\n  x_temp &lt;- runif(nn, 0, 10)\n  b1_vec &lt;- numeric(n_reps)\n  for (j in 1:n_reps) {\n    u_temp &lt;- rnorm(nn, 0, sigma_true)\n    y_temp &lt;- beta0_true + beta1_true * x_temp + u_temp\n    b1_vec[j] &lt;- coef(lm(y_temp ~ x_temp))[2]\n  }\n  hist(b1_vec, breaks = 35, freq = FALSE, col = \"steelblue\", border = \"white\",\n       main = paste0(\"n = \", nn, \"  (sd = \", round(sd(b1_vec), 3), \")\"),\n       xlab = expression(hat(beta)[1]), xlim = c(1.5, 4.5))\n  abline(v = beta1_true, col = \"red\", lwd = 2)\n}"
+    "text": "Effect of sample size\n\n\nCode\nset.seed(123)\nsample_sizes &lt;- c(20, 50, 100, 500)\nn_reps &lt;- 1000\n\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\nfor (nn in sample_sizes) {\n  x_temp &lt;- runif(nn, 0, 10)\n  b1_vec &lt;- numeric(n_reps)\n  for (j in 1:n_reps) {\n    u_temp &lt;- rnorm(nn, 0, sigma_true)\n    y_temp &lt;- beta0_true + beta1_true * x_temp + u_temp\n    b1_vec[j] &lt;- coef(lm(y_temp ~ x_temp))[2]\n  }\n  hist(b1_vec, breaks = 35, freq = FALSE, col = \"steelblue\", border = \"white\",\n       main = paste0(\"n = \", nn, \"  (sd = \", round(sd(b1_vec), 3), \")\"),\n       xlab = expression(hat(beta)[1]), xlim = c(1.5, 4.5))\n  abline(v = beta1_true, col = \"red\", lwd = 2)\n}"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#effect-of-noise-level-sigma",
     "href": "R_SLR_Lecture_Slides.html#effect-of-noise-level-sigma",
     "title": "Simple Linear Regression",
     "section": "Effect of noise level \\(\\sigma\\)",
-    "text": "Effect of noise level \\(\\sigma\\)\n\nset.seed(456)\nsigmas &lt;- c(1, 4, 8, 16)\nnn_fixed &lt;- 50;  x_temp &lt;- runif(nn_fixed, 0, 10)\n\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\nfor (ss in sigmas) {\n  b1_vec &lt;- numeric(n_reps)\n  for (j in 1:n_reps) {\n    u_temp &lt;- rnorm(nn_fixed, 0, ss)\n    y_temp &lt;- beta0_true + beta1_true * x_temp + u_temp\n    b1_vec[j] &lt;- coef(lm(y_temp ~ x_temp))[2]\n  }\n  hist(b1_vec, breaks = 35, freq = FALSE, col = \"coral\", border = \"white\",\n       main = bquote(sigma == .(ss) ~ \" (sd = \" * .(round(sd(b1_vec), 3)) * \")\"),\n       xlab = expression(hat(beta)[1]), xlim = c(-1, 7))\n  abline(v = beta1_true, col = \"red\", lwd = 2)\n}"
+    "text": "Effect of noise level \\(\\sigma\\)\n\n\nCode\nset.seed(456)\nsigmas &lt;- c(1, 4, 8, 16)\nnn_fixed &lt;- 50;  x_temp &lt;- runif(nn_fixed, 0, 10)\n\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\nfor (ss in sigmas) {\n  b1_vec &lt;- numeric(n_reps)\n  for (j in 1:n_reps) {\n    u_temp &lt;- rnorm(nn_fixed, 0, ss)\n    y_temp &lt;- beta0_true + beta1_true * x_temp + u_temp\n    b1_vec[j] &lt;- coef(lm(y_temp ~ x_temp))[2]\n  }\n  hist(b1_vec, breaks = 35, freq = FALSE, col = \"coral\", border = \"white\",\n       main = bquote(sigma == .(ss) ~ \" (sd = \" * .(round(sd(b1_vec), 3)) * \")\"),\n       xlab = expression(hat(beta)[1]), xlim = c(-1, 7))\n  abline(v = beta1_true, col = \"red\", lwd = 2)\n}"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#observation",
@@ -1873,14 +1873,14 @@
     "href": "R_SLR_Lecture_Slides.html#different-subsamples-different-estimates",
     "title": "Simple Linear Regression",
     "section": "Different subsamples, different estimates",
-    "text": "Different subsamples, different estimates\n\nset.seed(2024)\nplot(mtcars$wt, mtcars$mpg, pch = 19, col = \"gray70\", cex = 1.2,\n     main = \"8 Random Subsamples (n = 20) from mtcars\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\n\ncolors &lt;- c(\"#E41A1C\", \"#377EB8\", \"#4DAF4A\", \"#984EA3\",\n            \"#FF7F00\", \"#A65628\", \"#F781BF\", \"#999999\")\nsub_betas &lt;- numeric(8)\nfor (i in 1:8) {\n  idx &lt;- sample(1:32, size = 20, replace = FALSE)\n  fit_sub &lt;- lm(mpg ~ wt, data = mtcars[idx, ])\n  abline(fit_sub, col = colors[i], lwd = 2)\n  sub_betas[i] &lt;- coef(fit_sub)[2]\n}\nabline(model, col = \"black\", lwd = 3, lty = 2)\nlegend(\"topright\",\n       legend = c(\"Full sample (n=32)\", \"Subsample lines (n=20)\"),\n       col = c(\"black\", \"steelblue\"), lwd = c(3, 2), lty = c(2, 1), bty = \"n\")\ngrid()"
+    "text": "Different subsamples, different estimates\n\n\nCode\nset.seed(2024)\nplot(mtcars$wt, mtcars$mpg, pch = 19, col = \"gray70\", cex = 1.2,\n     main = \"8 Random Subsamples (n = 20) from mtcars\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\")\n\ncolors &lt;- c(\"#E41A1C\", \"#377EB8\", \"#4DAF4A\", \"#984EA3\",\n            \"#FF7F00\", \"#A65628\", \"#F781BF\", \"#999999\")\nsub_betas &lt;- numeric(8)\nfor (i in 1:8) {\n  idx &lt;- sample(1:32, size = 20, replace = FALSE)\n  fit_sub &lt;- lm(mpg ~ wt, data = mtcars[idx, ])\n  abline(fit_sub, col = colors[i], lwd = 2)\n  sub_betas[i] &lt;- coef(fit_sub)[2]\n}\nabline(model, col = \"black\", lwd = 3, lty = 2)\nlegend(\"topright\",\n       legend = c(\"Full sample (n=32)\", \"Subsample lines (n=20)\"),\n       col = c(\"black\", \"steelblue\"), lwd = c(3, 2), lty = c(2, 1), bty = \"n\")\ngrid()"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#four-diagnostic-plots",
     "href": "R_SLR_Lecture_Slides.html#four-diagnostic-plots",
     "title": "Simple Linear Regression",
     "section": "Four diagnostic plots",
-    "text": "Four diagnostic plots\n\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\n\nplot(fitted(model), residuals(model), pch = 19, col = \"steelblue\",\n     main = \"Residuals vs Fitted\", xlab = \"Fitted Values (ŷ)\", ylab = \"Residuals (û)\")\nabline(h = 0, col = \"red\", lwd = 2, lty = 2); grid()\n\nhist(residuals(model), breaks = 10, freq = FALSE,\n     col = \"steelblue\", border = \"white\",\n     main = \"Distribution of Residuals\", xlab = \"Residuals\")\ncurve(dnorm(x, mean = 0, sd = sigma_hat), add = TRUE, col = \"red\", lwd = 2)\n\nqqnorm(residuals(model), pch = 19, col = \"steelblue\", main = \"Normal Q-Q Plot\")\nqqline(residuals(model), col = \"red\", lwd = 2)\n\nplot(fitted(model), sqrt(abs(rstandard(model))), pch = 19, col = \"steelblue\",\n     main = \"Scale-Location\", xlab = \"Fitted Values\",\n     ylab = expression(sqrt(\"Standardized Residuals\")))\ngrid()"
+    "text": "Four diagnostic plots\n\n\nCode\npar(mfrow = c(2, 2), mar = c(4, 4, 3, 1))\n\nplot(fitted(model), residuals(model), pch = 19, col = \"steelblue\",\n     main = \"Residuals vs Fitted\", xlab = \"Fitted Values (ŷ)\", ylab = \"Residuals (û)\")\nabline(h = 0, col = \"red\", lwd = 2, lty = 2); grid()\n\nhist(residuals(model), breaks = 10, freq = FALSE,\n     col = \"steelblue\", border = \"white\",\n     main = \"Distribution of Residuals\", xlab = \"Residuals\")\ncurve(dnorm(x, mean = 0, sd = sigma_hat), add = TRUE, col = \"red\", lwd = 2)\n\nqqnorm(residuals(model), pch = 19, col = \"steelblue\", main = \"Normal Q-Q Plot\")\nqqline(residuals(model), col = \"red\", lwd = 2)\n\nplot(fitted(model), sqrt(abs(rstandard(model))), pch = 19, col = \"steelblue\",\n     main = \"Scale-Location\", xlab = \"Fitted Values\",\n     ylab = expression(sqrt(\"Standardized Residuals\")))\ngrid()"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#how-to-read-them",
@@ -1894,7 +1894,7 @@
     "href": "R_SLR_Lecture_Slides.html#two-types-of-intervals",
     "title": "Simple Linear Regression",
     "section": "Two types of intervals",
-    "text": "Two types of intervals\n\nx_grid &lt;- data.frame(wt = seq(min(mtcars$wt) - 0.2, max(mtcars$wt) + 0.2,\n                               length.out = 200))\npred_ci &lt;- predict(model, newdata = x_grid, interval = \"confidence\")\npred_pi &lt;- predict(model, newdata = x_grid, interval = \"prediction\")\n\nplot(mtcars$wt, mtcars$mpg, pch = 19, col = \"steelblue\", cex = 1.2,\n     main = \"Confidence and Prediction Intervals\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\",\n     ylim = c(min(pred_pi[,\"lwr\"]) - 1, max(pred_pi[,\"upr\"]) + 1))\npolygon(c(x_grid$wt, rev(x_grid$wt)),\n        c(pred_pi[,\"lwr\"], rev(pred_pi[,\"upr\"])),\n        col = rgb(1, 0.6, 0.4, 0.2), border = NA)\npolygon(c(x_grid$wt, rev(x_grid$wt)),\n        c(pred_ci[,\"lwr\"], rev(pred_ci[,\"upr\"])),\n        col = rgb(0.3, 0.5, 0.8, 0.3), border = NA)\nlines(x_grid$wt, pred_ci[,\"fit\"], col = \"red\", lwd = 2.5)\npoints(mtcars$wt, mtcars$mpg, pch = 19, col = \"steelblue\", cex = 1.2)\nlegend(\"topright\",\n       legend = c(\"OLS line\", \"95% CI for E[Y|X]\", \"95% PI for new Y\"),\n       col = c(\"red\", rgb(0.3,0.5,0.8,0.5), rgb(1,0.6,0.4,0.4)),\n       lwd = c(2.5, 8, 8), bty = \"n\")\ngrid()"
+    "text": "Two types of intervals\n\n\nCode\nx_grid &lt;- data.frame(wt = seq(min(mtcars$wt) - 0.2, max(mtcars$wt) + 0.2,\n                               length.out = 200))\npred_ci &lt;- predict(model, newdata = x_grid, interval = \"confidence\")\npred_pi &lt;- predict(model, newdata = x_grid, interval = \"prediction\")\n\nplot(mtcars$wt, mtcars$mpg, pch = 19, col = \"steelblue\", cex = 1.2,\n     main = \"Confidence and Prediction Intervals\",\n     xlab = \"Weight (1000 lbs)\", ylab = \"Miles per Gallon\",\n     ylim = c(min(pred_pi[,\"lwr\"]) - 1, max(pred_pi[,\"upr\"]) + 1))\npolygon(c(x_grid$wt, rev(x_grid$wt)),\n        c(pred_pi[,\"lwr\"], rev(pred_pi[,\"upr\"])),\n        col = rgb(1, 0.6, 0.4, 0.2), border = NA)\npolygon(c(x_grid$wt, rev(x_grid$wt)),\n        c(pred_ci[,\"lwr\"], rev(pred_ci[,\"upr\"])),\n        col = rgb(0.3, 0.5, 0.8, 0.3), border = NA)\nlines(x_grid$wt, pred_ci[,\"fit\"], col = \"red\", lwd = 2.5)\npoints(mtcars$wt, mtcars$mpg, pch = 19, col = \"steelblue\", cex = 1.2)\nlegend(\"topright\",\n       legend = c(\"OLS line\", \"95% CI for E[Y|X]\", \"95% PI for new Y\"),\n       col = c(\"red\", rgb(0.3,0.5,0.8,0.5), rgb(1,0.6,0.4,0.4)),\n       lwd = c(2.5, 8, 8), bty = \"n\")\ngrid()"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#interpretation",
@@ -1937,5 +1937,40 @@
     "title": "Simple Linear Regression",
     "section": "Takeaways",
     "text": "Takeaways\n\nOLS minimizes the sum of squared residuals\n\\(\\hat{\\beta}_1\\) is a random variable — it changes with the sample\nUnbiasedness: \\(E[\\hat{\\beta}_1] = \\beta_1\\) — on average, OLS gets it right\nStandard errors decrease with more data and less noise\nt-tests and CIs follow from the sampling distribution\nR makes all of this easy — but understanding what’s behind it is essential!"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle",
+    "href": "R_SLR_Lecture_Slides.html#kaggle",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nGo to this website, and login however you like, I log in with my google account.\n\nhttps://www.kaggle.com"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle-1",
+    "href": "R_SLR_Lecture_Slides.html#kaggle-1",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nClick in “Create”\n\nAnd select “Notebook”"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle-2",
+    "href": "R_SLR_Lecture_Slides.html#kaggle-2",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nSometimes it defaults to Python, but it learns your preference (use R often and it will start creating R notebooks by default)\nTo check/set an R environment:\n\nGo to the File menu\nSelect Language\nChose R\nClick the Start Session icon (a circle with a vertical line, top right corner of the notebook)"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
+    "href": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
+    "title": "Simple Linear Regression",
+    "section": "\\(R^2\\) decomposition",
+    "text": "\\(R^2\\) decomposition\n\n\nCode\npar(mar = c(4, 4, 3, 1))\nbarplot(c(SST = SST, SSE = SSE, SSR = SSR),\n        col = c(\"gray70\", \"steelblue\", \"coral\"),\n        main = \"Decomposition: SST = SSE + SSR\", ylab = \"Sum of Squares\", border = NA)\ntext(0.7, SST/2, paste0(\"SST\\n\", round(SST, 1)), cex = 1, font = 2)\ntext(1.9, SSE/2, paste0(\"SSE\\n\", round(SSE, 1), \"\\n(\", round(SSE/SST*100,1), \"%)\"),\n     cex = 1, font = 2)\ntext(3.1, SSR/2, paste0(\"SSR\\n\", round(SSR, 1), \"\\n(\", round(SSR/SST*100,1), \"%)\"),\n     cex = 1, font = 2)"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
+    "href": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
+    "title": "Simple Linear Regression",
+    "section": "20 samples → 20 different lines",
+    "text": "20 samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
   }
 ]
