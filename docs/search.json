@@ -1972,5 +1972,12 @@
     "title": "Simple Linear Regression",
     "section": "20 samples → 20 different lines",
     "text": "20 samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#this-lecture",
+    "href": "R_SLR_Lecture_Slides.html#this-lecture",
+    "title": "Simple Linear Regression",
+    "section": "This lecture",
+    "text": "This lecture\n\nlibrary(qrcode)\n\nplot(qr_code('https://pfagandini.github.io/novasbe_econometrics/R_SLR_Lecture_Slides.html'))"
   }
 ]

@@ -44,6 +44,14 @@ Today we bring it to life with **data, code, and simulations**.
 
 ---
 
+## This lecture
+
+```{r}
+library(qrcode)
+
+plot(qr_code('https://pfagandini.github.io/novasbe_econometrics/R_SLR_Lecture_Slides.html'))
+```
+
 # Part 0: Kaggle
 
 ## Kaggle

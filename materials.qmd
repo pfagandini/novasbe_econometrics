@@ -17,11 +17,11 @@ title: "Material"
 10. [Time Series - Panel](10_Time%20Series%20Panel.qmd)
 
 [R Extra](R_SLR_Lecture_Slides.qmd)
-
+<!-- 
 ## Notes
 
 1. [SLR](01_SLR_review.qmd)
 2. [MLR](02_MLR_review.qmd)
 3. [OVB IV](04_OVB_IV_review.qmd)
 4. [IV 2SLS](06_IV_2SLS_review.qmd)
-5. [Heteroskedasticity](07_heteroskedasticity_review.qmd)
+5. [Heteroskedasticity](07_heteroskedasticity_review.qmd) -->
