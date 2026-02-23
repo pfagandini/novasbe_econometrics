@@ -1979,5 +1979,12 @@
     "title": "Simple Linear Regression",
     "section": "This lecture",
     "text": "This lecture\n\nlibrary(qrcode)\n\nplot(qr_code('https://pfagandini.github.io/novasbe_econometrics/R_SLR_Lecture_Slides.html'))"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
+    "href": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
+    "title": "Simple Linear Regression",
+    "section": "Parenthesis: Let’s check LA",
+    "text": "Parenthesis: Let’s check LA\n\nX_vect &lt;- cbind(1, mtcars$wt)\n\n# OLS\nbeta_hat &lt;- solve(t(X_vect) %*% X_vect) %*% t(X_vect) %*% y\nbeta_hat\n\n          [,1]\n[1,] 37.285126\n[2,] -5.344472\n\n\n\nsolve() is the inverse.\nt() is the traspose\n%*% is matrix/vector multiplication."
   }
 ]

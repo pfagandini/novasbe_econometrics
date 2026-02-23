@@ -252,6 +252,20 @@ cat("mpg decreases by", round(abs(beta1_hat), 2), "miles per gallon\n")
 cat("on average, ceteris paribus.")
 ```
 
+## Parenthesis: Let's check LA
+
+```{r}
+X_vect <- cbind(1, mtcars$wt)
+
+# OLS
+beta_hat <- solve(t(X_vect) %*% X_vect) %*% t(X_vect) %*% y
+beta_hat
+```
+
+1. `solve()` is the inverse.
+2. `t()` is the traspose
+3. `%*%` is matrix/vector multiplication.
+
 ## The fitted line
 
 ```{r}
