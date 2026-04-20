@@ -17,6 +17,7 @@ title: "Material"
 10. [Time Series - Panel](10_Time%20Series%20Panel.qmd)
 
 [R Extra](R_SLR_Lecture_Slides.qmd)
+[Dummies and IV](econometrics_classes_06_07.pdf)
 <!-- 
 ## Notes
 
