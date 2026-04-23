@@ -18,6 +18,7 @@ title: "Material"
 
 [R Extra](R_SLR_Lecture_Slides.qmd)
 [Dummies and IV](econometrics_classes_06_07.pdf)
+[R Notebook](rlecture.ipynb)
 <!-- 
 ## Notes
 
