@@ -1,367 +1,255 @@
 [
   {
-    "objectID": "03_Inference.html#review-1",
-    "href": "03_Inference.html#review-1",
-    "title": "Inference",
-    "section": "Review",
-    "text": "Review\n\nMoments and distribution for \\(\\hat{\\beta}\\)"
+    "objectID": "theory_time_series.html#assumptions",
+    "href": "theory_time_series.html#assumptions",
+    "title": "Time Series 3",
+    "section": "Assumptions",
+    "text": "Assumptions\n\n\n\n\nSLR\nMLR\nTS\n\n\n\n\nLinearity in \\(\\beta\\)\nSLR1\nMLR1\nTS1\n\n\nRandom sampling\nSLR2\nMLR2\n\n\n\nSample variation in \\(X\\)\nSLR3\n\n\n\n\nNo perfect collinearity\n\nMLR4\nTS2\n\n\n\\(E[u|X]=0\\)\nSLR4\nMLR4\nTS3\n\n\n\\(V[u|X]=\\sigma^2\\)\nSLR5\nMLR5\nTS4\n\n\n\\(Corr[u_su_t|X]=0\\) for \\(t\\neq s\\)\n\n\nTS5"
   },
   {
-    "objectID": "03_Inference.html#exercises",
-    "href": "03_Inference.html#exercises",
-    "title": "Inference",
-    "section": "Exercises",
-    "text": "Exercises\nhttps://moodle.novasbe.pt/mod/folder/view.php?id=4021"
+    "objectID": "theory_time_series.html#the-problem",
+    "href": "theory_time_series.html#the-problem",
+    "title": "Time Series 3",
+    "section": "The problem",
+    "text": "The problem\nLarge samples in time series (normal frequency time series) are hard to come by!\n\nWhy we need large samples? to use large sample approximations results (asymptotics for example)."
   },
   {
-    "objectID": "03_Inference.html#exercise-3.1",
-    "href": "03_Inference.html#exercise-3.1",
-    "title": "Inference",
-    "section": "Exercise 3.1",
-    "text": "Exercise 3.1\n\nOne of the most important decisions business leaders face concerns the allocation of the firm’s budget to the different departments. To help in the decision of finding out how much money to allocate to the R&D department you decide to collect data for 32 firms in the chemical industry on the following variables: rdintensity (expenditures on r&d as % of sales), profmarg (profits as % of sales), and sales (in millions of USD). You then estimate the following equation (se in parenthesis):\n\n\n\\[\n\\widehat{profmarg}=\\underset{(6.3043)}{11.76}+\\underset{(0.7233)}{0.79}rdintensity-\\underset{(0.8814)}{0.63}\\log(sales)\n\\]\n\n\nWith \\(R^2=0.0464\\)"
+    "objectID": "theory_time_series.html#stationary-process",
+    "href": "theory_time_series.html#stationary-process",
+    "title": "Time Series 3",
+    "section": "Stationary Process",
+    "text": "Stationary Process\n\n\n\n\n\n\nStationary process\n\n\nThe stochastic process \\(\\{x_t\\}_{t\\in\\mathbb{N}}\\) is stationray if for any monotonically increasing function \\(g:\\mathbb{N}\\mapsto\\mathbb{N}\\), the joint distribution of \\[(x_{g(1)},x_{g(2)},\\dots,x_{g(m)})\\] is equal to the distribution of \\[(x_{g(1)+h},x_{g(2)+h},\\dots,x_{g(m)}+h)\\] for any \\(h\\in\\mathbb{N}\\).\n\n\n\n\nMaybe it helps the plot with a time series, take a subset, shift it with a different color and illustrate the consequence. A stationary process implies that the probability distributions of the data are stable over time. If we take some data points in our sample, and we shift it by \\(h\\) the joint probability of the data remains unchanged."
   },
   {
-    "objectID": "03_Inference.html#ex-3.1-questions",
-    "href": "03_Inference.html#ex-3.1-questions",
-    "title": "Inference",
-    "section": "Exercise 3.1",
-    "text": "Exercise 3.1\n\n\nInterpret the coefficient on rdintensity. Is this an economically significant effect?\nDoes R&D intensity have a statistical significant effect on profit margin? Do the 2-sided test at a 10% level.\nSteve Jobs once said: “Innovation has nothing to do with how many R&D dollars you have. When Apple came up with the Mac, IBM was spending at least 100 times more on R&D. It’s not about money. It’s about the people you have, how you’re led, and how much you get it.” Does this exercise provide evidence in favor or against Steve Jobs’ claim?\n\n\nt-student\n\n\nIf rdintensity increases by 1 pp profit margin increases by 0.79pp on average, ceteris paribus.\n\\(H_0: \\beta_{rintensity}=0\\), \\(H_a: \\beta_{rintensity}\\neq0\\). \\(\\alpha=10\\%\\), \\(df=32-2-1=29\\), \\(t^c=1.699\\). \\(t=\\frac{0.79-0}{0.7233}=1.09&lt;t^c\\). Fail to reject \\(H_0\\) at 10%.\nWe do not find statistically significant effect of r&d on profit, maybe it is not only about the money."
+    "objectID": "theory_time_series.html#stationary-process-2",
+    "href": "theory_time_series.html#stationary-process-2",
+    "title": "Time Series 3",
+    "section": "Stationary Process",
+    "text": "Stationary Process\nA stochastic process that is not stationary is said to be nonstationary.🥁\nIt is difficult to identify a stationary process because you do not have all the data! However it can be very simple to identify a non-stationary process, for example a time series with a trend.\n\nFor some results, a weaker form of stationary is enough…\n\nAnother way to read a stationary stochastic process is to say that it is identically distributed, but it says even more, for example the joint distribution of \\((x_1,x_2)\\) is the same as for \\((x_t,x_{t+1})\\) \\(\\forall t\\)."
   },
   {
-    "objectID": "03_Inference.html#exercise-3.3",
-    "href": "03_Inference.html#exercise-3.3",
-    "title": "Inference",
-    "section": "Exercise 3.3",
-    "text": "Exercise 3.3\nConsider the estimated equation from a model explaining college GPA with the high school GPA (hsGPA), the achievenment test score (ACT) and average number of lectures missed per week (skipped) as explanatory variables (usual standar errors in parenthesis below the estimates):\n\n\\[\n\\widehat{colGPA}=\\underset{(0.33)}{1.39}+\\underset{(0.094)}{0.412}hsGPA + \\underset{(0.011)}{0.015}ACT-\\underset{(0.026)}{0.083}skipped\n\\]"
+    "objectID": "theory_time_series.html#covariance-stationary-process",
+    "href": "theory_time_series.html#covariance-stationary-process",
+    "title": "Time Series 3",
+    "section": "Covariance Stationary Process",
+    "text": "Covariance Stationary Process\n\n\n\n\n\n\nImportant\n\n\nA stochastic process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) with a finite second moment \\(E[x_t^2]&lt;\\infty\\), is covariance stationary if:\n\n\\(E[x_t]\\) is constant\n\\(V[x_t]\\) is constant\n\\(\\forall t,h\\in\\mathbb{N}\\) we have \\(Cov(x_t,x_{t+h})=\\phi(h)\\), i.e. it depends only on \\(h\\), and not \\(t\\).\n\n\n\n\n\nCovariance stationarity focuses only on the first two moments of a stochastic process: the mean and variance, and the covariance is constant in the same distance between two terms of the sequence, not its location. Obviously this carries to the correlation as well."
   },
   {
-    "objectID": "03_Inference.html#ex-3.3-questions",
-    "href": "03_Inference.html#ex-3.3-questions",
-    "title": "Inference",
-    "section": "Exercise 3.3",
-    "text": "Exercise 3.3\n\nUsing the standard normal approximation, find the 95% confidence interval for \\(\\beta_{hsGPA}\\).\nCan you reject the hypothesis \\(H_0:\\beta_{hsGPA}=0.4\\) against the twosided alternative at the 5% significance level?\nCan you reject the hypothesis \\(H_0: \\beta_{hsGPA}=1\\) against the two-sided alternative at the 5% significance level?\n\nt-student\n\n\n\\(0.412\\pm 1.96\\times 0.094\\Rightarrow [0.228, 0.596]\\)\n\\(H_0: \\beta_1=0.4\\) cannot be rejected at 5% significance as 0.4 is in the confidence interval.\n\\(H_0: \\beta_1=1\\) is rejected at 5% significance as 1 falls out of the CI."
+    "objectID": "theory_time_series.html#covariance-stationary-process-1",
+    "href": "theory_time_series.html#covariance-stationary-process-1",
+    "title": "Time Series 3",
+    "section": "Covariance Stationary Process",
+    "text": "Covariance Stationary Process\nIf a stationary process has a finite second moment, then it is Covariance Stationary as well. Note that converse is not true, i.e. a Covariance Stationary Process needs not be Stationary.\n\nThe intuition on why we need these things to do econometrics in time series is that we need to learn from the data!, if what happened with the data in the past is no good to tell anything on how the data will behave in the future there is no point in trying to learn. We need to expect some kind of regularity or stability with the data.\nOn a technical leve, we need these to use the asymptotic results, the law of large numbers and the central limit theorem.\nNote that TS4 (homoskedasticity) and TS5(no serial correlation) imply some kind of stationarity!"
   },
   {
-    "objectID": "03_Inference.html#exercise-3.4",
-    "href": "03_Inference.html#exercise-3.4",
-    "title": "Inference",
-    "section": "Exercise 3.4",
-    "text": "Exercise 3.4\nConsider the following model:\n\n\\[\n\\log(scrap)=\\beta_0+\\beta_1 hrsemp + \\beta_2 \\log(sales)+\\beta_3 \\log(employ)+u\n\\]\n\nwhere hrsemp is annual hours of training per employee, sales is annual firm sales (in dollars), and employ is the number of firm employees."
+    "objectID": "theory_time_series.html#weakly-dependent-time-series",
+    "href": "theory_time_series.html#weakly-dependent-time-series",
+    "title": "Time Series 3",
+    "section": "Weakly dependent Time Series",
+    "text": "Weakly dependent Time Series\n\n\n\n\n\n\nImportant\n\n\nA stationary time series process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) is said to be weakly dependent if \\(x_t\\) and \\(x_{t+h}\\) are “almost independent” as \\(h\\rightarrow\\infty\\).\n\n\n\n\nWe could say that intuitively a time series is weakly dependent if the correlation between \\(x_t\\) and \\(x_{t+h}\\) gets smaller and smaller as \\(h\\) increases.\n\nThe definition is vague, because no good and rigorous mathematical definition covers all the cases that can be of interest. There are many specific forms of weak dependence, but those are beyond the scope of this course."
   },
   {
-    "objectID": "03_Inference.html#ex-3.4-questions",
-    "href": "03_Inference.html#ex-3.4-questions",
-    "title": "Inference",
-    "section": "Exercise 3.4",
-    "text": "Exercise 3.4\n\nShow that the population model can also be written as\n\n\\[\n\\log(scrap)=\\beta_0+\\beta_1 hrsemp + \\beta_2 \\log(sales/employ)+\\theta_3 \\log(employ)+u\n\\]\n\nwhere \\(\\theta_3=\\beta_2+\\beta_3\\)\nInterpret the null hypothesis \\(H_0: \\theta_3=0\\).\n\n\n\nsubtract and add \\(\\beta_2\\log(employ)\\) and then you get the result.\n\\(H_0: \\theta_3=0\\) can be written as \\(\\beta_2+\\beta_3=0\\) or \\(\\beta_2=-\\beta_3\\), that is under the null hypothesis the effects cancel out, or are symmetric."
+    "objectID": "theory_time_series.html#weakly-dependent-time-series-1",
+    "href": "theory_time_series.html#weakly-dependent-time-series-1",
+    "title": "Time Series 3",
+    "section": "Weakly dependent Time Series",
+    "text": "Weakly dependent Time Series\n\n\n\n\n\n\nImportant\n\n\nA stochastic process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) is said to be asymtotically uncorrelated if\n\\[Corr(x_t,x_{t+h})\\underset{h\\rightarrow\\infty}{\\rightarrow}0\\]\n\n\n\nThis is basically how we can characterize weakly dependnece.\n\nWhy is this important? Well, essentially it replaces the assumption of random sampling in implying that the law of large numbers LLN and hte central limit theorem CLT hold. Themost well-known CLT for time series data requires stationarity and some form of weak dependence."
   },
   {
-    "objectID": "03_Inference.html#ex-3.4-questions2",
-    "href": "03_Inference.html#ex-3.4-questions2",
-    "title": "Inference",
-    "section": "Exercise 3.4",
-    "text": "Exercise 3.4\n\nUsing 43 observations, you estimate the original equation:\n\n\\[\n\\widehat{\\log(scrap)}=\\underset{(4.57)}{11.74}+\\underset{(0.019)}{0.043} hrsemp - \\underset{(0.370)}{0.951}\\log(sales) + \\underset{(0.360)}{0.992}\\log(employ)\n\\]\n\nand when the second equation is estimated, we obtain:\n\n\\[\n\\widehat{\\log(scrap)}=\\underset{(4.57)}{11.74}+\\underset{(0.019)}{0.043} hrsemp - \\underset{(0.370)}{0.951}\\log(sales/employ) + \\underset{(0.205)}{0041}\\log(employ)\n\\]\n\nWith \\(R^2=0.310\\) for both regressions. Test if the effect of annual firm sales (in USD) on scrap rates is the symmetric of the effect of the number of firm employees on scrap rates.\n\nt-student\n\n\\(H_0:\\theta_3=0\\) and \\(H_a: \\theta_3\\neq 0\\). For \\(\\alpha=5\\%\\) and \\(dof=43-3-1=39\\) the critical value \\(t^c=2.023\\). In this case \\(t=\\frac{0.041}{0.205}=0.2\\). Because \\(t&lt;t^c\\) we fail to reject \\(H_0\\) at 5%."
+    "objectID": "theory_time_series.html#moving-average-process",
+    "href": "theory_time_series.html#moving-average-process",
+    "title": "Time Series 3",
+    "section": "Moving average process",
+    "text": "Moving average process\nThe moving average process is an example of a weakly dependent process:\n\\[x_t = e_t + \\alpha_1 e_{t-1},\\quad t\\in\\mathbb{N}\\]\nwhere \\(\\{e_t\\}_{t\\in\\mathbb{N}}\\) is an iid sequence with zero mean and variance \\(\\sigma_e^2\\). In particular, this process is called a moving average proces of order one MA(1)\n\nWe can see that \\(x_t\\) is a weighted avreage of \\(e_t\\) and \\(e_{t-1}\\), in the next period we drop \\(x_{t-1}\\) and incorporate \\(e_{t+1}\\).\nCheck that MA(1) is weakly dependent:\n\n\\(Cov(x_t,x_{t+1})=\\alpha_1\\sigma_2^2\\) and then it does not depend on \\(t\\).\nIt follows that \\(Corr(x_t,x_{t+1})=\\alpha_1/(1+\\alpha_1^2)\\).\nCheck that \\(x_{t}\\) and \\(x_{t+3}\\) for example is zero.\n\nConclude that given \\(e_t\\) is identically distributed, this can be shown to be actually stationary. Then the LLN and CLT can be applied to this."
   },
   {
-    "objectID": "03_Inference.html#exercise-3.7",
-    "href": "03_Inference.html#exercise-3.7",
-    "title": "Inference",
-    "section": "Exercise 3.7",
-    "text": "Exercise 3.7\n\nWith the goal of evaluating the environmental impact of different management policies of Natural Parks, a study has analyzed data for 28 Natural Parks in country X. The following regression was estimated: \\[\n\\hat{y} = \\underset{(-1.085)}{-12.666}+\\underset{(17.299)}{3.743}x_{1}-\\underset{(-2.164)}{9.614}x_{2}\n\\]\nwhere \\(y\\) is the number of animals and plants in extintion danger in each park, \\(x_1\\) is the number of visits to the park (in thousands), and \\(x_2\\) is the expenditures on nature conservation (in million euro). Consider also that \\(Cov\\left(\\hat{\\beta}_1,\\hat{\\beta}_2\\right)=-0.8835\\). The numbers in parenthesis are t-statistics."
+    "objectID": "theory_time_series.html#autoregressive-processes",
+    "href": "theory_time_series.html#autoregressive-processes",
+    "title": "Time Series 3",
+    "section": "Autoregressive processes",
+    "text": "Autoregressive processes\nConsider now the following process\n\n\n\n\n\n\nImportant\n\n\n##Autoregressive procees of order one AR(1) \\[y_t=\\rho y_{t-1}+e_t,\\quad t\\in\\mathbb{N}\\] with \\(e_t\\) and iid sequence with \\(E[e]=0\\) and \\(V[e]=\\sigma_e^2\\). Let \\(e_t\\) be independent of \\(y_0\\) and \\(E[y_0]=0\\). This is called an autoregressive process of order one AR(1)\nWe need a crucial assumption for the weak dependence of the AR(1) process, which is \\(|\\rho|&lt;1\\). In this case we say \\(\\{y_t\\}\\) is a stable AR(1) process.\n\n\n\n\nTo see that a stable AR(1) is asymptotically uncorrelated, it is useful to assume that the process is covariance stationary. In fact it can generally be shown that \\(\\{y_t\\}\\) is strictly stationary. Then \\(E[y_t]=E[y_{t-1}]\\) and with \\(\\rho\\neq 1\\) this happens only if \\(E[y_t]=0\\). Take the variance of the AR(1) and show that \\(\\sigma_y^2=\\rho^2\\sigma_y^2+\\sigma_e^2\\), solving for \\(\\sigma_y^2\\) you get \\(\\sigma_2^2/(1-\\rho^2)\\).\nShow before that \\(E[y_t]=0\\) by taking expectation on the AR(1)."
   },
   {
-    "objectID": "03_Inference.html#exercise-3.7-1",
-    "href": "03_Inference.html#exercise-3.7-1",
-    "title": "Inference",
-    "section": "Exercise 3.7",
-    "text": "Exercise 3.7\n\nInterpret the parameter estimates.\nKnowing that \\(R^2=0.984\\), test the overall significance of the regression.\nThe director of the Natural Parks association is worried about the number of vists to the parks: “… if not for the nature, at least in financial terms we have to reduce the number of visits, because in order to compensate for an increase of one thousand visitors we have to spend 0.5 million euros more in maintenance”. Comment on this sentence.\n\n\n\nIf visitors increase by 1000 the N of endangered species increases by 3.73 on average ceteris paribus. If maintenance increases by 1 million euros, the number of endangered species decreases by 9.614, on average, ceteris paribus.\n\\(F=\\frac{R^2_{ur}/k}{(1-R^2_{ur})/(n-k-1)}\\sim F_{k,n-k-1}\\) here \\(F=\\frac{0.984/2}{(1-0.984)/(28-2-1)}=768.75\\) Since \\(F&gt;F^c=F_{5\\%,2.25}=3.39\\) we reject \\(H_0\\). The coefficients are jointly statistical significant, or the model is statistical significant.\nWe want to test if 0.5 million euro compensate the impact on the number of endangered species for having 1000 more visits to the park: \\(H_0: -\\beta_1=0.5\\beta_2\\) or \\(H_0=\\beta_1+0.5\\beta_2=0\\). Test for \\(\\hat{\\rho}=\\hat{\\beta}_1+0.5\\hat{\\beta}_2\\): \\(t=\\frac{\\hat{\\rho}}{se(\\hat{\\rho})}=\\frac{3.743-0.5(9.614)}{se(\\hat{\\rho})}\\) \\(se(\\hat{\\rho})=\\sqrt{V(\\hat{\\beta}_1+0.5\\hat{\\beta}_2)}\\) and that is \\(\\sqrt{V(\\hat{\\beta}_1)+0.5^2 V(\\hat{\\beta}_2)+2\\times 0.5Cov(\\hat{\\beta}_1, \\hat{\\beta}_2)}=2.024\\), leading to \\(t=-0.526\\). Thus, we fail to reject \\(H_0\\) as \\(|t|&lt;|t^c|\\), and we have evidence that spending 0.5 million eur in maintenance compensates the impact on the number of endangered species of having 1000 more visitors."
+    "objectID": "theory_time_series.html#autoregressive-processes-1",
+    "href": "theory_time_series.html#autoregressive-processes-1",
+    "title": "Time Series 3",
+    "section": "Autoregressive processes",
+    "text": "Autoregressive processes\nwe can show easily that \\[Corr(y_t,y_{t+h})=\\frac{Cov(y_t,y_{t+h})}{\\sigma_y^2}=\\rho_1^h\\]\nNote that a consequence of this is that for any \\(t\\) \\(Corr(y_t,y_{t+1})=\\rho\\)! and moreover, as \\(|\\rho|&lt;1\\), \\(\\rho^h\\underset{h\\rightarrow\\infty}{\\rightarrow}0\\).\nWe have that the AR(1) process is weakly dependent.\n\nFor that write \\(y_{t+h}=\\rho y_{t+h-1}+e_{t+h}\\). Replace \\(y_{t+h-1}\\) recursively, \\(\\rho(\\rho y_{t+h-2}+e_{t+h-1})+e_{t+h}\\) which equals \\(\\rho^2 y_{t+h-2}+\\rho e_{t+h-1} + e_{t+h}\\) doing it again and again until we get \\(\\rho^{h}y_t + \\rho^{h-1}e_{t+1}+\\dots+\\rho e_{t+h-1}+e_{t+h}\\)\nThen multiply by \\(y_t\\) and take expectation, because \\(E[y]=0\\) this is the covariance, and \\(E[ye]=0\\), so you end up with \\(\\rho ^h \\sigma^y^2\\)."
   },
   {
-    "objectID": "03_Inference.html#app-t-table",
-    "href": "03_Inference.html#app-t-table",
-    "title": "Inference",
-    "section": "t table",
-    "text": "t table\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndf-\\(\\alpha/2\\)\n0.50\n0.25\n0.20\n0.15\n0.10\n0.05\n0.025\n0.01\n0.005\n0.001\n0.0005\n\n\n\n\n1\n0.000\n1.000\n1.376\n1.963\n3.078\n6.314\n12.71\n31.82\n63.66\n318.31\n636.62\n\n\n2\n0.000\n0.816\n1.061\n1.386\n1.886\n2.920\n4.303\n6.965\n9.925\n22.327\n31.599\n\n\n3\n0.000\n0.765\n0.978\n1.250\n1.638\n2.353\n3.182\n4.541\n5.841\n10.215\n12.924\n\n\n4\n0.000\n0.741\n0.941\n1.190\n1.533\n2.132\n2.776\n3.747\n4.604\n7.173\n8.610\n\n\n5\n0.000\n0.727\n0.920\n1.156\n1.476\n2.015\n2.571\n3.365\n4.032\n5.893\n6.869\n\n\n6\n0.000\n0.718\n0.906\n1.134\n1.440\n1.943\n2.447\n3.143\n3.707\n5.208\n5.959\n\n\n7\n0.000\n0.711\n0.896\n1.119\n1.415\n1.895\n2.365\n2.998\n3.499\n4.785\n5.408\n\n\n8\n0.000\n0.706\n0.889\n1.108\n1.397\n1.860\n2.306\n2.896\n3.355\n4.501\n5.041\n\n\n9\n0.000\n0.703\n0.883\n1.100\n1.383\n1.833\n2.262\n2.821\n3.250\n4.297\n4.781\n\n\n10\n0.000\n0.700\n0.879\n1.093\n1.372\n1.812\n2.228\n2.764\n3.169\n4.144\n4.587\n\n\n11\n0.000\n0.697\n0.876\n1.088\n1.363\n1.796\n2.201\n2.718\n3.106\n4.025\n4.437\n\n\n12\n0.000\n0.695\n0.873\n1.083\n1.356\n1.782\n2.179\n2.681\n3.055\n3.930\n4.318\n\n\n13\n0.000\n0.694\n0.870\n1.079\n1.350\n1.771\n2.160\n2.650\n3.012\n3.852\n4.221\n\n\n14\n0.000\n0.692\n0.868\n1.076\n1.345\n1.761\n2.145\n2.624\n2.977\n3.787\n4.140\n\n\n15\n0.000\n0.691\n0.866\n1.074\n1.341\n1.753\n2.131\n2.602\n2.947\n3.733\n4.073\n\n\n16\n0.000\n0.690\n0.865\n1.071\n1.337\n1.746\n2.120\n2.583\n2.921\n3.686\n4.015\n\n\n17\n0.000\n0.689\n0.863\n1.069\n1.333\n1.740\n2.110\n2.567\n2.898\n3.646\n3.965\n\n\n18\n0.000\n0.688\n0.862\n1.067\n1.330\n1.734\n2.101\n2.552\n2.878\n3.610\n3.922\n\n\n19\n0.000\n0.688\n0.861\n1.066\n1.328\n1.729\n2.093\n2.539\n2.861\n3.579\n3.883\n\n\n20\n0.000\n0.687\n0.860\n1.064\n1.325\n1.725\n2.086\n2.528\n2.845\n3.552\n3.850\n\n\n21\n0.000\n0.686\n0.859\n1.063\n1.323\n1.721\n2.080\n2.518\n2.831\n3.527\n3.819\n\n\n22\n0.000\n0.686\n0.858\n1.061\n1.321\n1.717\n2.074\n2.508\n2.819\n3.505\n3.792\n\n\n23\n0.000\n0.685\n0.858\n1.060\n1.319\n1.714\n2.069\n2.500\n2.807\n3.485\n3.768\n\n\n24\n0.000\n0.685\n0.857\n1.059\n1.318\n1.711\n2.064\n2.492\n2.797\n3.467\n3.745\n\n\n25\n0.000\n0.684\n0.856\n1.058\n1.316\n1.708\n2.060\n2.485\n2.787\n3.450\n3.725\n\n\n26\n0.000\n0.684\n0.856\n1.058\n1.315\n1.706\n2.056\n2.479\n2.779\n3.435\n3.707\n\n\n27\n0.000\n0.684\n0.855\n1.057\n1.314\n1.703\n2.052\n2.473\n2.771\n3.421\n3.690\n\n\n28\n0.000\n0.683\n0.855\n1.056\n1.313\n1.701\n2.048\n2.467\n2.763\n3.408\n3.674\n\n\n29\n0.000\n0.683\n0.854\n1.055\n1.311\n1.699\n2.045\n2.462\n2.756\n3.396\n3.659\n\n\n30\n0.000\n0.683\n0.854\n1.055\n1.310\n1.697\n2.042\n2.457\n2.750\n3.385\n3.646\n\n\n40\n0.000\n0.681\n0.851\n1.050\n1.303\n1.684\n2.021\n2.423\n2.704\n3.307\n3.551\n\n\n60\n0.000\n0.679\n0.848\n1.045\n1.296\n1.671\n2.000\n2.390\n2.660\n3.232\n3.460\n\n\n80\n0.000\n0.678\n0.846\n1.043\n1.292\n1.664\n1.990\n2.374\n2.639\n3.195\n3.416\n\n\n100\n0.000\n0.677\n0.845\n1.042\n1.290\n1.660\n1.984\n2.364\n2.626\n3.174\n3.390\n\n\n1000\n0.000\n0.675\n0.842\n1.037\n1.282\n1.646\n1.962\n2.330\n2.581\n3.098\n3.300\n\n\nZ\n0.000\n0.674\n0.842\n1.036\n1.282\n1.645\n1.960\n2.326\n2.576\n3.090\n3.291\n\n\n\n\nBack to Exercise 3.1 Exercise 3.3 Exercise 3.4"
+    "objectID": "theory_time_series.html#random-walk",
+    "href": "theory_time_series.html#random-walk",
+    "title": "Time Series 3",
+    "section": "Random Walk",
+    "text": "Random Walk\nWhat happens if in the AR(1) model \\(|\\rho|\\geq 1\\)? We needed that for weakly dependence…\nSadly, many economic series are characterized with a \\(\\rho = 1\\). Was it all for nothing then?\n\nLet’s see, the model would be something like\n\\[ y_t = y_{t-1}+e_t\\] with a well behaved error term. This process is known as a random walk."
   },
   {
-    "objectID": "00_Statistical_revision.html#introduction-1",
-    "href": "00_Statistical_revision.html#introduction-1",
-    "title": "Statistical Revision",
-    "section": "Introduction",
-    "text": "Introduction\n\n👨‍🏫 Paulo Fagandini\n\n📧 paulo.fagandini@novasbe.pt\n\n📖 Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach"
+    "objectID": "theory_time_series.html#random-walk-1",
+    "href": "theory_time_series.html#random-walk-1",
+    "title": "Time Series 3",
+    "section": "Random Walk",
+    "text": "Random Walk\nLet’s characterize this process, what is \\(E[y_t]\\)?\n\\[y_t=y_{t-1}+e_t\\quad \\Rightarrow\\quad E[y_t]=E[y_0],\\ V[y_t]=\\sigma_e^2 t\\]\nNote the consequences of this! \\(y_0\\) affects all the future values of \\(y\\), and moreover, the best predition for the future is the current value, \\(E[y_{t+h}|y_t]=y_t\\).\nAlso, the variance explodes! It can be shown further that \\[Corr(y_t,y_{t+h})=\\sqrt{\\frac{t}{(t+h)}}\\]\n\nFor expected value, use substitution for \\(y_{t-1}\\) and take expectation, that kills all the \\(e\\)\nFor variance, the same thing, but take variance. Note that \\(V[y_0]=0\\) as it is fixed.\nContast with the prediction in the AR(1) \\(E[y_{t+h}|y_t]=\\rho^h y_t\\), so it goes to zero as \\(h\\) increasese (the unconditional mean of \\(y\\)), and \\(y_t\\) loses importance.\nAlso it is clear that the correlation approaches 1 as \\(h\\rightarrow\\infty\\)."
   },
   {
-    "objectID": "00_Statistical_revision.html#introduction-2",
-    "href": "00_Statistical_revision.html#introduction-2",
-    "title": "Statistical Revision",
-    "section": "Introduction",
-    "text": "Introduction\nAssessment key points:\n\n5 Random Quizzes, total 10%\n1 Midterm, 15%\nEmpirical project, 25% (min grade 8.00)\nExam, 50% (min grade 8.00)\n\n\nResit replaces the Regular Exam, it is not worth 100%. You cannot take resit if you missed the Regular Exam."
+    "objectID": "theory_time_series.html#random-walk-2",
+    "href": "theory_time_series.html#random-walk-2",
+    "title": "Time Series 3",
+    "section": "Random Walk",
+    "text": "Random Walk\nA random walk does not satisfy the requirement of an asymptotically uncorrelated sequence.\nIndeed, a random walk is a special case of what is known as unit root process (so \\(\\rho=1\\) in an AR(1) model).\nRemember that a trending and a highly persisten series are not the same, however many times time series have both features, they are highly persistent and they have a trend. let’s see an exmaple of this."
   },
   {
-    "objectID": "00_Statistical_revision.html#introduction-3",
-    "href": "00_Statistical_revision.html#introduction-3",
-    "title": "Statistical Revision",
-    "section": "Introduction",
-    "text": "Introduction\n\nMedical justifications are not accepted by us. They must be presented directly to the School, which will then inform us of the situation.\nBecause of the random nature of the quizzes, missed quizzes cannot be justified. Since unforeseen circumstances may occur and you might miss one, only the best four (out of five) quiz scores will count toward the final grade."
+    "objectID": "theory_time_series.html#random-walk-with-drift",
+    "href": "theory_time_series.html#random-walk-with-drift",
+    "title": "Time Series 3",
+    "section": "Random walk with drift",
+    "text": "Random walk with drift\nA random walk with drift is a time series process characterized by the following expression:\n\\[ y_t = \\alpha_0 + y_{t-1} + e_t,\\quad t\\in\\mathbb{N}\\]\nLet \\(\\{e_t\\}\\) and \\(y_0\\) satisfy the properties for the normal random walk process model. Now if we iterate as we did previously:\n\\[y_t = \\alpha_0 t + e_t + e_{t-1}+\\dots+e_1+y_0\\] and if \\(y_0=0\\), \\(E[y_t]=\\alpha_0 t\\). That is, the expected value of \\(y_t\\) is growing with \\(t\\) (or decreasing if \\(\\alpha_0&lt;1\\))\n\nNote that \\(E[y_{t+h|y_t}=\\alpha_0 h + y_t]\\) and so the best prediction for \\(y_{t+h}\\) at \\(t\\) is \\(y_t\\) plus the drift \\(\\alpha_0 h\\). The variance suffers no change, as \\(\\alpha\\) is a constant."
   },
   {
-    "objectID": "00_Statistical_revision.html#introduction-4",
-    "href": "00_Statistical_revision.html#introduction-4",
-    "title": "Statistical Revision",
-    "section": "Introduction",
-    "text": "Introduction\nPortability of work projects from previous semesters:\n\nWork projects executed in group cannot be resubmitted.\nWork projects done individually with a grade 12.00 or better can be reutilized in the next 2 semesters. Note, however, that their grade may be modified."
+    "objectID": "theory_time_series.html#references",
+    "href": "theory_time_series.html#references",
+    "title": "Time Series 3",
+    "section": "References",
+    "text": "References\nYou can find these contents and examples in chapter 11, sections 1 and 3 of the book."
   },
   {
-    "objectID": "00_Statistical_revision.html#introduction-5",
-    "href": "00_Statistical_revision.html#introduction-5",
-    "title": "Statistical Revision",
-    "section": "Introduction",
-    "text": "Introduction\nThe course has theory and practical lectures:\n\nTheory lectures cover theory. This will be present in the assessments.\nPractical lectures focuses mostly on applications, which also enter in the assessments.\n\n\nTheory and practical lectures are not substitutes!!\nA typical mistake: Focus only on the practical part; neglect the theory and book. Exam is usually 50%/50% each!"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#random-variables",
-    "href": "00_Statistical_revision.html#random-variables",
-    "title": "Statistical Revision",
-    "section": "Random Variables",
-    "text": "Random Variables\n\n\\(X\\) is a random variable (rv) if it takes on numerical values and has an outcome that is determined by an experiment:\n\nA discrete rv can take on only a finite or countably infinite number of values.\nA continuous rv can take on any real value with zero probability."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#random-variables-1",
-    "href": "00_Statistical_revision.html#random-variables-1",
-    "title": "Statistical Revision",
-    "section": "Random Variables",
-    "text": "Random Variables\n\nA probability distribution is associateed with each rv.\nExamples:\n\nCoin-flipping example: number of heads in 10 flips of a coin\nHeight of a selected student"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#expected-value",
-    "href": "00_Statistical_revision.html#expected-value",
-    "title": "Statistical Revision",
-    "section": "Expected Value",
-    "text": "Expected Value\n\nIf \\(X\\) is a rv, the expected value is a weighted average of all values of \\(X\\)\nThe probability density function (pdf) determines the weights\nLet \\(f(x)\\) denote the pdf of \\(X\\) and \\(X\\) be a discrete random variable over a finite number of values \\(\\{x_1,\\dots,x_n\\}\\) \\[\\mu(X)=E[X]\\equiv \\sum_{i=1}^n f(x_i)x_i\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#expected-value-properties",
-    "href": "00_Statistical_revision.html#expected-value-properties",
-    "title": "Statistical Revision",
-    "section": "Expected Value: Properties",
-    "text": "Expected Value: Properties\n\n\\(E[c]=c\\) for \\(c\\) a constant.\n\\(E\\left[E[X]\\right]=E[X]=\\mu(X)\\)\nFor any \\(a,b\\in\\mathbb{R}\\), \\(E[aX+b]=aE[X]+b\\)\n\\(E[X-\\mu(X)]=0\\)\n\\(E\\left[(a X)^2\\right]=a^2 E[X^2]\\)\n\\(X\\) and \\(Y\\) are independent \\(\\Leftrightarrow\\) \\(E[XY]=E[X]E[Y]\\)"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#expected-value-properties-1",
-    "href": "00_Statistical_revision.html#expected-value-properties-1",
-    "title": "Statistical Revision",
-    "section": "Expected Value: Properties",
-    "text": "Expected Value: Properties\n\nIf \\(\\{a_1,\\dots,a_n\\}\\) are constants and \\(X_1,\\dots,X_n\\) are rvs, then: \\[E\\left[\\sum_{i=1}^n a_i X_i\\right] = \\sum_{i=1}^n a_i E[X_i]\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#variance",
-    "href": "00_Statistical_revision.html#variance",
-    "title": "Statistical Revision",
-    "section": "Variance",
-    "text": "Variance\n\nThe variance of \\(X\\) is a measure of the dispersion of the distribution\nLet \\(\\mu_X=E[X]\\). Then the variance is the expected of the squared deviation from the mean: \\[\\sigma_X^2=V[X]=E\\left[(X-\\mu_X)^2\\right]\\]\nNotice that: \\[ E[(X-\\mu_X)^2]=E\\left[X^2\\right]-\\mu_X^2\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#standard-deviation",
-    "href": "00_Statistical_revision.html#standard-deviation",
-    "title": "Statistical Revision",
-    "section": "Standard Deviation",
-    "text": "Standard Deviation\n\nThe square root of \\(V[X]\\) is the standard deviation of \\(X\\): \\[\\sigma_X=sd(X)\\equiv \\sqrt{V[X]}\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#the-variance-properties",
-    "href": "00_Statistical_revision.html#the-variance-properties",
-    "title": "Statistical Revision",
-    "section": "The variance: Properties",
-    "text": "The variance: Properties\n\nFor any constant \\(c\\), \\(V[c]=0\\)\nFor \\(a,b\\) constants, and \\(X\\) a rv, \\(V[aX+b]=a^2V[X]\\)\n\\(V[X+Y]=V[X]+V[Y]+2Cov[X,Y]\\)\n\\(V[X-Y]=V[X]+V[Y]-2Cov[X,Y]\\)\n\\(X\\) and \\(Y\\) independent \\(\\Leftrightarrow\\) \\(V[X\\pm Y]=V[X]+V[Y]\\)"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#the-covariance",
-    "href": "00_Statistical_revision.html#the-covariance",
-    "title": "Statistical Revision",
-    "section": "The Covariance",
-    "text": "The Covariance\n\nConcerns the relationship between two variables describing a population\nLet \\(\\mu_X=E[X]\\) and \\(\\mu_Y=E[Y]\\) with \\(X\\) and \\(Y\\) some rvs. \\[\n\\begin{aligned}\n  \\sigma_{XY}=Cov(X,Y)&\\equiv E\\left[(X-\\mu_X)(Y-\\mu_Y)\\right]\\\\\n  &=E[XY]-\\mu_X\\mu_Y\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#the-covariance-properties",
-    "href": "00_Statistical_revision.html#the-covariance-properties",
-    "title": "Statistical Revision",
-    "section": "The Covariance: Properties",
-    "text": "The Covariance: Properties\n\nIf \\(X\\) and \\(Y\\) are independent, then \\(Cov(X,Y)=0\\)\nFor any constants \\(a_1,b_1\\) and \\(a_2,b_2\\): \\[Cov(a_1 X+b_1,a_2 Y+b_2)=a_1a_2Cov(X,Y)\\]\nCauchy-Schwartz Inequality: \\[|Cov(X,Y)|\\leq \\sigma_X \\sigma_Y\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#the-correlation-coefficient",
-    "href": "00_Statistical_revision.html#the-correlation-coefficient",
-    "title": "Statistical Revision",
-    "section": "The correlation coefficient",
-    "text": "The correlation coefficient\n\nThe covariance between two random variables depends on the units of measurement.\nThe correlation coefficient overcomes this issue:\\[\\rho_{XY}=Corr(X,Y)\\equiv \\frac{\\sigma_{XY}}{\\sigma_X\\sigma_Y}=\\]\nSince \\(\\sigma_X\\) and \\(\\sigma_Y\\) are positive, then \\(Cov(X,Y)\\) and \\(Corr(X,Y)\\) have the same sign.\n\\(Corr(X,Y)=0\\) \\(\\Leftrightarrow\\) \\(Cov(X,Y)=0\\)"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#the-correlation-coefficient-1",
-    "href": "00_Statistical_revision.html#the-correlation-coefficient-1",
-    "title": "Statistical Revision",
-    "section": "The correlation coefficient",
-    "text": "The correlation coefficient\n\n\\(-1\\leq Corr(X,Y)\\leq 1\\)\n\n\\(Corr(X,Y)=Cov(X,Y)=0\\ \\Rightarrow\\ \\) \\(X\\) and \\(Y\\) are independent.\n\\(Corr(X,Y)=1\\), then \\(X\\) and \\(Y\\) are perfectly positively correlated.\n\\(Corr(X,Y)=-1\\), then \\(X\\) and \\(Y\\) are perfectly negatively correlated\n\nFor any constants \\(a_1, b_1, a_2, b_2\\) with \\(a_1\\neq 0\\) and \\(a_2\\neq 0\\):\\[Corr(a_1X+b_1,a_2 Y + b_2)=\\frac{a_1 a_2}{|a_1 a_2|} Corr(X,Y)\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs",
-    "href": "00_Statistical_revision.html#variance-of-sums-of-rvs",
-    "title": "Statistical Revision",
-    "section": "Variance of Sums of RVs",
-    "text": "Variance of Sums of RVs\n\nFor any constants \\(a\\) and \\(b\\): \\[V[aX+bY]=a^2V[X]+b^2V[Y]=2ab Cov(X,Y)\\]\nIf \\(X\\) and \\(Y\\) are uncorrelated, \\[V[X\\pm Y]=V[X]+V[Y]\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
-    "href": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
-    "title": "Statistical Revision",
-    "section": "Variance of Sums of RVs",
-    "text": "Variance of Sums of RVs\nGeneralizing, * Let \\(\\{X_1,\\dots,X_n\\}\\) be pairwise uncorrelated rvs and \\(\\{a_1,\\dots,a_n\\}\\) constants, then:\\[V\\left[\\sum_{i=1}^n a_i X_i\\right]=\\sum_{i=1}^n a_i^2 V[X_i] \\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#conditional-expectation",
-    "href": "00_Statistical_revision.html#conditional-expectation",
-    "title": "Statistical Revision",
-    "section": "Conditional Expectation",
-    "text": "Conditional Expectation\n\nFor any function \\(c(X)\\) \\(E[c(X)|X=x]=c(X)\\)\nFor any functions \\(a(X)\\) and \\(b(X)\\):\\[E[a(x)Y+b(X)|X]=a(X)E[Y|X]+b(X)\\]\nIf \\(X\\) and \\(Y\\) are independent, then \\(E[Y|X]=E[Y]\\)."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#conditional-expectation-1",
-    "href": "00_Statistical_revision.html#conditional-expectation-1",
-    "title": "Statistical Revision",
-    "section": "Conditional Expectation",
-    "text": "Conditional Expectation\n\n\\(E\\left[E[Y|X]\\right]=E[Y]\\)\n\\(E[Y|X]=E\\left[E[Y|X,Z]|X\\right]\\)\n\\(E[Y|X]=E[X]\\) then \\(Cov(X,Y)=Corr(X,Y)=0\\)"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#conditional-variation",
-    "href": "00_Statistical_revision.html#conditional-variation",
-    "title": "Statistical Revision",
-    "section": "Conditional Variation",
-    "text": "Conditional Variation\n\n\\(V[Y|X=x]=E[Y^2|X=x]-\\left[E[Y|X=x]^2\\right]\\)\nIf \\(X\\) and \\(Y\\) are independent, then \\(V[Y|X]=V[Y]\\)."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#vector-operations",
-    "href": "00_Statistical_revision.html#vector-operations",
-    "title": "Statistical Revision",
-    "section": "Vector Operations",
-    "text": "Vector Operations\nLet \\(v\\) and \\(u\\) be \\(n\\times 1\\) vectors:\n\nFor \\(a\\in\\mathbb{R}\\), \\((av)_i=a v_i\\).\n\\((v+u)_i=v_i+u_i\\).\n\\(v^T\\) is a \\(1\\times n\\) vector\n\\(v^T v = \\sum_{i=1}^n v_i^2\\)\n\\(v^T u = u^T v = \\sum_{i=1}^n u_i v_u\\). This is crucial, it is a linear combination of the elements of \\(v\\) or \\(u\\)."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#vector-operations-1",
-    "href": "00_Statistical_revision.html#vector-operations-1",
-    "title": "Statistical Revision",
-    "section": "Vector Operations",
-    "text": "Vector Operations\nLet \\(1_n\\) be a vector of 1, of size \\(n\\times 1\\), then:\n\nFor \\(a\\in\\mathbb{R}\\), \\((a 1_n)_i=a\\)\n\\(v^T 1_n = \\sum_{i=1}^n v_i\\)"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#system-of-equations",
-    "href": "00_Statistical_revision.html#system-of-equations",
-    "title": "Statistical Revision",
-    "section": "System of equations",
-    "text": "System of equations\nThe system:\n\\[\n\\begin{aligned}\n    y_{1}&=&\\beta_0 &+& \\beta_1 x_1 &+& u_1\\\\\n    y_{2}&=&\\beta_0 &+& \\beta_1 x_2 &+& u_2\\\\\n    \\vdots &=& \\vdots &+& \\vdots &+& \\vdots \\\\\n    y_{n}&=& \\beta_0 &+& \\beta_1 x_n &+& u_n\n\\end{aligned}\n\\]\nIs equivalent to \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\)."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#matrix-multiplication",
-    "href": "00_Statistical_revision.html#matrix-multiplication",
-    "title": "Statistical Revision",
-    "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\nIf you have a matrix \\(M\\) of size \\(m\\times n\\), then it can be:\n\npre multiplied by a matrix or vector, as long as it has \\(m\\) columns.\npost multiplied by a matrix or vector, as long as it has \\(n\\) rows."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#matrix-multiplication-1",
-    "href": "00_Statistical_revision.html#matrix-multiplication-1",
-    "title": "Statistical Revision",
-    "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\nSay \\(A=\\begin{pmatrix}a_{11} & a_{12}\\\\ a_{21} & a_{22}\\end{pmatrix}\\) and \\(B=\\begin{pmatrix}b_{11} & b_{12}\\\\ b_{21} & b_{22}\\end{pmatrix}\\), we have that\n\\[\nA\\times B = \\begin{pmatrix}a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22}\\\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\\end{pmatrix}\n\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#matrix-multiplication-2",
-    "href": "00_Statistical_revision.html#matrix-multiplication-2",
-    "title": "Statistical Revision",
-    "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\nMore generally, the element \\((i,j)\\) of the matrix multiplication \\(A\\) of size \\(n_a\\times T\\), and \\(B\\) of size \\(T\\times m_b\\) is:\n\\[\\left[AB\\right]_{ij}=\\sum_{q=1}^m a_{im}b_{mj}\\]\nOr the sum of the products of the elements of the \\(i^{th}\\) row of \\(A\\) with the elements of the \\(j^{th}\\) column of \\(B\\). Better, a linear combination of the elements of the \\(i^{th}\\) row of \\(A\\), or a linear combination of the \\(j^{th}\\) column of \\(B\\)."
-  },
-  {
-    "objectID": "00_Statistical_revision.html#system-of-equations-1",
-    "href": "00_Statistical_revision.html#system-of-equations-1",
-    "title": "Statistical Revision",
-    "section": "System of equations",
-    "text": "System of equations\nThe system of equations \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\) can be rewritten as:\n\\[Y = \\begin{pmatrix}1_n & X\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix} + u\\]"
-  },
-  {
-    "objectID": "00_Statistical_revision.html#system-of-equations-2",
-    "href": "00_Statistical_revision.html#system-of-equations-2",
-    "title": "Statistical Revision",
-    "section": "System of equations",
-    "text": "System of equations\nIf we rename \\(X\\) as the matrix \\(\\begin{pmatrix}1_n & X\\end{pmatrix}\\) and we call \\(\\beta=\\begin{pmatrix}\\beta_0\\\\ \\beta_1\\end{pmatrix}\\) we have that the system can be written as: \\[Y=X\\beta+u\\]\nWhere \\(X\\) is now a matrix size \\(n\\times (k+1)\\), where \\(n\\) will be the number of observations, and \\(k\\) the number of variables we use to explain \\(Y\\) (we will see in the future that we can have more than 1 variable \\(X\\)). In any case, this representation encompases all the cases!"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "temp",
+    "objectID": "materials.html",
+    "href": "materials.html",
+    "title": "Material",
     "section": "",
-    "text": "This website has the materials for the practical lectures of Econometrics at the bachelor programs at Nova SBE."
+    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\n\nR Extra\nDummies and IV\nR notebook"
   },
   {
-    "objectID": "renv.html",
-    "href": "renv.html",
-    "title": "renv Terminal Cheat Sheet",
+    "objectID": "materials.html#slides",
+    "href": "materials.html#slides",
+    "title": "Material",
     "section": "",
-    "text": "A quick reference for using renv (R package management) from the terminal without RStudio.\n\n\n# Start R in your project directory\nR\n\n# In R console, initialize renv\nrenv::init()\n\n# Exit R\nquit()\n\n\n\n# Activate environment (if not auto-activated)\nR -e \"renv::activate()\"\n\n# Install packages (in R console)\nR\n&gt; install.packages(\"package_name\")\n&gt; renv::snapshot()  # Save current state\n&gt; quit()\n\n# Restore environment from lockfile\nR -e \"renv::restore()\"\n\n\n\nRun these commands in the R console:\nrenv::status()      # Check project status\nrenv::snapshot()    # Update lockfile with current packages\nrenv::restore()     # Install packages from lockfile\nrenv::clean()       # Remove unused packages\nrenv::deactivate()  # Deactivate renv for this session\nrenv::activate()    # Reactivate renv\n\n\n\nyour_project/\n├── renv.lock        # Package versions (like requirements.txt)\n├── .Rprofile        # Auto-activates renv\n└── renv/            # Private library directory\n    ├── library/     # Project-specific packages\n    └── settings.dcf # renv settings\n\n\n\n\nrenv.lock: Contains exact package versions and dependencies (commit to git)\n.Rprofile: Auto-activates renv when starting R in the project directory\nrenv/: Private library where packages are stored\n\n\n\n\n# 1. Create new project\nmkdir my_r_project && cd my_r_project\n\n# 2. Initialize renv\nR -e \"renv::init()\"\n\n# 3. Install packages\nR -e \"install.packages(c('dplyr', 'ggplot2')); renv::snapshot()\"\n\n# 4. Work on your project with any editor\n# Your R scripts will use the renv environment automatically\n\n# 5. Share project - others run:\nR -e \"renv::restore()\"\n\n\n\n\nAlways run renv::snapshot() after installing new packages\nThe .Rprofile file automatically activates renv when you start R\nUse renv::status() to check if packages need to be snapshotted\nShare renv.lock with collaborators (like requirements.txt in Python)\nKeep renv/ folder out of version control (add to .gitignore)\nUse renv::clean() periodically to remove unused packages\n\n\n\n\n# If renv isn't working properly\nrenv::diagnostics()\n\n# Reset renv (use with caution)\nrenv::init(force = TRUE)\n\n# Check renv version\nrenv::version()"
+    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\n\nR Extra\nDummies and IV\nR notebook"
   },
   {
-    "objectID": "renv.html#basic-setup",
-    "href": "renv.html#basic-setup",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "# Start R in your project directory\nR\n\n# In R console, initialize renv\nrenv::init()\n\n# Exit R\nquit()"
+    "objectID": "R.html#the-first-thing-to-do",
+    "href": "R.html#the-first-thing-to-do",
+    "title": "Regression with R",
+    "section": "The first thing to do",
+    "text": "The first thing to do\nThe first thing to do is to clean the environment\n\nrm(list = ls())\n\n\nUse with CAUTION: this will delete everything in your environment"
   },
   {
-    "objectID": "renv.html#daily-workflow",
-    "href": "renv.html#daily-workflow",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "# Activate environment (if not auto-activated)\nR -e \"renv::activate()\"\n\n# Install packages (in R console)\nR\n&gt; install.packages(\"package_name\")\n&gt; renv::snapshot()  # Save current state\n&gt; quit()\n\n# Restore environment from lockfile\nR -e \"renv::restore()\""
+    "objectID": "R.html#load-libraries",
+    "href": "R.html#load-libraries",
+    "title": "Regression with R",
+    "section": "Load libraries",
+    "text": "Load libraries\nYou do not need to this immediately, but it is good practice. For this lecture, we need to load the following packages:\n\nlibrary(tidyverse)\nlibrary(stargazer)\nlibrary(skimr)\nlibrary(caret)\nlibrary(xtable)\nlibrary(GGally)\nlibrary(ggthemes)\nlibrary(car)"
   },
   {
-    "objectID": "renv.html#key-commands",
-    "href": "renv.html#key-commands",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "Run these commands in the R console:\nrenv::status()      # Check project status\nrenv::snapshot()    # Update lockfile with current packages\nrenv::restore()     # Install packages from lockfile\nrenv::clean()       # Remove unused packages\nrenv::deactivate()  # Deactivate renv for this session\nrenv::activate()    # Reactivate renv"
+    "objectID": "R.html#install-libraries",
+    "href": "R.html#install-libraries",
+    "title": "Regression with R",
+    "section": "Install libraries",
+    "text": "Install libraries\nIf you fail to load one of these libraries, you can install it with:\n\ninstall.packages{'tidyverse'}\n\nFor example, with this we install the library tidyverse"
   },
   {
-    "objectID": "renv.html#file-structure-created",
-    "href": "renv.html#file-structure-created",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "your_project/\n├── renv.lock        # Package versions (like requirements.txt)\n├── .Rprofile        # Auto-activates renv\n└── renv/            # Private library directory\n    ├── library/     # Project-specific packages\n    └── settings.dcf # renv settings"
+    "objectID": "R.html#set-working-directory",
+    "href": "R.html#set-working-directory",
+    "title": "Regression with R",
+    "section": "Set working directory",
+    "text": "Set working directory\nIn here, we will tell R where our files (data) are, and by default, where it will store any file we might want to export (images for example.)\n\nsetwd(\"/the/path/to/your/files\")"
   },
   {
-    "objectID": "renv.html#important-files",
-    "href": "renv.html#important-files",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "renv.lock: Contains exact package versions and dependencies (commit to git)\n.Rprofile: Auto-activates renv when starting R in the project directory\nrenv/: Private library where packages are stored"
+    "objectID": "R.html#load-and-work-data",
+    "href": "R.html#load-and-work-data",
+    "title": "Regression with R",
+    "section": "Load and work data",
+    "text": "Load and work data\n\nDM &lt;- read.csv('DirectMarketing.csv')\nskim_without_charts(DM)\nDM$History[is.na(DM$History)] &lt;- \"No past purchases\"\nDM$PastPurchases &lt;- ifelse(DM$History == \"No past purchases\",\n    \"No past purchases\", \"Past purchases\")"
   },
   {
-    "objectID": "renv.html#common-workflow-example",
-    "href": "renv.html#common-workflow-example",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "# 1. Create new project\nmkdir my_r_project && cd my_r_project\n\n# 2. Initialize renv\nR -e \"renv::init()\"\n\n# 3. Install packages\nR -e \"install.packages(c('dplyr', 'ggplot2')); renv::snapshot()\"\n\n# 4. Work on your project with any editor\n# Your R scripts will use the renv environment automatically\n\n# 5. Share project - others run:\nR -e \"renv::restore()\""
+    "objectID": "R.html#quick-summary-statistics-table",
+    "href": "R.html#quick-summary-statistics-table",
+    "title": "Regression with R",
+    "section": "Quick summary statistics table",
+    "text": "Quick summary statistics table\n\nstargazer(as.data.frame(DM), type = \"text\", title=\"Descriptive stats\")\nstargazer(as.data.frame(DM), type = \"html\",\n    title=\"Descriptive stats\", out=\"DS.html\")"
   },
   {
-    "objectID": "renv.html#tips-best-practices",
-    "href": "renv.html#tips-best-practices",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "Always run renv::snapshot() after installing new packages\nThe .Rprofile file automatically activates renv when you start R\nUse renv::status() to check if packages need to be snapshotted\nShare renv.lock with collaborators (like requirements.txt in Python)\nKeep renv/ folder out of version control (add to .gitignore)\nUse renv::clean() periodically to remove unused packages"
+    "objectID": "R.html#if-you-have-non-numeric-data",
+    "href": "R.html#if-you-have-non-numeric-data",
+    "title": "Regression with R",
+    "section": "If you have non-numeric data",
+    "text": "If you have non-numeric data\n\nDM_aux &lt;- dummyVars(\" ~ .\", data = DM)\nDM_num &lt;- data.frame(predict(DM_aux, newdata = DM))\nstargazer(as.data.frame(DM_num), type = \"text\", \n          title=\"Descriptive stats: all numeric data\")\n\nstargazer(as.data.frame(DM_num), type = \"html\", \n          title=\"Descriptive stats: all numeric data\",\n          out=\"DS2.html\")"
   },
   {
-    "objectID": "renv.html#troubleshooting",
-    "href": "renv.html#troubleshooting",
-    "title": "renv Terminal Cheat Sheet",
-    "section": "",
-    "text": "# If renv isn't working properly\nrenv::diagnostics()\n\n# Reset renv (use with caution)\nrenv::init(force = TRUE)\n\n# Check renv version\nrenv::version()"
+    "objectID": "R.html#correlation-matrix",
+    "href": "R.html#correlation-matrix",
+    "title": "Regression with R",
+    "section": "Correlation matrix",
+    "text": "Correlation matrix\n\ncorrDM = cor(DM[,c(\"AmountSpent\", \"Salary\", \"Catalogs\", \"Children\")])\n\nstargazer(corrDM, title=\"Correlation Matrix\", \n          digits = 2, type=\"text\")\n\nstargazer(corrDM, title=\"Correlation Matrix\", \n          digits = 2, type=\"html\",\n          out=\"corr.html\")"
+  },
+  {
+    "objectID": "R.html#histogram",
+    "href": "R.html#histogram",
+    "title": "Regression with R",
+    "section": "Histogram",
+    "text": "Histogram\n\nggplot(data = DM, aes(x = AmountSpent)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Salary)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Catalogs)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Children)) +\n    geom_histogram()"
+  },
+  {
+    "objectID": "R.html#data-distribution",
+    "href": "R.html#data-distribution",
+    "title": "Regression with R",
+    "section": "Data distribution",
+    "text": "Data distribution\n\nggplot(data = DM, aes(x = factor(Gender), y = AmountSpent)) +\n    geom_boxplot() + \n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(Location), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(Age), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(History), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))"
+  },
+  {
+    "objectID": "R.html#scatterplots",
+    "href": "R.html#scatterplots",
+    "title": "Regression with R",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nggplot(data = DM, aes(x = Salary, y = AmountSpent)) +\n    geom_point() + \n    stat_smooth(method = lm) +\n    theme(text = element_text(size = 18))"
+  },
+  {
+    "objectID": "R.html#linear-regression",
+    "href": "R.html#linear-regression",
+    "title": "Regression with R",
+    "section": "Linear Regression",
+    "text": "Linear Regression\n\nlm1 &lt;- lm(AmountSpent ~ Salary, data = DM)\n\nstargazer(lm1, type = \"text\", no.space = TRUE, digits=3, \n          title = \"Impact of Salary on Amount Spent\")\n\nstargazer(lm1, type = \"html\", no.space = TRUE, digits=3, \n          title = \"Impact of Salary on Amount Spent\",\n          out=\"SLR.html\")"
+  },
+  {
+    "objectID": "R.html#work-with-the-coefficients",
+    "href": "R.html#work-with-the-coefficients",
+    "title": "Regression with R",
+    "section": "Work with the coefficients",
+    "text": "Work with the coefficients\n\nlm1.coeffs &lt;- coefficients(lm1)\nlm1.coeffs\n\nlm1.coeffs[1] + lm1.coeffs[2]*100000"
+  },
+  {
+    "objectID": "R.html#predicted-values-haty-hatu",
+    "href": "R.html#predicted-values-haty-hatu",
+    "title": "Regression with R",
+    "section": "Predicted values (\\(\\hat{y}\\), \\(\\hat{u}\\))",
+    "text": "Predicted values (\\(\\hat{y}\\), \\(\\hat{u}\\))\nThis add a new variable to our original dataset:\n\nDM$lm1_y = predict(lm1)\nDM$lm1_u = residuals(lm1)"
+  },
+  {
+    "objectID": "R.html#linear-regression-with-more-htan-one-variable",
+    "href": "R.html#linear-regression-with-more-htan-one-variable",
+    "title": "Regression with R",
+    "section": "Linear regression with more htan one variable",
+    "text": "Linear regression with more htan one variable\nYou can store the models, and estimate them later.\n\nm1 &lt;- AmountSpent ~ Salary \nm2 &lt;- AmountSpent ~ Salary + Catalogs + Children \nm3 &lt;- AmountSpent ~ Salary + Catalogs + Children +\n    Gender + History + Location"
+  },
+  {
+    "objectID": "R.html#estimate-models",
+    "href": "R.html#estimate-models",
+    "title": "Regression with R",
+    "section": "Estimate models",
+    "text": "Estimate models\n\nlm.spend1 &lt;- lm(m1, data = DM)\nlm.spend2 &lt;- lm(m2, data = DM)\nlm.spend3 &lt;- lm(m3, data = DM)"
+  },
+  {
+    "objectID": "R.html#output-table-with-models-1-to-3",
+    "href": "R.html#output-table-with-models-1-to-3",
+    "title": "Regression with R",
+    "section": "Output table with Models 1 to 3",
+    "text": "Output table with Models 1 to 3\n\nstargazer(lm.spend1, lm.spend2, lm.spend3, \n          header = FALSE , type = \"text\", column.sep.width = \"1pt\", \n          no.space = TRUE, df = FALSE, digits = 2, \n          title = \"Regression Analysis - Determinants of Amount Spent\")\n\nstargazer(lm.spend1, lm.spend2, lm.spend3, \n          header = FALSE , type = \"html\", column.sep.width = \"1pt\", \n          no.space = TRUE, df = FALSE, digits = 2, \n          title = \"Regression Analysis - Determinants of Amount Spent\",\n          out=\"MLR.html\")"
+  },
+  {
+    "objectID": "R.html#running-some-tests-on-the-models",
+    "href": "R.html#running-some-tests-on-the-models",
+    "title": "Regression with R",
+    "section": "Running some tests on the models:",
+    "text": "Running some tests on the models:\n\nlinearHypothesis(lm.spend2, c(\"Salary=0\"))\nlinearHypothesis(lm.spend2, c(\"4*Catalogs=-Children\"))\nlinearHypothesis(lm.spend2, c(\"Catalogs=0\",\"Children=0\"))"
   },
   {
     "objectID": "09_Time Series.html#exercises",
@@ -616,6 +504,349 @@
     "text": "Exercise 99.9\n\n\nCov(temp, U): 0.033\n\n\nCov(price, temp): 16.006\n\n\nCov(sales, temp): -128.015\n\n\nSo the instrument is exogenous and relevant!\n\\[\\hat{\\beta}_{iv}=\\frac{-128.015}{16.006}=-7.998\\]"
   },
   {
+    "objectID": "02_MLR_review.html",
+    "href": "02_MLR_review.html",
+    "title": "Review for lecture SLR",
+    "section": "",
+    "text": "The original equation:\n\\(y_i=\\beta_0+\\beta_1 x_i + u_i\\)\nThis holds for \\(i=1,2,...,n\\) therefore you can write\n\\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\beta_0\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ \\vdots \\\\ 1\\end{pmatrix} +\n\\beta_1\\begin{pmatrix}x_1 \\\\ x_2 \\\\ x_3 \\\\ \\vdots \\\\ x_n\\end{pmatrix} +\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nThis is the same as: \\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\begin{pmatrix} 1 & x_1 \\\\ 1 & x_2 \\\\ 1 & x_3 \\\\ \\vdots \\\\ 1 & x_n\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix}+\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nOn the order of appearece, this is equivalent to the following expression:\n\\[\nY = X\\beta + u\n\\]\nWhere \\(Y\\) and \\(u\\) are the first and last vectors, \\(X\\) is the matrix and \\(\\beta\\) is the vector of \\(\\beta\\)s.\nWhy is this useful?\nRemember that the sum of squares is the inner product \\(&lt;u,u&gt;=u'u=\\sum u_i^2\\). Then:\n\\[\n\\begin{aligned}\nu &= Y - X\\beta\\\\\n\\sum u_i^2=u'u &= \\left(Y-X\\beta\\right)'\\left(Y-X\\beta\\right)\\\\\n&= Y'Y - Y'X\\beta - \\beta'X' Y + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nNote that \\(Y'X\\beta\\) has dimension \\(1\\) (\\(1\\times n\\) times \\(n\\times 2\\) times \\(2\\times 1\\)), and also that \\(\\left(Y'X\\beta\\right)'=\\beta' X' Y\\), but a scalar (a vector of dimension 1 is actually a scalar, a number) trasposed is the same number and therefore \\(Y'X\\beta=\\beta'X'Y\\). Finally, we can write:\n\\[\n\\begin{aligned}\n\\sum u^2=u'u&= Y'Y - 2 X'Y\\beta + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nTo minimize the squared residuals, use the first order condition to obtain:\n\\[\n\\begin{aligned}\n-2X'Y + 2X'X\\beta &= 0\\\\\n\\beta = (X'X)^{-1}X'Y\n\\end{aligned}\n\\]\nWhere obviously implies that \\(X'X\\) must have full rank (no linearly dependent columns) to be invertible, which implies \\(X\\) must have no lineraly dependent columns.\n\n\n\n\n\n\nNoneNote about \\(\\frac{\\partial \\beta' X'X\\beta}{\\partial \\beta}\\)\n\n\n\nNote that \\(X\\beta=\\hat{y}\\) and therefore \\(\\beta' X'X\\beta=\\hat{y}'\\hat{y}=\\sum \\hat{y}^2\\) or \\(\\sum(\\beta_0 + \\beta_1 x_1)^2\\). The derivative with respect to \\(\\beta_0\\) is \\(\\sum 2 \\hat{y}\\cdot1\\) and the derivative with respect to \\(\\beta_1\\) is \\(\\sum 2 \\hat{y} x\\). You can factor out the 2, and note that \\(\\begin{pmatrix}1 &x\\end{pmatrix}'\\hat{y} = \\begin{pmatrix}\\sum \\hat{y}\\cdot 1 \\\\ \\sum \\hat{y} x \\end{pmatrix}\\). Finally recall that \\(\\hat{y}=X\\beta\\), and \\(\\begin{pmatrix}1 &x\\end{pmatrix}'=X'\\) to obtain \\(2X'X\\beta\\)."
+  },
+  {
+    "objectID": "02_MLR_review.html#matrixvector-slr",
+    "href": "02_MLR_review.html#matrixvector-slr",
+    "title": "Review for lecture SLR",
+    "section": "",
+    "text": "The original equation:\n\\(y_i=\\beta_0+\\beta_1 x_i + u_i\\)\nThis holds for \\(i=1,2,...,n\\) therefore you can write\n\\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\beta_0\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ \\vdots \\\\ 1\\end{pmatrix} +\n\\beta_1\\begin{pmatrix}x_1 \\\\ x_2 \\\\ x_3 \\\\ \\vdots \\\\ x_n\\end{pmatrix} +\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nThis is the same as: \\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\begin{pmatrix} 1 & x_1 \\\\ 1 & x_2 \\\\ 1 & x_3 \\\\ \\vdots \\\\ 1 & x_n\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix}+\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nOn the order of appearece, this is equivalent to the following expression:\n\\[\nY = X\\beta + u\n\\]\nWhere \\(Y\\) and \\(u\\) are the first and last vectors, \\(X\\) is the matrix and \\(\\beta\\) is the vector of \\(\\beta\\)s.\nWhy is this useful?\nRemember that the sum of squares is the inner product \\(&lt;u,u&gt;=u'u=\\sum u_i^2\\). Then:\n\\[\n\\begin{aligned}\nu &= Y - X\\beta\\\\\n\\sum u_i^2=u'u &= \\left(Y-X\\beta\\right)'\\left(Y-X\\beta\\right)\\\\\n&= Y'Y - Y'X\\beta - \\beta'X' Y + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nNote that \\(Y'X\\beta\\) has dimension \\(1\\) (\\(1\\times n\\) times \\(n\\times 2\\) times \\(2\\times 1\\)), and also that \\(\\left(Y'X\\beta\\right)'=\\beta' X' Y\\), but a scalar (a vector of dimension 1 is actually a scalar, a number) trasposed is the same number and therefore \\(Y'X\\beta=\\beta'X'Y\\). Finally, we can write:\n\\[\n\\begin{aligned}\n\\sum u^2=u'u&= Y'Y - 2 X'Y\\beta + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nTo minimize the squared residuals, use the first order condition to obtain:\n\\[\n\\begin{aligned}\n-2X'Y + 2X'X\\beta &= 0\\\\\n\\beta = (X'X)^{-1}X'Y\n\\end{aligned}\n\\]\nWhere obviously implies that \\(X'X\\) must have full rank (no linearly dependent columns) to be invertible, which implies \\(X\\) must have no lineraly dependent columns.\n\n\n\n\n\n\nNoneNote about \\(\\frac{\\partial \\beta' X'X\\beta}{\\partial \\beta}\\)\n\n\n\nNote that \\(X\\beta=\\hat{y}\\) and therefore \\(\\beta' X'X\\beta=\\hat{y}'\\hat{y}=\\sum \\hat{y}^2\\) or \\(\\sum(\\beta_0 + \\beta_1 x_1)^2\\). The derivative with respect to \\(\\beta_0\\) is \\(\\sum 2 \\hat{y}\\cdot1\\) and the derivative with respect to \\(\\beta_1\\) is \\(\\sum 2 \\hat{y} x\\). You can factor out the 2, and note that \\(\\begin{pmatrix}1 &x\\end{pmatrix}'\\hat{y} = \\begin{pmatrix}\\sum \\hat{y}\\cdot 1 \\\\ \\sum \\hat{y} x \\end{pmatrix}\\). Finally recall that \\(\\hat{y}=X\\beta\\), and \\(\\begin{pmatrix}1 &x\\end{pmatrix}'=X'\\) to obtain \\(2X'X\\beta\\)."
+  },
+  {
+    "objectID": "02_MLR_review.html#mlr",
+    "href": "02_MLR_review.html#mlr",
+    "title": "Review for lecture SLR",
+    "section": "MLR",
+    "text": "MLR\nThis can trivially be generalized to \\(k\\) regressors, just defining \\(X\\) as:\n\\[\n\\begin{aligned}\nX =\n\\begin{pmatrix}\n    1 & x_1^1 & x_2^1 & x_3^1 & \\dots & x_k^1 \\\\\n    1 & x_1^2 & x_2^2 & x_3^2 & \\dots & x_k^2 \\\\\n    \\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\n    1 & x_1^n & x_2^n & x_3^n & \\dots & x_k^n\n\\end{pmatrix}\\quad\\quad\n\\beta =\n\\begin{pmatrix}\n\\beta_0 \\\\ \\beta_1 \\\\ \\beta_2 \\\\ \\beta_3 \\\\ \\vdots \\\\ \\beta_k\n\\end{pmatrix}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "02_MLR_review.html#beta_j-as-a-regression-of-y-on-the-residuals-of-x_j-on-x_-j",
+    "href": "02_MLR_review.html#beta_j-as-a-regression-of-y-on-the-residuals-of-x_j-on-x_-j",
+    "title": "Review for lecture SLR",
+    "section": "\\(\\beta_j\\) as a regression of \\(y\\) on the residuals of \\(x_j\\) on \\(x_{-j}\\)",
+    "text": "\\(\\beta_j\\) as a regression of \\(y\\) on the residuals of \\(x_j\\) on \\(x_{-j}\\)\nLet \\[y=\\beta_0+\\sum \\beta_i x_i + u\\] Running the regression \\(x_j = \\gamma_0 + \\sum_{i\\neq j} \\gamma_i x_i + r_j\\) to obtain \\(r_j = x_j - \\gamma_0-\\sum_{i\\neq j} \\gamma_i x_i\\).\nMultiply the first equation by \\(r_j\\) and sum\n\\[\\sum r_j y = \\sum \\beta_0 r_j + \\sum \\beta_i x_i r_j + \\sum u r_j\\]\nRemember that \\(E[r_j]=0\\) and that \\(r_j\\) is orthogonal to \\(x_{-j}\\) and therefore the previous expression reduces to:\n\\[\\sum r_j y = \\beta_j \\sum  x_j r_j + \\sum u r_j\\]\nRecall that \\(r_j=x_j-\\gamma_0 - \\sum_{i\\neq j} \\gamma_i x_i\\), that is a linear combination of \\(x\\)s, and \\(u\\) is orthogonal to all of them. The constant is dealt with \\(E[u]=0\\).\nThis leaves us with:\n\\[\\sum r_j y = \\beta_j \\sum  x_j r_j\\]\nNow consider the original regression of \\(x_j\\) on \\(x_{-j}\\), multiply both sides by \\(r_j\\) to obtain:\n\\[r_jx_j = \\gamma_0r_j + \\sum_{i\\neq j} \\gamma_i x_i r_j + r_j ^2\\]\nAgain, \\(r_j\\) is orthogonal to all the \\(x_{-j}\\) and therefore the second term would dissapear when adding up. The first term dissapears because \\(E[r_j]=0\\), and therefore summing up on both sides we get:\n\\[\\sum r_j x_j = \\sum r_j^2\\]\nWhich we can replace in the previous equation to obtain:\n\\[\\sum r_j y = \\beta_j \\sum r_j^2\\]\nAnd finally\n\\[\\beta_j = \\frac{\\sum r_j y}{\\sum r_j^2}\\]"
+  },
+  {
+    "objectID": "01_SLR_review.html",
+    "href": "01_SLR_review.html",
+    "title": "Review for lecture SLR",
+    "section": "",
+    "text": "Assume the model:\n\\[ y = \\beta_0 + \\beta_1 x + u\\]\nWith the classical assumptions on \\(u_i\\).\nThe estimators come from minimizing \\(\\sum_i u_i^2\\), for that define isolate \\(u_i\\)\n\\[\n\\begin{aligned}\n    u_i &= y_i-\\beta_0-\\beta_1 x_i\\\\\n    u_i^2 &= (y_i-\\beta_0-\\beta_1 x_i)^2 \\\\\n    \\sum_{i} u_i^2 &= \\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\end{aligned}\n\\]\nThen, the optimization problem becomes:\n\\[\n\\min_{\\beta_0,\\beta_1} F(\\beta_0,\\beta_1)=\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\]\nFrom where we can compute the first order conditions \\(\\partial F/\\partial \\beta_0=0\\) and \\(\\partial F/\\partial \\beta_1=0\\).\n\n\n\\(\\partial F/\\partial \\beta_0=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_0}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i y_i-\\beta_0\\sum_i 1 -\\beta_1 \\sum_i x_i=0 \\\\\n    n\\beta_0= \\sum_i y_i -\\beta_1 \\sum_i x_i\\ &\\Rightarrow\\ \\beta_0 = \\frac{\\sum_i y_i}{n} -\\beta_1 \\frac{\\sum_i x_i}{n}=\\overline{y}-\\beta_1 \\overline{x}\\\\\n    \\beta_0 &= \\overline{y}-\\beta_1 \\overline{x}\n\\end{aligned}\n\\]\nA consequence of this, is that the original regression would be the same (same residuals, same slope) than regressing the deviations of \\(y\\) from its mean on the deviation of \\(x\\) around its mean, without a constant, or in other words, if we center \\(y\\) and \\(x\\) around their means.\n\\[y=\\beta_0+\\beta_1 x + u_i\\ \\Leftrightarrow\\ (y-\\overline{y})=\\beta_1(x-\\overline{x})+u_i\\]\n\n\n\n\\(\\partial F/\\partial \\beta_1=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_1}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\n\\end{aligned}\n\\]\nReplacing \\(\\beta_0\\) and noting that \\(\\sum_i x_i=n\\overline{x}\\):\n\\[\n\\begin{aligned}\n    \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-(\\overline{y}-\\beta_1\\overline{x})n\\overline{x}-\\beta_1 \\sum_i x_i^2=0\\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}+n \\beta_1\\overline{x}^2-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-n\\overline{y}\\overline{x}-\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)=0 \\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}=\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)\\ &\\Rightarrow\\ \\beta_1 = \\frac{\\sum_i x_iy_i-n\\overline{y}\\overline{x}}{\\sum_i x_i^2-n\\overline{x}^2}\n\\end{aligned}\n\\]\nNow note that \\(n\\overline{y}\\overline{x}=\\sum_i y_i\\overline{x}=\\sum_i x_i\\overline{y}=\\sum_i \\overline{x}\\overline{y}\\):\n\\[\n\\begin{aligned}\n\\sum_i x_iy_i-n\\overline{y}\\overline{x}&=\\sum_i x_iy_i-n\\overline{y}\\overline{x}+n\\overline{y}\\overline{x}-n\\overline{y}\\overline{x}\\\\\n\\sum_i x_iy_i-\\sum_i x_i\\overline{y}+\\sum_i y_i\\overline{x}-\\sum_i\\overline{y}\\overline{x}&=\\sum_ix_i(y_i-\\overline{y})-\\sum_i\\overline{x}(y_i-\\overline{y})\\\\\n\\sum_i(x_i-\\overline{x})(y_i-\\overline{y})&=n Cov(X,Y)\n\\end{aligned}\n\\]\nNow,\n\\[\n\\begin{aligned}\n    \\sum_i x_i^2-n\\overline{x}^2 &= \\sum_i x_i^2-n\\overline{x}^2 + n\\overline{x}^2 - n\\overline{x}^2\\\\\n    \\sum_i x_i^2-2 n\\overline{x}^2 + n\\overline{x}^2 &= \\sum_i x_i^2-2 \\sum_i x_i\\overline{x} + \\sum_i\\overline{x}^2\\\\\n    \\sum_i \\left(x_i^2-2 x_i\\overline{x} + \\overline{x}^2\\right) &= \\sum_i \\left(x_i- \\overline{x}\\right)^2 = nV[X]\n\\end{aligned}\n\\]\nFinally \\[ \\beta_1 = \\frac{n Cov(X,Y)}{nV[X]}=\\frac{Cov(X,Y)}{V[X]}\\]"
+  },
+  {
+    "objectID": "01_SLR_review.html#derivation-of-ols-estimators",
+    "href": "01_SLR_review.html#derivation-of-ols-estimators",
+    "title": "Review for lecture SLR",
+    "section": "",
+    "text": "Assume the model:\n\\[ y = \\beta_0 + \\beta_1 x + u\\]\nWith the classical assumptions on \\(u_i\\).\nThe estimators come from minimizing \\(\\sum_i u_i^2\\), for that define isolate \\(u_i\\)\n\\[\n\\begin{aligned}\n    u_i &= y_i-\\beta_0-\\beta_1 x_i\\\\\n    u_i^2 &= (y_i-\\beta_0-\\beta_1 x_i)^2 \\\\\n    \\sum_{i} u_i^2 &= \\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\end{aligned}\n\\]\nThen, the optimization problem becomes:\n\\[\n\\min_{\\beta_0,\\beta_1} F(\\beta_0,\\beta_1)=\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\]\nFrom where we can compute the first order conditions \\(\\partial F/\\partial \\beta_0=0\\) and \\(\\partial F/\\partial \\beta_1=0\\).\n\n\n\\(\\partial F/\\partial \\beta_0=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_0}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i y_i-\\beta_0\\sum_i 1 -\\beta_1 \\sum_i x_i=0 \\\\\n    n\\beta_0= \\sum_i y_i -\\beta_1 \\sum_i x_i\\ &\\Rightarrow\\ \\beta_0 = \\frac{\\sum_i y_i}{n} -\\beta_1 \\frac{\\sum_i x_i}{n}=\\overline{y}-\\beta_1 \\overline{x}\\\\\n    \\beta_0 &= \\overline{y}-\\beta_1 \\overline{x}\n\\end{aligned}\n\\]\nA consequence of this, is that the original regression would be the same (same residuals, same slope) than regressing the deviations of \\(y\\) from its mean on the deviation of \\(x\\) around its mean, without a constant, or in other words, if we center \\(y\\) and \\(x\\) around their means.\n\\[y=\\beta_0+\\beta_1 x + u_i\\ \\Leftrightarrow\\ (y-\\overline{y})=\\beta_1(x-\\overline{x})+u_i\\]\n\n\n\n\\(\\partial F/\\partial \\beta_1=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_1}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\n\\end{aligned}\n\\]\nReplacing \\(\\beta_0\\) and noting that \\(\\sum_i x_i=n\\overline{x}\\):\n\\[\n\\begin{aligned}\n    \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-(\\overline{y}-\\beta_1\\overline{x})n\\overline{x}-\\beta_1 \\sum_i x_i^2=0\\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}+n \\beta_1\\overline{x}^2-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-n\\overline{y}\\overline{x}-\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)=0 \\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}=\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)\\ &\\Rightarrow\\ \\beta_1 = \\frac{\\sum_i x_iy_i-n\\overline{y}\\overline{x}}{\\sum_i x_i^2-n\\overline{x}^2}\n\\end{aligned}\n\\]\nNow note that \\(n\\overline{y}\\overline{x}=\\sum_i y_i\\overline{x}=\\sum_i x_i\\overline{y}=\\sum_i \\overline{x}\\overline{y}\\):\n\\[\n\\begin{aligned}\n\\sum_i x_iy_i-n\\overline{y}\\overline{x}&=\\sum_i x_iy_i-n\\overline{y}\\overline{x}+n\\overline{y}\\overline{x}-n\\overline{y}\\overline{x}\\\\\n\\sum_i x_iy_i-\\sum_i x_i\\overline{y}+\\sum_i y_i\\overline{x}-\\sum_i\\overline{y}\\overline{x}&=\\sum_ix_i(y_i-\\overline{y})-\\sum_i\\overline{x}(y_i-\\overline{y})\\\\\n\\sum_i(x_i-\\overline{x})(y_i-\\overline{y})&=n Cov(X,Y)\n\\end{aligned}\n\\]\nNow,\n\\[\n\\begin{aligned}\n    \\sum_i x_i^2-n\\overline{x}^2 &= \\sum_i x_i^2-n\\overline{x}^2 + n\\overline{x}^2 - n\\overline{x}^2\\\\\n    \\sum_i x_i^2-2 n\\overline{x}^2 + n\\overline{x}^2 &= \\sum_i x_i^2-2 \\sum_i x_i\\overline{x} + \\sum_i\\overline{x}^2\\\\\n    \\sum_i \\left(x_i^2-2 x_i\\overline{x} + \\overline{x}^2\\right) &= \\sum_i \\left(x_i- \\overline{x}\\right)^2 = nV[X]\n\\end{aligned}\n\\]\nFinally \\[ \\beta_1 = \\frac{n Cov(X,Y)}{nV[X]}=\\frac{Cov(X,Y)}{V[X]}\\]"
+  },
+  {
+    "objectID": "01_SLR_review.html#logs-in-the-regression",
+    "href": "01_SLR_review.html#logs-in-the-regression",
+    "title": "Review for lecture SLR",
+    "section": "Logs in the regression",
+    "text": "Logs in the regression"
+  },
+  {
+    "objectID": "01_SLR_review.html#sstssrsse",
+    "href": "01_SLR_review.html#sstssrsse",
+    "title": "Review for lecture SLR",
+    "section": "\\(SST=SSR+SSE\\)",
+    "text": "\\(SST=SSR+SSE\\)\nStart with the regression:\n\\[y_i=\\beta_0+\\beta_1 x_i+u_i\\]\nNote that \\(\\hat{y}_i=\\hat{\\beta}_0+\\hat{\\beta}_1 x_i\\) and rewrite:\n\\[\n\\begin{aligned}\n    y_i&=\\hat{y}_i+\\hat{u}_i\\\\\n    y_i-\\overline{y}&=\\hat{y}_i-\\overline{y}+\\hat{u}_i\\\\\n    \\left(y_i-\\overline{y}\\right)^2&=\\left((\\hat{y}_i-\\overline{y})+\\hat{u}_i\\right)^2\\\\\n    %\\left(y_i-\\overline{y}\\right)^2&=\\left(\\hat{y}_i-\\overline{y}\\right)^2+2(\\hat{y}_i-\\overline{y})u_i+\\hat{u}_i^2\\\\\n    \\sum_i \\left(y_i-\\overline{y}\\right)^2&=\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)^2+2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i+\\sum_i\\hat{u}_i^2\\\\\n    SST &= SSR + 2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i + SSE\n\\end{aligned}\n\\]\nWhere \\(SST\\) is the sum of squares of the total, \\(SSR\\) is the sum of squares of the regression, and \\(SSE\\) is the sum of squares of the error.\nLet’s check that \\(2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i=0\\). First, the \\(2\\) can be cancelled out, and then the term becomes\n\\[\n\\begin{aligned}\n    \\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i &= \\sum_i\\hat{y}_i\\hat{u}_i-\\overline{y}\\sum_i\\hat{u}_i\n\\end{aligned}\n\\]\nBy assumption \\(E[u|X]=0\\), that means that \\(\\frac{1}{n}\\sum \\hat{u}_i=0\\) and therefore \\(\\sum \\hat{u}_i=0\\), so the second term must be zero. Now consider that \\(\\hat{y}_i=\\beta_0+\\beta_1x_i\\), and therefore \\(\\sum_i \\hat{y}_i \\hat{u}_i=\\beta_0 \\sum_i \\hat{u}_i + \\beta_1\\sum_i x_i \\hat{u}_i\\), but by assumption \\(x_i\\) and \\(\\hat{u}_i\\) are uncorrelated, and therefore \\(\\sum_i x_i \\hat{u}_i=0\\). The first term is zero also because \\(E[u]=0\\). Then, the whole term is zero and we have our result:\n\\[SST=SSR+SSE\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#introduction-1",
+    "href": "00_Statistical_revision.html#introduction-1",
+    "title": "Statistical Revision",
+    "section": "Introduction",
+    "text": "Introduction\n\n👨‍🏫 Paulo Fagandini\n\n📧 paulo.fagandini@novasbe.pt\n\n📖 Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#introduction-2",
+    "href": "00_Statistical_revision.html#introduction-2",
+    "title": "Statistical Revision",
+    "section": "Introduction",
+    "text": "Introduction\nAssessment key points:\n\n5 Random Quizzes, total 10%\n1 Midterm, 15%\nEmpirical project, 25% (min grade 8.00)\nExam, 50% (min grade 8.00)\n\n\nResit replaces the Regular Exam, it is not worth 100%. You cannot take resit if you missed the Regular Exam."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#introduction-3",
+    "href": "00_Statistical_revision.html#introduction-3",
+    "title": "Statistical Revision",
+    "section": "Introduction",
+    "text": "Introduction\n\nMedical justifications are not accepted by us. They must be presented directly to the School, which will then inform us of the situation.\nBecause of the random nature of the quizzes, missed quizzes cannot be justified. Since unforeseen circumstances may occur and you might miss one, only the best four (out of five) quiz scores will count toward the final grade."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#introduction-4",
+    "href": "00_Statistical_revision.html#introduction-4",
+    "title": "Statistical Revision",
+    "section": "Introduction",
+    "text": "Introduction\nPortability of work projects from previous semesters:\n\nWork projects executed in group cannot be resubmitted.\nWork projects done individually with a grade 12.00 or better can be reutilized in the next 2 semesters. Note, however, that their grade may be modified."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#introduction-5",
+    "href": "00_Statistical_revision.html#introduction-5",
+    "title": "Statistical Revision",
+    "section": "Introduction",
+    "text": "Introduction\nThe course has theory and practical lectures:\n\nTheory lectures cover theory. This will be present in the assessments.\nPractical lectures focuses mostly on applications, which also enter in the assessments.\n\n\nTheory and practical lectures are not substitutes!!\nA typical mistake: Focus only on the practical part; neglect the theory and book. Exam is usually 50%/50% each!"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#random-variables",
+    "href": "00_Statistical_revision.html#random-variables",
+    "title": "Statistical Revision",
+    "section": "Random Variables",
+    "text": "Random Variables\n\n\\(X\\) is a random variable (rv) if it takes on numerical values and has an outcome that is determined by an experiment:\n\nA discrete rv can take on only a finite or countably infinite number of values.\nA continuous rv can take on any real value with zero probability."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#random-variables-1",
+    "href": "00_Statistical_revision.html#random-variables-1",
+    "title": "Statistical Revision",
+    "section": "Random Variables",
+    "text": "Random Variables\n\nA probability distribution is associateed with each rv.\nExamples:\n\nCoin-flipping example: number of heads in 10 flips of a coin\nHeight of a selected student"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#expected-value",
+    "href": "00_Statistical_revision.html#expected-value",
+    "title": "Statistical Revision",
+    "section": "Expected Value",
+    "text": "Expected Value\n\nIf \\(X\\) is a rv, the expected value is a weighted average of all values of \\(X\\)\nThe probability density function (pdf) determines the weights\nLet \\(f(x)\\) denote the pdf of \\(X\\) and \\(X\\) be a discrete random variable over a finite number of values \\(\\{x_1,\\dots,x_n\\}\\) \\[\\mu(X)=E[X]\\equiv \\sum_{i=1}^n f(x_i)x_i\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#expected-value-properties",
+    "href": "00_Statistical_revision.html#expected-value-properties",
+    "title": "Statistical Revision",
+    "section": "Expected Value: Properties",
+    "text": "Expected Value: Properties\n\n\\(E[c]=c\\) for \\(c\\) a constant.\n\\(E\\left[E[X]\\right]=E[X]=\\mu(X)\\)\nFor any \\(a,b\\in\\mathbb{R}\\), \\(E[aX+b]=aE[X]+b\\)\n\\(E[X-\\mu(X)]=0\\)\n\\(E\\left[(a X)^2\\right]=a^2 E[X^2]\\)\n\\(X\\) and \\(Y\\) are independent \\(\\Leftrightarrow\\) \\(E[XY]=E[X]E[Y]\\)"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#expected-value-properties-1",
+    "href": "00_Statistical_revision.html#expected-value-properties-1",
+    "title": "Statistical Revision",
+    "section": "Expected Value: Properties",
+    "text": "Expected Value: Properties\n\nIf \\(\\{a_1,\\dots,a_n\\}\\) are constants and \\(X_1,\\dots,X_n\\) are rvs, then: \\[E\\left[\\sum_{i=1}^n a_i X_i\\right] = \\sum_{i=1}^n a_i E[X_i]\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#variance",
+    "href": "00_Statistical_revision.html#variance",
+    "title": "Statistical Revision",
+    "section": "Variance",
+    "text": "Variance\n\nThe variance of \\(X\\) is a measure of the dispersion of the distribution\nLet \\(\\mu_X=E[X]\\). Then the variance is the expected of the squared deviation from the mean: \\[\\sigma_X^2=V[X]=E\\left[(X-\\mu_X)^2\\right]\\]\nNotice that: \\[ E[(X-\\mu_X)^2]=E\\left[X^2\\right]-\\mu_X^2\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#standard-deviation",
+    "href": "00_Statistical_revision.html#standard-deviation",
+    "title": "Statistical Revision",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation\n\nThe square root of \\(V[X]\\) is the standard deviation of \\(X\\): \\[\\sigma_X=sd(X)\\equiv \\sqrt{V[X]}\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#the-variance-properties",
+    "href": "00_Statistical_revision.html#the-variance-properties",
+    "title": "Statistical Revision",
+    "section": "The variance: Properties",
+    "text": "The variance: Properties\n\nFor any constant \\(c\\), \\(V[c]=0\\)\nFor \\(a,b\\) constants, and \\(X\\) a rv, \\(V[aX+b]=a^2V[X]\\)\n\\(V[X+Y]=V[X]+V[Y]+2Cov[X,Y]\\)\n\\(V[X-Y]=V[X]+V[Y]-2Cov[X,Y]\\)\n\\(X\\) and \\(Y\\) independent \\(\\Leftrightarrow\\) \\(V[X\\pm Y]=V[X]+V[Y]\\)"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#the-covariance",
+    "href": "00_Statistical_revision.html#the-covariance",
+    "title": "Statistical Revision",
+    "section": "The Covariance",
+    "text": "The Covariance\n\nConcerns the relationship between two variables describing a population\nLet \\(\\mu_X=E[X]\\) and \\(\\mu_Y=E[Y]\\) with \\(X\\) and \\(Y\\) some rvs. \\[\n\\begin{aligned}\n  \\sigma_{XY}=Cov(X,Y)&\\equiv E\\left[(X-\\mu_X)(Y-\\mu_Y)\\right]\\\\\n  &=E[XY]-\\mu_X\\mu_Y\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#the-covariance-properties",
+    "href": "00_Statistical_revision.html#the-covariance-properties",
+    "title": "Statistical Revision",
+    "section": "The Covariance: Properties",
+    "text": "The Covariance: Properties\n\nIf \\(X\\) and \\(Y\\) are independent, then \\(Cov(X,Y)=0\\)\nFor any constants \\(a_1,b_1\\) and \\(a_2,b_2\\): \\[Cov(a_1 X+b_1,a_2 Y+b_2)=a_1a_2Cov(X,Y)\\]\nCauchy-Schwartz Inequality: \\[|Cov(X,Y)|\\leq \\sigma_X \\sigma_Y\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#the-correlation-coefficient",
+    "href": "00_Statistical_revision.html#the-correlation-coefficient",
+    "title": "Statistical Revision",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\nThe covariance between two random variables depends on the units of measurement.\nThe correlation coefficient overcomes this issue:\\[\\rho_{XY}=Corr(X,Y)\\equiv \\frac{\\sigma_{XY}}{\\sigma_X\\sigma_Y}=\\]\nSince \\(\\sigma_X\\) and \\(\\sigma_Y\\) are positive, then \\(Cov(X,Y)\\) and \\(Corr(X,Y)\\) have the same sign.\n\\(Corr(X,Y)=0\\) \\(\\Leftrightarrow\\) \\(Cov(X,Y)=0\\)"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#the-correlation-coefficient-1",
+    "href": "00_Statistical_revision.html#the-correlation-coefficient-1",
+    "title": "Statistical Revision",
+    "section": "The correlation coefficient",
+    "text": "The correlation coefficient\n\n\\(-1\\leq Corr(X,Y)\\leq 1\\)\n\n\\(Corr(X,Y)=Cov(X,Y)=0\\ \\Rightarrow\\ \\) \\(X\\) and \\(Y\\) are independent.\n\\(Corr(X,Y)=1\\), then \\(X\\) and \\(Y\\) are perfectly positively correlated.\n\\(Corr(X,Y)=-1\\), then \\(X\\) and \\(Y\\) are perfectly negatively correlated\n\nFor any constants \\(a_1, b_1, a_2, b_2\\) with \\(a_1\\neq 0\\) and \\(a_2\\neq 0\\):\\[Corr(a_1X+b_1,a_2 Y + b_2)=\\frac{a_1 a_2}{|a_1 a_2|} Corr(X,Y)\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs",
+    "href": "00_Statistical_revision.html#variance-of-sums-of-rvs",
+    "title": "Statistical Revision",
+    "section": "Variance of Sums of RVs",
+    "text": "Variance of Sums of RVs\n\nFor any constants \\(a\\) and \\(b\\): \\[V[aX+bY]=a^2V[X]+b^2V[Y]=2ab Cov(X,Y)\\]\nIf \\(X\\) and \\(Y\\) are uncorrelated, \\[V[X\\pm Y]=V[X]+V[Y]\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
+    "href": "00_Statistical_revision.html#variance-of-sums-of-rvs-1",
+    "title": "Statistical Revision",
+    "section": "Variance of Sums of RVs",
+    "text": "Variance of Sums of RVs\nGeneralizing, * Let \\(\\{X_1,\\dots,X_n\\}\\) be pairwise uncorrelated rvs and \\(\\{a_1,\\dots,a_n\\}\\) constants, then:\\[V\\left[\\sum_{i=1}^n a_i X_i\\right]=\\sum_{i=1}^n a_i^2 V[X_i] \\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#conditional-expectation",
+    "href": "00_Statistical_revision.html#conditional-expectation",
+    "title": "Statistical Revision",
+    "section": "Conditional Expectation",
+    "text": "Conditional Expectation\n\nFor any function \\(c(X)\\) \\(E[c(X)|X=x]=c(X)\\)\nFor any functions \\(a(X)\\) and \\(b(X)\\):\\[E[a(x)Y+b(X)|X]=a(X)E[Y|X]+b(X)\\]\nIf \\(X\\) and \\(Y\\) are independent, then \\(E[Y|X]=E[Y]\\)."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#conditional-expectation-1",
+    "href": "00_Statistical_revision.html#conditional-expectation-1",
+    "title": "Statistical Revision",
+    "section": "Conditional Expectation",
+    "text": "Conditional Expectation\n\n\\(E\\left[E[Y|X]\\right]=E[Y]\\)\n\\(E[Y|X]=E\\left[E[Y|X,Z]|X\\right]\\)\n\\(E[Y|X]=E[X]\\) then \\(Cov(X,Y)=Corr(X,Y)=0\\)"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#conditional-variation",
+    "href": "00_Statistical_revision.html#conditional-variation",
+    "title": "Statistical Revision",
+    "section": "Conditional Variation",
+    "text": "Conditional Variation\n\n\\(V[Y|X=x]=E[Y^2|X=x]-\\left[E[Y|X=x]^2\\right]\\)\nIf \\(X\\) and \\(Y\\) are independent, then \\(V[Y|X]=V[Y]\\)."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#vector-operations",
+    "href": "00_Statistical_revision.html#vector-operations",
+    "title": "Statistical Revision",
+    "section": "Vector Operations",
+    "text": "Vector Operations\nLet \\(v\\) and \\(u\\) be \\(n\\times 1\\) vectors:\n\nFor \\(a\\in\\mathbb{R}\\), \\((av)_i=a v_i\\).\n\\((v+u)_i=v_i+u_i\\).\n\\(v^T\\) is a \\(1\\times n\\) vector\n\\(v^T v = \\sum_{i=1}^n v_i^2\\)\n\\(v^T u = u^T v = \\sum_{i=1}^n u_i v_u\\). This is crucial, it is a linear combination of the elements of \\(v\\) or \\(u\\)."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#vector-operations-1",
+    "href": "00_Statistical_revision.html#vector-operations-1",
+    "title": "Statistical Revision",
+    "section": "Vector Operations",
+    "text": "Vector Operations\nLet \\(1_n\\) be a vector of 1, of size \\(n\\times 1\\), then:\n\nFor \\(a\\in\\mathbb{R}\\), \\((a 1_n)_i=a\\)\n\\(v^T 1_n = \\sum_{i=1}^n v_i\\)"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#system-of-equations",
+    "href": "00_Statistical_revision.html#system-of-equations",
+    "title": "Statistical Revision",
+    "section": "System of equations",
+    "text": "System of equations\nThe system:\n\\[\n\\begin{aligned}\n    y_{1}&=&\\beta_0 &+& \\beta_1 x_1 &+& u_1\\\\\n    y_{2}&=&\\beta_0 &+& \\beta_1 x_2 &+& u_2\\\\\n    \\vdots &=& \\vdots &+& \\vdots &+& \\vdots \\\\\n    y_{n}&=& \\beta_0 &+& \\beta_1 x_n &+& u_n\n\\end{aligned}\n\\]\nIs equivalent to \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\)."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#matrix-multiplication",
+    "href": "00_Statistical_revision.html#matrix-multiplication",
+    "title": "Statistical Revision",
+    "section": "Matrix Multiplication",
+    "text": "Matrix Multiplication\nIf you have a matrix \\(M\\) of size \\(m\\times n\\), then it can be:\n\npre multiplied by a matrix or vector, as long as it has \\(m\\) columns.\npost multiplied by a matrix or vector, as long as it has \\(n\\) rows."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#matrix-multiplication-1",
+    "href": "00_Statistical_revision.html#matrix-multiplication-1",
+    "title": "Statistical Revision",
+    "section": "Matrix Multiplication",
+    "text": "Matrix Multiplication\nSay \\(A=\\begin{pmatrix}a_{11} & a_{12}\\\\ a_{21} & a_{22}\\end{pmatrix}\\) and \\(B=\\begin{pmatrix}b_{11} & b_{12}\\\\ b_{21} & b_{22}\\end{pmatrix}\\), we have that\n\\[\nA\\times B = \\begin{pmatrix}a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22}\\\\a_{21}b_{11}+a_{22}b_{21}&a_{21}b_{12}+a_{22}b_{22}\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#matrix-multiplication-2",
+    "href": "00_Statistical_revision.html#matrix-multiplication-2",
+    "title": "Statistical Revision",
+    "section": "Matrix Multiplication",
+    "text": "Matrix Multiplication\nMore generally, the element \\((i,j)\\) of the matrix multiplication \\(A\\) of size \\(n_a\\times T\\), and \\(B\\) of size \\(T\\times m_b\\) is:\n\\[\\left[AB\\right]_{ij}=\\sum_{q=1}^m a_{im}b_{mj}\\]\nOr the sum of the products of the elements of the \\(i^{th}\\) row of \\(A\\) with the elements of the \\(j^{th}\\) column of \\(B\\). Better, a linear combination of the elements of the \\(i^{th}\\) row of \\(A\\), or a linear combination of the \\(j^{th}\\) column of \\(B\\)."
+  },
+  {
+    "objectID": "00_Statistical_revision.html#system-of-equations-1",
+    "href": "00_Statistical_revision.html#system-of-equations-1",
+    "title": "Statistical Revision",
+    "section": "System of equations",
+    "text": "System of equations\nThe system of equations \\[Y = \\beta_0 1_n + \\beta_1 X + u\\] where \\(Y\\), \\(X\\), and \\(u\\) are vectors \\(n\\times 1\\) can be rewritten as:\n\\[Y = \\begin{pmatrix}1_n & X\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix} + u\\]"
+  },
+  {
+    "objectID": "00_Statistical_revision.html#system-of-equations-2",
+    "href": "00_Statistical_revision.html#system-of-equations-2",
+    "title": "Statistical Revision",
+    "section": "System of equations",
+    "text": "System of equations\nIf we rename \\(X\\) as the matrix \\(\\begin{pmatrix}1_n & X\\end{pmatrix}\\) and we call \\(\\beta=\\begin{pmatrix}\\beta_0\\\\ \\beta_1\\end{pmatrix}\\) we have that the system can be written as: \\[Y=X\\beta+u\\]\nWhere \\(X\\) is now a matrix size \\(n\\times (k+1)\\), where \\(n\\) will be the number of observations, and \\(k\\) the number of variables we use to explain \\(Y\\) (we will see in the future that we can have more than 1 variable \\(X\\)). In any case, this representation encompases all the cases!"
+  },
+  {
+    "objectID": "01_SLR.html#review-1",
+    "href": "01_SLR.html#review-1",
+    "title": "SLR",
+    "section": "Review",
+    "text": "Review\n\nSLR\nLog transformations\n\\(SST = SSR + SSE\\)"
+  },
+  {
+    "objectID": "01_SLR.html#exercises",
+    "href": "01_SLR.html#exercises",
+    "title": "SLR",
+    "section": "Exercises",
+    "text": "Exercises\nhttps://moodle.novasbe.pt/mod/folder/view.php?id=4021"
+  },
+  {
+    "objectID": "01_SLR.html#question-1.1-1",
+    "href": "01_SLR.html#question-1.1-1",
+    "title": "SLR",
+    "section": "Question 1.1",
+    "text": "Question 1.1\nEurope is in the midst of an unprecedented human migration with hundreds of thousands flocking to Europe’s shores. You want to study the root causes of this issue and decide to do some research."
+  },
+  {
+    "objectID": "01_SLR.html#question-1.1-2",
+    "href": "01_SLR.html#question-1.1-2",
+    "title": "SLR",
+    "section": "Question 1.1",
+    "text": "Question 1.1\n\nWrite an equation that would allow you to test whether a country’s GDP has a linear influence in its number of asylum seekers.\nCan you say there is an exact linear relationship between both variables?\nCan you easily compute the population parameters for the regression model you presented before?\nWhat do you suggest then?\n\n\n\n\\(num_asy_i=\\beta_0+\\beta_1 GDP_i + u_i\\)\nIt is unlikely that if we get \\(\\beta_0\\) and \\(\\beta_1\\) we would obtain the exact number of asylum seekers. There might be many other factors influencing this.\nCan never get the population, then \\(\\beta_0\\) and \\(\\beta_1\\) are unknown.\nGet a sample, and estimate \\(\\beta_0\\) and \\(\\beta_1\\)."
+  },
+  {
+    "objectID": "01_SLR.html#question-1.2-1",
+    "href": "01_SLR.html#question-1.2-1",
+    "title": "SLR",
+    "section": "Question 1.2",
+    "text": "Question 1.2\nYou move on with your endeavour and collect a set of cross-sectional data for 166 countries on their number of asylum seekers and GDP per capita in 1999 and estimate the following models by OLS:"
+  },
+  {
+    "objectID": "01_SLR.html#question-1.2-2",
+    "href": "01_SLR.html#question-1.2-2",
+    "title": "SLR",
+    "section": "Question 1.2",
+    "text": "Question 1.2"
+  },
+  {
+    "objectID": "01_SLR.html#question-1.2-3",
+    "href": "01_SLR.html#question-1.2-3",
+    "title": "SLR",
+    "section": "Question 1.2",
+    "text": "Question 1.2\n\nLevel-level: \\(\\widehat{asylum}=2,569-0.12 GDP\\) with \\(n=166\\) and \\(R^2=0.0447\\)\nLog-level : \\(\\widehat{log(asylum)}=5.64-0.0002 GDP\\) with \\(n=166\\) and \\(R^2=0.2585\\)\nLevel-log : \\(\\widehat{asylum}=7,804-731.97 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.0368\\)\nLog-log : \\(\\widehat{log(asylum)}=17.56-1.65 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.2673\\)"
+  },
+  {
+    "objectID": "01_SLR.html#question-1.2-4",
+    "href": "01_SLR.html#question-1.2-4",
+    "title": "SLR",
+    "section": "Question 1.2",
+    "text": "Question 1.2\n\nInterpret the coefficient on the regressor of each model.\n\n\n\nIf \\(GDP_pc\\) increases by $1, the number of asylum seekers decreases by 0.12 persons, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by $1, the number of asylum seekers decreases by 0.02%, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by 1%, the number of asylum seekers decreases by 7.32 persons, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by 1%, the number of asylum seekers decreases by 1.64%, on average, ceteris paribus."
+  },
+  {
+    "objectID": "01_SLR.html#question-1.5-1",
+    "href": "01_SLR.html#question-1.5-1",
+    "title": "SLR",
+    "section": "Question 1.5",
+    "text": "Question 1.5\n\nShow that \\(E[u|inc] = 0\\), so that the key zero conditional mean assumption (SLR.4) is satisfied. [Hint: If \\(e\\) is independent of \\(inc\\), then \\(E[e|inc] = E[e]\\)].\nSuppose now that \\(E[u] = \\alpha \\neq 0\\). Show that the model can always be rewritten with the same slope, but a new intercept and error, where the new error has a zero expected value.\nShow that \\(V[u|inc] = \\sigma_e^2 inc\\), so that homoskedasticity (SLR.5) is violated. In particular, the variance of \\(sav\\) increases with \\(inc\\). [Hint: \\(V[e|inc] = V[e]\\), if \\(e\\) and \\(inc\\) are independent.]\n\n\n\n\\(E[u|inc]=E[e\\sqrt{inc}|inc]=\\sqrt{inc}E[e|inc]=\\sqrt{inc}0=0\\)\n\\(sav=\\beta_0+\\beta_1 inc + u = \\beta_0+\\beta_1 inc + u +\\alpha-\\alpha =(\\beta_0+\\alpha)+\\beta_1inc +(u-\\alpha)\\)\n\\(V[u|inc]=V[e\\sqrt{inc}|inc]=inc V[e|inc]=inc V[e]=inc \\sigma_e^2\\)"
+  },
+  {
+    "objectID": "01_SLR.html#question-1.5-2",
+    "href": "01_SLR.html#question-1.5-2",
+    "title": "SLR",
+    "section": "Question 1.5",
+    "text": "Question 1.5\n\nProvide a discussion that supports the assumption that the variance of savings increases with family income. Do you find evidence of that in the graph below?\n\n\n\n\n\nPoor households (do not have enough money to make a living and just buy necessities) vs Richer households (have more discretion)."
+  },
+  {
+    "objectID": "01_SLR.html#question-1.9",
+    "href": "01_SLR.html#question-1.9",
+    "title": "SLR",
+    "section": "Question 1.9",
+    "text": "Question 1.9\nConsider the standard SLR model \\(y=\\beta_0+\\beta_1 x + u\\) under all the GM assumptions. Let \\(\\tilde{\\beta}_1\\) be the estimator of \\(\\beta_1\\) obtained by assuming \\(\\beta_0=0\\).\n\nCompute \\(\\tilde{\\beta}_1\\) by OLS.\nCheck if and when \\(\\tilde{\\beta}_1\\) is unbiased.\nFind \\(V[\\tilde{\\beta}_1]\\) (always conditional on \\(X\\))\nShow that \\(V[\\tilde{\\beta}_1]\\leq V[\\hat{\\beta}_1]\\) where \\(\\hat{\\beta}\\) is the traditional estimator for \\(\\beta_1\\) under OLS.\nDiscuss the tradeoff between \\(\\tilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) regarding bias and variance."
+  },
+  {
     "objectID": "02_MLR.html#review-1",
     "href": "02_MLR.html#review-1",
     "title": "MLR",
@@ -672,60 +903,88 @@
     "text": "Exercise 2.3\n\nUsing real data, the authors have estimated the following relationship:\n\\[\\widehat{sleep}=3,638.25-0.148totwrk-11.13educ+2.20age\\]\nWith \\(n=706\\) and \\(R^2=0.113\\).\n\nIf someone works five more hours per week, by how many minutes is sleep predicted to fall? Is this a large trade-off?\nDiscuss the sign and magnitude of the estimated coefficient on educ.\nWould you say totwrk, educ, and age explain much of the variation in sleep? What other factors might affect the time spent sleeping? Are these likely to be correlated with totwrk?\n\n\n\n\n\\(\\Delta sleep=-0.148(5\\times 60)=-44.4\\) minutes. Not a very large trade-off\n1 more year of education reduces sleeping time by 11 minutes, on average, ceteris paribus.\nThe three variables only explain 11% of the variability/variation of sleep. Marital stautyes, number/age of children, type of job, health, …, and are likely correlated with total work."
   },
   {
-    "objectID": "01_SLR_review.html",
-    "href": "01_SLR_review.html",
-    "title": "Review for lecture SLR",
-    "section": "",
-    "text": "Assume the model:\n\\[ y = \\beta_0 + \\beta_1 x + u\\]\nWith the classical assumptions on \\(u_i\\).\nThe estimators come from minimizing \\(\\sum_i u_i^2\\), for that define isolate \\(u_i\\)\n\\[\n\\begin{aligned}\n    u_i &= y_i-\\beta_0-\\beta_1 x_i\\\\\n    u_i^2 &= (y_i-\\beta_0-\\beta_1 x_i)^2 \\\\\n    \\sum_{i} u_i^2 &= \\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\end{aligned}\n\\]\nThen, the optimization problem becomes:\n\\[\n\\min_{\\beta_0,\\beta_1} F(\\beta_0,\\beta_1)=\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\]\nFrom where we can compute the first order conditions \\(\\partial F/\\partial \\beta_0=0\\) and \\(\\partial F/\\partial \\beta_1=0\\).\n\n\n\\(\\partial F/\\partial \\beta_0=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_0}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i y_i-\\beta_0\\sum_i 1 -\\beta_1 \\sum_i x_i=0 \\\\\n    n\\beta_0= \\sum_i y_i -\\beta_1 \\sum_i x_i\\ &\\Rightarrow\\ \\beta_0 = \\frac{\\sum_i y_i}{n} -\\beta_1 \\frac{\\sum_i x_i}{n}=\\overline{y}-\\beta_1 \\overline{x}\\\\\n    \\beta_0 &= \\overline{y}-\\beta_1 \\overline{x}\n\\end{aligned}\n\\]\nA consequence of this, is that the original regression would be the same (same residuals, same slope) than regressing the deviations of \\(y\\) from its mean on the deviation of \\(x\\) around its mean, without a constant, or in other words, if we center \\(y\\) and \\(x\\) around their means.\n\\[y=\\beta_0+\\beta_1 x + u_i\\ \\Leftrightarrow\\ (y-\\overline{y})=\\beta_1(x-\\overline{x})+u_i\\]\n\n\n\n\\(\\partial F/\\partial \\beta_1=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_1}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\n\\end{aligned}\n\\]\nReplacing \\(\\beta_0\\) and noting that \\(\\sum_i x_i=n\\overline{x}\\):\n\\[\n\\begin{aligned}\n    \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-(\\overline{y}-\\beta_1\\overline{x})n\\overline{x}-\\beta_1 \\sum_i x_i^2=0\\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}+n \\beta_1\\overline{x}^2-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-n\\overline{y}\\overline{x}-\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)=0 \\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}=\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)\\ &\\Rightarrow\\ \\beta_1 = \\frac{\\sum_i x_iy_i-n\\overline{y}\\overline{x}}{\\sum_i x_i^2-n\\overline{x}^2}\n\\end{aligned}\n\\]\nNow note that \\(n\\overline{y}\\overline{x}=\\sum_i y_i\\overline{x}=\\sum_i x_i\\overline{y}=\\sum_i \\overline{x}\\overline{y}\\):\n\\[\n\\begin{aligned}\n\\sum_i x_iy_i-n\\overline{y}\\overline{x}&=\\sum_i x_iy_i-n\\overline{y}\\overline{x}+n\\overline{y}\\overline{x}-n\\overline{y}\\overline{x}\\\\\n\\sum_i x_iy_i-\\sum_i x_i\\overline{y}+\\sum_i y_i\\overline{x}-\\sum_i\\overline{y}\\overline{x}&=\\sum_ix_i(y_i-\\overline{y})-\\sum_i\\overline{x}(y_i-\\overline{y})\\\\\n\\sum_i(x_i-\\overline{x})(y_i-\\overline{y})&=n Cov(X,Y)\n\\end{aligned}\n\\]\nNow,\n\\[\n\\begin{aligned}\n    \\sum_i x_i^2-n\\overline{x}^2 &= \\sum_i x_i^2-n\\overline{x}^2 + n\\overline{x}^2 - n\\overline{x}^2\\\\\n    \\sum_i x_i^2-2 n\\overline{x}^2 + n\\overline{x}^2 &= \\sum_i x_i^2-2 \\sum_i x_i\\overline{x} + \\sum_i\\overline{x}^2\\\\\n    \\sum_i \\left(x_i^2-2 x_i\\overline{x} + \\overline{x}^2\\right) &= \\sum_i \\left(x_i- \\overline{x}\\right)^2 = nV[X]\n\\end{aligned}\n\\]\nFinally \\[ \\beta_1 = \\frac{n Cov(X,Y)}{nV[X]}=\\frac{Cov(X,Y)}{V[X]}\\]"
+    "objectID": "03_Inference.html#review-1",
+    "href": "03_Inference.html#review-1",
+    "title": "Inference",
+    "section": "Review",
+    "text": "Review\n\nMoments and distribution for \\(\\hat{\\beta}\\)"
   },
   {
-    "objectID": "01_SLR_review.html#derivation-of-ols-estimators",
-    "href": "01_SLR_review.html#derivation-of-ols-estimators",
-    "title": "Review for lecture SLR",
-    "section": "",
-    "text": "Assume the model:\n\\[ y = \\beta_0 + \\beta_1 x + u\\]\nWith the classical assumptions on \\(u_i\\).\nThe estimators come from minimizing \\(\\sum_i u_i^2\\), for that define isolate \\(u_i\\)\n\\[\n\\begin{aligned}\n    u_i &= y_i-\\beta_0-\\beta_1 x_i\\\\\n    u_i^2 &= (y_i-\\beta_0-\\beta_1 x_i)^2 \\\\\n    \\sum_{i} u_i^2 &= \\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\end{aligned}\n\\]\nThen, the optimization problem becomes:\n\\[\n\\min_{\\beta_0,\\beta_1} F(\\beta_0,\\beta_1)=\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2\n\\]\nFrom where we can compute the first order conditions \\(\\partial F/\\partial \\beta_0=0\\) and \\(\\partial F/\\partial \\beta_1=0\\).\n\n\n\\(\\partial F/\\partial \\beta_0=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_0}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i (y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i y_i-\\beta_0\\sum_i 1 -\\beta_1 \\sum_i x_i=0 \\\\\n    n\\beta_0= \\sum_i y_i -\\beta_1 \\sum_i x_i\\ &\\Rightarrow\\ \\beta_0 = \\frac{\\sum_i y_i}{n} -\\beta_1 \\frac{\\sum_i x_i}{n}=\\overline{y}-\\beta_1 \\overline{x}\\\\\n    \\beta_0 &= \\overline{y}-\\beta_1 \\overline{x}\n\\end{aligned}\n\\]\nA consequence of this, is that the original regression would be the same (same residuals, same slope) than regressing the deviations of \\(y\\) from its mean on the deviation of \\(x\\) around its mean, without a constant, or in other words, if we center \\(y\\) and \\(x\\) around their means.\n\\[y=\\beta_0+\\beta_1 x + u_i\\ \\Leftrightarrow\\ (y-\\overline{y})=\\beta_1(x-\\overline{x})+u_i\\]\n\n\n\n\\(\\partial F/\\partial \\beta_1=0\\) implies:\n\\[\n\\begin{aligned}\n    \\frac{\\partial}{\\partial \\beta_1}\\sum_{i} (y_i-\\beta_0-\\beta_1 x_i)^2 = 0 \\ &\\Rightarrow\\ 2(-1)\\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\\\\n    \\sum_i x_i(y_i-\\beta_0-\\beta_1 x_i)=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\n\\end{aligned}\n\\]\nReplacing \\(\\beta_0\\) and noting that \\(\\sum_i x_i=n\\overline{x}\\):\n\\[\n\\begin{aligned}\n    \\sum_i x_iy_i-\\beta_0\\sum_i x_i-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-(\\overline{y}-\\beta_1\\overline{x})n\\overline{x}-\\beta_1 \\sum_i x_i^2=0\\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}+n \\beta_1\\overline{x}^2-\\beta_1 \\sum_i x_i^2=0\\ &\\Rightarrow\\ \\sum_i x_iy_i-n\\overline{y}\\overline{x}-\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)=0 \\\\\n    \\sum_i x_iy_i-n\\overline{y}\\overline{x}=\\beta_1\\left(\\sum_i x_i^2-n\\overline{x}^2\\right)\\ &\\Rightarrow\\ \\beta_1 = \\frac{\\sum_i x_iy_i-n\\overline{y}\\overline{x}}{\\sum_i x_i^2-n\\overline{x}^2}\n\\end{aligned}\n\\]\nNow note that \\(n\\overline{y}\\overline{x}=\\sum_i y_i\\overline{x}=\\sum_i x_i\\overline{y}=\\sum_i \\overline{x}\\overline{y}\\):\n\\[\n\\begin{aligned}\n\\sum_i x_iy_i-n\\overline{y}\\overline{x}&=\\sum_i x_iy_i-n\\overline{y}\\overline{x}+n\\overline{y}\\overline{x}-n\\overline{y}\\overline{x}\\\\\n\\sum_i x_iy_i-\\sum_i x_i\\overline{y}+\\sum_i y_i\\overline{x}-\\sum_i\\overline{y}\\overline{x}&=\\sum_ix_i(y_i-\\overline{y})-\\sum_i\\overline{x}(y_i-\\overline{y})\\\\\n\\sum_i(x_i-\\overline{x})(y_i-\\overline{y})&=n Cov(X,Y)\n\\end{aligned}\n\\]\nNow,\n\\[\n\\begin{aligned}\n    \\sum_i x_i^2-n\\overline{x}^2 &= \\sum_i x_i^2-n\\overline{x}^2 + n\\overline{x}^2 - n\\overline{x}^2\\\\\n    \\sum_i x_i^2-2 n\\overline{x}^2 + n\\overline{x}^2 &= \\sum_i x_i^2-2 \\sum_i x_i\\overline{x} + \\sum_i\\overline{x}^2\\\\\n    \\sum_i \\left(x_i^2-2 x_i\\overline{x} + \\overline{x}^2\\right) &= \\sum_i \\left(x_i- \\overline{x}\\right)^2 = nV[X]\n\\end{aligned}\n\\]\nFinally \\[ \\beta_1 = \\frac{n Cov(X,Y)}{nV[X]}=\\frac{Cov(X,Y)}{V[X]}\\]"
+    "objectID": "03_Inference.html#exercises",
+    "href": "03_Inference.html#exercises",
+    "title": "Inference",
+    "section": "Exercises",
+    "text": "Exercises\nhttps://moodle.novasbe.pt/mod/folder/view.php?id=4021"
   },
   {
-    "objectID": "01_SLR_review.html#logs-in-the-regression",
-    "href": "01_SLR_review.html#logs-in-the-regression",
-    "title": "Review for lecture SLR",
-    "section": "Logs in the regression",
-    "text": "Logs in the regression"
+    "objectID": "03_Inference.html#exercise-3.1",
+    "href": "03_Inference.html#exercise-3.1",
+    "title": "Inference",
+    "section": "Exercise 3.1",
+    "text": "Exercise 3.1\n\nOne of the most important decisions business leaders face concerns the allocation of the firm’s budget to the different departments. To help in the decision of finding out how much money to allocate to the R&D department you decide to collect data for 32 firms in the chemical industry on the following variables: rdintensity (expenditures on r&d as % of sales), profmarg (profits as % of sales), and sales (in millions of USD). You then estimate the following equation (se in parenthesis):\n\n\n\\[\n\\widehat{profmarg}=\\underset{(6.3043)}{11.76}+\\underset{(0.7233)}{0.79}rdintensity-\\underset{(0.8814)}{0.63}\\log(sales)\n\\]\n\n\nWith \\(R^2=0.0464\\)"
   },
   {
-    "objectID": "01_SLR_review.html#sstssrsse",
-    "href": "01_SLR_review.html#sstssrsse",
-    "title": "Review for lecture SLR",
-    "section": "\\(SST=SSR+SSE\\)",
-    "text": "\\(SST=SSR+SSE\\)\nStart with the regression:\n\\[y_i=\\beta_0+\\beta_1 x_i+u_i\\]\nNote that \\(\\hat{y}_i=\\hat{\\beta}_0+\\hat{\\beta}_1 x_i\\) and rewrite:\n\\[\n\\begin{aligned}\n    y_i&=\\hat{y}_i+\\hat{u}_i\\\\\n    y_i-\\overline{y}&=\\hat{y}_i-\\overline{y}+\\hat{u}_i\\\\\n    \\left(y_i-\\overline{y}\\right)^2&=\\left((\\hat{y}_i-\\overline{y})+\\hat{u}_i\\right)^2\\\\\n    %\\left(y_i-\\overline{y}\\right)^2&=\\left(\\hat{y}_i-\\overline{y}\\right)^2+2(\\hat{y}_i-\\overline{y})u_i+\\hat{u}_i^2\\\\\n    \\sum_i \\left(y_i-\\overline{y}\\right)^2&=\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)^2+2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i+\\sum_i\\hat{u}_i^2\\\\\n    SST &= SSR + 2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i + SSE\n\\end{aligned}\n\\]\nWhere \\(SST\\) is the sum of squares of the total, \\(SSR\\) is the sum of squares of the regression, and \\(SSE\\) is the sum of squares of the error.\nLet’s check that \\(2\\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i=0\\). First, the \\(2\\) can be cancelled out, and then the term becomes\n\\[\n\\begin{aligned}\n    \\sum_i\\left(\\hat{y}_i-\\overline{y}\\right)\\hat{u}_i &= \\sum_i\\hat{y}_i\\hat{u}_i-\\overline{y}\\sum_i\\hat{u}_i\n\\end{aligned}\n\\]\nBy assumption \\(E[u|X]=0\\), that means that \\(\\frac{1}{n}\\sum \\hat{u}_i=0\\) and therefore \\(\\sum \\hat{u}_i=0\\), so the second term must be zero. Now consider that \\(\\hat{y}_i=\\beta_0+\\beta_1x_i\\), and therefore \\(\\sum_i \\hat{y}_i \\hat{u}_i=\\beta_0 \\sum_i \\hat{u}_i + \\beta_1\\sum_i x_i \\hat{u}_i\\), but by assumption \\(x_i\\) and \\(\\hat{u}_i\\) are uncorrelated, and therefore \\(\\sum_i x_i \\hat{u}_i=0\\). The first term is zero also because \\(E[u]=0\\). Then, the whole term is zero and we have our result:\n\\[SST=SSR+SSE\\]"
+    "objectID": "03_Inference.html#ex-3.1-questions",
+    "href": "03_Inference.html#ex-3.1-questions",
+    "title": "Inference",
+    "section": "Exercise 3.1",
+    "text": "Exercise 3.1\n\n\nInterpret the coefficient on rdintensity. Is this an economically significant effect?\nDoes R&D intensity have a statistical significant effect on profit margin? Do the 2-sided test at a 10% level.\nSteve Jobs once said: “Innovation has nothing to do with how many R&D dollars you have. When Apple came up with the Mac, IBM was spending at least 100 times more on R&D. It’s not about money. It’s about the people you have, how you’re led, and how much you get it.” Does this exercise provide evidence in favor or against Steve Jobs’ claim?\n\n\nt-student\n\n\nIf rdintensity increases by 1 pp profit margin increases by 0.79pp on average, ceteris paribus.\n\\(H_0: \\beta_{rintensity}=0\\), \\(H_a: \\beta_{rintensity}\\neq0\\). \\(\\alpha=10\\%\\), \\(df=32-2-1=29\\), \\(t^c=1.699\\). \\(t=\\frac{0.79-0}{0.7233}=1.09&lt;t^c\\). Fail to reject \\(H_0\\) at 10%.\nWe do not find statistically significant effect of r&d on profit, maybe it is not only about the money."
   },
   {
-    "objectID": "02_MLR_review.html",
-    "href": "02_MLR_review.html",
-    "title": "Review for lecture SLR",
-    "section": "",
-    "text": "The original equation:\n\\(y_i=\\beta_0+\\beta_1 x_i + u_i\\)\nThis holds for \\(i=1,2,...,n\\) therefore you can write\n\\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\beta_0\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ \\vdots \\\\ 1\\end{pmatrix} +\n\\beta_1\\begin{pmatrix}x_1 \\\\ x_2 \\\\ x_3 \\\\ \\vdots \\\\ x_n\\end{pmatrix} +\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nThis is the same as: \\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\begin{pmatrix} 1 & x_1 \\\\ 1 & x_2 \\\\ 1 & x_3 \\\\ \\vdots \\\\ 1 & x_n\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix}+\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nOn the order of appearece, this is equivalent to the following expression:\n\\[\nY = X\\beta + u\n\\]\nWhere \\(Y\\) and \\(u\\) are the first and last vectors, \\(X\\) is the matrix and \\(\\beta\\) is the vector of \\(\\beta\\)s.\nWhy is this useful?\nRemember that the sum of squares is the inner product \\(&lt;u,u&gt;=u'u=\\sum u_i^2\\). Then:\n\\[\n\\begin{aligned}\nu &= Y - X\\beta\\\\\n\\sum u_i^2=u'u &= \\left(Y-X\\beta\\right)'\\left(Y-X\\beta\\right)\\\\\n&= Y'Y - Y'X\\beta - \\beta'X' Y + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nNote that \\(Y'X\\beta\\) has dimension \\(1\\) (\\(1\\times n\\) times \\(n\\times 2\\) times \\(2\\times 1\\)), and also that \\(\\left(Y'X\\beta\\right)'=\\beta' X' Y\\), but a scalar (a vector of dimension 1 is actually a scalar, a number) trasposed is the same number and therefore \\(Y'X\\beta=\\beta'X'Y\\). Finally, we can write:\n\\[\n\\begin{aligned}\n\\sum u^2=u'u&= Y'Y - 2 X'Y\\beta + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nTo minimize the squared residuals, use the first order condition to obtain:\n\\[\n\\begin{aligned}\n-2X'Y + 2X'X\\beta &= 0\\\\\n\\beta = (X'X)^{-1}X'Y\n\\end{aligned}\n\\]\nWhere obviously implies that \\(X'X\\) must have full rank (no linearly dependent columns) to be invertible, which implies \\(X\\) must have no lineraly dependent columns.\n\n\n\n\n\n\nNoneNote about \\(\\frac{\\partial \\beta' X'X\\beta}{\\partial \\beta}\\)\n\n\n\nNote that \\(X\\beta=\\hat{y}\\) and therefore \\(\\beta' X'X\\beta=\\hat{y}'\\hat{y}=\\sum \\hat{y}^2\\) or \\(\\sum(\\beta_0 + \\beta_1 x_1)^2\\). The derivative with respect to \\(\\beta_0\\) is \\(\\sum 2 \\hat{y}\\cdot1\\) and the derivative with respect to \\(\\beta_1\\) is \\(\\sum 2 \\hat{y} x\\). You can factor out the 2, and note that \\(\\begin{pmatrix}1 &x\\end{pmatrix}'\\hat{y} = \\begin{pmatrix}\\sum \\hat{y}\\cdot 1 \\\\ \\sum \\hat{y} x \\end{pmatrix}\\). Finally recall that \\(\\hat{y}=X\\beta\\), and \\(\\begin{pmatrix}1 &x\\end{pmatrix}'=X'\\) to obtain \\(2X'X\\beta\\)."
+    "objectID": "03_Inference.html#exercise-3.3",
+    "href": "03_Inference.html#exercise-3.3",
+    "title": "Inference",
+    "section": "Exercise 3.3",
+    "text": "Exercise 3.3\nConsider the estimated equation from a model explaining college GPA with the high school GPA (hsGPA), the achievenment test score (ACT) and average number of lectures missed per week (skipped) as explanatory variables (usual standar errors in parenthesis below the estimates):\n\n\\[\n\\widehat{colGPA}=\\underset{(0.33)}{1.39}+\\underset{(0.094)}{0.412}hsGPA + \\underset{(0.011)}{0.015}ACT-\\underset{(0.026)}{0.083}skipped\n\\]"
   },
   {
-    "objectID": "02_MLR_review.html#matrixvector-slr",
-    "href": "02_MLR_review.html#matrixvector-slr",
-    "title": "Review for lecture SLR",
-    "section": "",
-    "text": "The original equation:\n\\(y_i=\\beta_0+\\beta_1 x_i + u_i\\)\nThis holds for \\(i=1,2,...,n\\) therefore you can write\n\\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\beta_0\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ \\vdots \\\\ 1\\end{pmatrix} +\n\\beta_1\\begin{pmatrix}x_1 \\\\ x_2 \\\\ x_3 \\\\ \\vdots \\\\ x_n\\end{pmatrix} +\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nThis is the same as: \\[\n\\begin{pmatrix}y_1\\\\ y_2 \\\\ y_3 \\\\ \\vdots \\\\ y_n\\end{pmatrix} =\n\\begin{pmatrix} 1 & x_1 \\\\ 1 & x_2 \\\\ 1 & x_3 \\\\ \\vdots \\\\ 1 & x_n\\end{pmatrix} \\begin{pmatrix}\\beta_0 \\\\ \\beta_1\\end{pmatrix}+\n\\begin{pmatrix}u_1 \\\\ u_2 \\\\ u_3 \\\\ \\vdots \\\\ u_n\\end{pmatrix}\n\\]\nOn the order of appearece, this is equivalent to the following expression:\n\\[\nY = X\\beta + u\n\\]\nWhere \\(Y\\) and \\(u\\) are the first and last vectors, \\(X\\) is the matrix and \\(\\beta\\) is the vector of \\(\\beta\\)s.\nWhy is this useful?\nRemember that the sum of squares is the inner product \\(&lt;u,u&gt;=u'u=\\sum u_i^2\\). Then:\n\\[\n\\begin{aligned}\nu &= Y - X\\beta\\\\\n\\sum u_i^2=u'u &= \\left(Y-X\\beta\\right)'\\left(Y-X\\beta\\right)\\\\\n&= Y'Y - Y'X\\beta - \\beta'X' Y + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nNote that \\(Y'X\\beta\\) has dimension \\(1\\) (\\(1\\times n\\) times \\(n\\times 2\\) times \\(2\\times 1\\)), and also that \\(\\left(Y'X\\beta\\right)'=\\beta' X' Y\\), but a scalar (a vector of dimension 1 is actually a scalar, a number) trasposed is the same number and therefore \\(Y'X\\beta=\\beta'X'Y\\). Finally, we can write:\n\\[\n\\begin{aligned}\n\\sum u^2=u'u&= Y'Y - 2 X'Y\\beta + \\beta' X'X \\beta\n\\end{aligned}\n\\]\nTo minimize the squared residuals, use the first order condition to obtain:\n\\[\n\\begin{aligned}\n-2X'Y + 2X'X\\beta &= 0\\\\\n\\beta = (X'X)^{-1}X'Y\n\\end{aligned}\n\\]\nWhere obviously implies that \\(X'X\\) must have full rank (no linearly dependent columns) to be invertible, which implies \\(X\\) must have no lineraly dependent columns.\n\n\n\n\n\n\nNoneNote about \\(\\frac{\\partial \\beta' X'X\\beta}{\\partial \\beta}\\)\n\n\n\nNote that \\(X\\beta=\\hat{y}\\) and therefore \\(\\beta' X'X\\beta=\\hat{y}'\\hat{y}=\\sum \\hat{y}^2\\) or \\(\\sum(\\beta_0 + \\beta_1 x_1)^2\\). The derivative with respect to \\(\\beta_0\\) is \\(\\sum 2 \\hat{y}\\cdot1\\) and the derivative with respect to \\(\\beta_1\\) is \\(\\sum 2 \\hat{y} x\\). You can factor out the 2, and note that \\(\\begin{pmatrix}1 &x\\end{pmatrix}'\\hat{y} = \\begin{pmatrix}\\sum \\hat{y}\\cdot 1 \\\\ \\sum \\hat{y} x \\end{pmatrix}\\). Finally recall that \\(\\hat{y}=X\\beta\\), and \\(\\begin{pmatrix}1 &x\\end{pmatrix}'=X'\\) to obtain \\(2X'X\\beta\\)."
+    "objectID": "03_Inference.html#ex-3.3-questions",
+    "href": "03_Inference.html#ex-3.3-questions",
+    "title": "Inference",
+    "section": "Exercise 3.3",
+    "text": "Exercise 3.3\n\nUsing the standard normal approximation, find the 95% confidence interval for \\(\\beta_{hsGPA}\\).\nCan you reject the hypothesis \\(H_0:\\beta_{hsGPA}=0.4\\) against the twosided alternative at the 5% significance level?\nCan you reject the hypothesis \\(H_0: \\beta_{hsGPA}=1\\) against the two-sided alternative at the 5% significance level?\n\nt-student\n\n\n\\(0.412\\pm 1.96\\times 0.094\\Rightarrow [0.228, 0.596]\\)\n\\(H_0: \\beta_1=0.4\\) cannot be rejected at 5% significance as 0.4 is in the confidence interval.\n\\(H_0: \\beta_1=1\\) is rejected at 5% significance as 1 falls out of the CI."
   },
   {
-    "objectID": "02_MLR_review.html#mlr",
-    "href": "02_MLR_review.html#mlr",
-    "title": "Review for lecture SLR",
-    "section": "MLR",
-    "text": "MLR\nThis can trivially be generalized to \\(k\\) regressors, just defining \\(X\\) as:\n\\[\n\\begin{aligned}\nX =\n\\begin{pmatrix}\n    1 & x_1^1 & x_2^1 & x_3^1 & \\dots & x_k^1 \\\\\n    1 & x_1^2 & x_2^2 & x_3^2 & \\dots & x_k^2 \\\\\n    \\vdots & \\vdots & \\vdots & \\ddots & \\vdots \\\\\n    1 & x_1^n & x_2^n & x_3^n & \\dots & x_k^n\n\\end{pmatrix}\\quad\\quad\n\\beta =\n\\begin{pmatrix}\n\\beta_0 \\\\ \\beta_1 \\\\ \\beta_2 \\\\ \\beta_3 \\\\ \\vdots \\\\ \\beta_k\n\\end{pmatrix}\n\\end{aligned}\n\\]"
+    "objectID": "03_Inference.html#exercise-3.4",
+    "href": "03_Inference.html#exercise-3.4",
+    "title": "Inference",
+    "section": "Exercise 3.4",
+    "text": "Exercise 3.4\nConsider the following model:\n\n\\[\n\\log(scrap)=\\beta_0+\\beta_1 hrsemp + \\beta_2 \\log(sales)+\\beta_3 \\log(employ)+u\n\\]\n\nwhere hrsemp is annual hours of training per employee, sales is annual firm sales (in dollars), and employ is the number of firm employees."
   },
   {
-    "objectID": "02_MLR_review.html#beta_j-as-a-regression-of-y-on-the-residuals-of-x_j-on-x_-j",
-    "href": "02_MLR_review.html#beta_j-as-a-regression-of-y-on-the-residuals-of-x_j-on-x_-j",
-    "title": "Review for lecture SLR",
-    "section": "\\(\\beta_j\\) as a regression of \\(y\\) on the residuals of \\(x_j\\) on \\(x_{-j}\\)",
-    "text": "\\(\\beta_j\\) as a regression of \\(y\\) on the residuals of \\(x_j\\) on \\(x_{-j}\\)\nLet \\[y=\\beta_0+\\sum \\beta_i x_i + u\\] Running the regression \\(x_j = \\gamma_0 + \\sum_{i\\neq j} \\gamma_i x_i + r_j\\) to obtain \\(r_j = x_j - \\gamma_0-\\sum_{i\\neq j} \\gamma_i x_i\\).\nMultiply the first equation by \\(r_j\\) and sum\n\\[\\sum r_j y = \\sum \\beta_0 r_j + \\sum \\beta_i x_i r_j + \\sum u r_j\\]\nRemember that \\(E[r_j]=0\\) and that \\(r_j\\) is orthogonal to \\(x_{-j}\\) and therefore the previous expression reduces to:\n\\[\\sum r_j y = \\beta_j \\sum  x_j r_j + \\sum u r_j\\]\nRecall that \\(r_j=x_j-\\gamma_0 - \\sum_{i\\neq j} \\gamma_i x_i\\), that is a linear combination of \\(x\\)s, and \\(u\\) is orthogonal to all of them. The constant is dealt with \\(E[u]=0\\).\nThis leaves us with:\n\\[\\sum r_j y = \\beta_j \\sum  x_j r_j\\]\nNow consider the original regression of \\(x_j\\) on \\(x_{-j}\\), multiply both sides by \\(r_j\\) to obtain:\n\\[r_jx_j = \\gamma_0r_j + \\sum_{i\\neq j} \\gamma_i x_i r_j + r_j ^2\\]\nAgain, \\(r_j\\) is orthogonal to all the \\(x_{-j}\\) and therefore the second term would dissapear when adding up. The first term dissapears because \\(E[r_j]=0\\), and therefore summing up on both sides we get:\n\\[\\sum r_j x_j = \\sum r_j^2\\]\nWhich we can replace in the previous equation to obtain:\n\\[\\sum r_j y = \\beta_j \\sum r_j^2\\]\nAnd finally\n\\[\\beta_j = \\frac{\\sum r_j y}{\\sum r_j^2}\\]"
+    "objectID": "03_Inference.html#ex-3.4-questions",
+    "href": "03_Inference.html#ex-3.4-questions",
+    "title": "Inference",
+    "section": "Exercise 3.4",
+    "text": "Exercise 3.4\n\nShow that the population model can also be written as\n\n\\[\n\\log(scrap)=\\beta_0+\\beta_1 hrsemp + \\beta_2 \\log(sales/employ)+\\theta_3 \\log(employ)+u\n\\]\n\nwhere \\(\\theta_3=\\beta_2+\\beta_3\\)\nInterpret the null hypothesis \\(H_0: \\theta_3=0\\).\n\n\n\nsubtract and add \\(\\beta_2\\log(employ)\\) and then you get the result.\n\\(H_0: \\theta_3=0\\) can be written as \\(\\beta_2+\\beta_3=0\\) or \\(\\beta_2=-\\beta_3\\), that is under the null hypothesis the effects cancel out, or are symmetric."
+  },
+  {
+    "objectID": "03_Inference.html#ex-3.4-questions2",
+    "href": "03_Inference.html#ex-3.4-questions2",
+    "title": "Inference",
+    "section": "Exercise 3.4",
+    "text": "Exercise 3.4\n\nUsing 43 observations, you estimate the original equation:\n\n\\[\n\\widehat{\\log(scrap)}=\\underset{(4.57)}{11.74}+\\underset{(0.019)}{0.043} hrsemp - \\underset{(0.370)}{0.951}\\log(sales) + \\underset{(0.360)}{0.992}\\log(employ)\n\\]\n\nand when the second equation is estimated, we obtain:\n\n\\[\n\\widehat{\\log(scrap)}=\\underset{(4.57)}{11.74}+\\underset{(0.019)}{0.043} hrsemp - \\underset{(0.370)}{0.951}\\log(sales/employ) + \\underset{(0.205)}{0041}\\log(employ)\n\\]\n\nWith \\(R^2=0.310\\) for both regressions. Test if the effect of annual firm sales (in USD) on scrap rates is the symmetric of the effect of the number of firm employees on scrap rates.\n\nt-student\n\n\\(H_0:\\theta_3=0\\) and \\(H_a: \\theta_3\\neq 0\\). For \\(\\alpha=5\\%\\) and \\(dof=43-3-1=39\\) the critical value \\(t^c=2.023\\). In this case \\(t=\\frac{0.041}{0.205}=0.2\\). Because \\(t&lt;t^c\\) we fail to reject \\(H_0\\) at 5%."
+  },
+  {
+    "objectID": "03_Inference.html#exercise-3.7",
+    "href": "03_Inference.html#exercise-3.7",
+    "title": "Inference",
+    "section": "Exercise 3.7",
+    "text": "Exercise 3.7\n\nWith the goal of evaluating the environmental impact of different management policies of Natural Parks, a study has analyzed data for 28 Natural Parks in country X. The following regression was estimated: \\[\n\\hat{y} = \\underset{(-1.085)}{-12.666}+\\underset{(17.299)}{3.743}x_{1}-\\underset{(-2.164)}{9.614}x_{2}\n\\]\nwhere \\(y\\) is the number of animals and plants in extintion danger in each park, \\(x_1\\) is the number of visits to the park (in thousands), and \\(x_2\\) is the expenditures on nature conservation (in million euro). Consider also that \\(Cov\\left(\\hat{\\beta}_1,\\hat{\\beta}_2\\right)=-0.8835\\). The numbers in parenthesis are t-statistics."
+  },
+  {
+    "objectID": "03_Inference.html#exercise-3.7-1",
+    "href": "03_Inference.html#exercise-3.7-1",
+    "title": "Inference",
+    "section": "Exercise 3.7",
+    "text": "Exercise 3.7\n\nInterpret the parameter estimates.\nKnowing that \\(R^2=0.984\\), test the overall significance of the regression.\nThe director of the Natural Parks association is worried about the number of vists to the parks: “… if not for the nature, at least in financial terms we have to reduce the number of visits, because in order to compensate for an increase of one thousand visitors we have to spend 0.5 million euros more in maintenance”. Comment on this sentence.\n\n\n\nIf visitors increase by 1000 the N of endangered species increases by 3.73 on average ceteris paribus. If maintenance increases by 1 million euros, the number of endangered species decreases by 9.614, on average, ceteris paribus.\n\\(F=\\frac{R^2_{ur}/k}{(1-R^2_{ur})/(n-k-1)}\\sim F_{k,n-k-1}\\) here \\(F=\\frac{0.984/2}{(1-0.984)/(28-2-1)}=768.75\\) Since \\(F&gt;F^c=F_{5\\%,2.25}=3.39\\) we reject \\(H_0\\). The coefficients are jointly statistical significant, or the model is statistical significant.\nWe want to test if 0.5 million euro compensate the impact on the number of endangered species for having 1000 more visits to the park: \\(H_0: -\\beta_1=0.5\\beta_2\\) or \\(H_0=\\beta_1+0.5\\beta_2=0\\). Test for \\(\\hat{\\rho}=\\hat{\\beta}_1+0.5\\hat{\\beta}_2\\): \\(t=\\frac{\\hat{\\rho}}{se(\\hat{\\rho})}=\\frac{3.743-0.5(9.614)}{se(\\hat{\\rho})}\\) \\(se(\\hat{\\rho})=\\sqrt{V(\\hat{\\beta}_1+0.5\\hat{\\beta}_2)}\\) and that is \\(\\sqrt{V(\\hat{\\beta}_1)+0.5^2 V(\\hat{\\beta}_2)+2\\times 0.5Cov(\\hat{\\beta}_1, \\hat{\\beta}_2)}=2.024\\), leading to \\(t=-0.526\\). Thus, we fail to reject \\(H_0\\) as \\(|t|&lt;|t^c|\\), and we have evidence that spending 0.5 million eur in maintenance compensates the impact on the number of endangered species of having 1000 more visitors."
+  },
+  {
+    "objectID": "03_Inference.html#app-t-table",
+    "href": "03_Inference.html#app-t-table",
+    "title": "Inference",
+    "section": "t table",
+    "text": "t table\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ndf-\\(\\alpha/2\\)\n0.50\n0.25\n0.20\n0.15\n0.10\n0.05\n0.025\n0.01\n0.005\n0.001\n0.0005\n\n\n\n\n1\n0.000\n1.000\n1.376\n1.963\n3.078\n6.314\n12.71\n31.82\n63.66\n318.31\n636.62\n\n\n2\n0.000\n0.816\n1.061\n1.386\n1.886\n2.920\n4.303\n6.965\n9.925\n22.327\n31.599\n\n\n3\n0.000\n0.765\n0.978\n1.250\n1.638\n2.353\n3.182\n4.541\n5.841\n10.215\n12.924\n\n\n4\n0.000\n0.741\n0.941\n1.190\n1.533\n2.132\n2.776\n3.747\n4.604\n7.173\n8.610\n\n\n5\n0.000\n0.727\n0.920\n1.156\n1.476\n2.015\n2.571\n3.365\n4.032\n5.893\n6.869\n\n\n6\n0.000\n0.718\n0.906\n1.134\n1.440\n1.943\n2.447\n3.143\n3.707\n5.208\n5.959\n\n\n7\n0.000\n0.711\n0.896\n1.119\n1.415\n1.895\n2.365\n2.998\n3.499\n4.785\n5.408\n\n\n8\n0.000\n0.706\n0.889\n1.108\n1.397\n1.860\n2.306\n2.896\n3.355\n4.501\n5.041\n\n\n9\n0.000\n0.703\n0.883\n1.100\n1.383\n1.833\n2.262\n2.821\n3.250\n4.297\n4.781\n\n\n10\n0.000\n0.700\n0.879\n1.093\n1.372\n1.812\n2.228\n2.764\n3.169\n4.144\n4.587\n\n\n11\n0.000\n0.697\n0.876\n1.088\n1.363\n1.796\n2.201\n2.718\n3.106\n4.025\n4.437\n\n\n12\n0.000\n0.695\n0.873\n1.083\n1.356\n1.782\n2.179\n2.681\n3.055\n3.930\n4.318\n\n\n13\n0.000\n0.694\n0.870\n1.079\n1.350\n1.771\n2.160\n2.650\n3.012\n3.852\n4.221\n\n\n14\n0.000\n0.692\n0.868\n1.076\n1.345\n1.761\n2.145\n2.624\n2.977\n3.787\n4.140\n\n\n15\n0.000\n0.691\n0.866\n1.074\n1.341\n1.753\n2.131\n2.602\n2.947\n3.733\n4.073\n\n\n16\n0.000\n0.690\n0.865\n1.071\n1.337\n1.746\n2.120\n2.583\n2.921\n3.686\n4.015\n\n\n17\n0.000\n0.689\n0.863\n1.069\n1.333\n1.740\n2.110\n2.567\n2.898\n3.646\n3.965\n\n\n18\n0.000\n0.688\n0.862\n1.067\n1.330\n1.734\n2.101\n2.552\n2.878\n3.610\n3.922\n\n\n19\n0.000\n0.688\n0.861\n1.066\n1.328\n1.729\n2.093\n2.539\n2.861\n3.579\n3.883\n\n\n20\n0.000\n0.687\n0.860\n1.064\n1.325\n1.725\n2.086\n2.528\n2.845\n3.552\n3.850\n\n\n21\n0.000\n0.686\n0.859\n1.063\n1.323\n1.721\n2.080\n2.518\n2.831\n3.527\n3.819\n\n\n22\n0.000\n0.686\n0.858\n1.061\n1.321\n1.717\n2.074\n2.508\n2.819\n3.505\n3.792\n\n\n23\n0.000\n0.685\n0.858\n1.060\n1.319\n1.714\n2.069\n2.500\n2.807\n3.485\n3.768\n\n\n24\n0.000\n0.685\n0.857\n1.059\n1.318\n1.711\n2.064\n2.492\n2.797\n3.467\n3.745\n\n\n25\n0.000\n0.684\n0.856\n1.058\n1.316\n1.708\n2.060\n2.485\n2.787\n3.450\n3.725\n\n\n26\n0.000\n0.684\n0.856\n1.058\n1.315\n1.706\n2.056\n2.479\n2.779\n3.435\n3.707\n\n\n27\n0.000\n0.684\n0.855\n1.057\n1.314\n1.703\n2.052\n2.473\n2.771\n3.421\n3.690\n\n\n28\n0.000\n0.683\n0.855\n1.056\n1.313\n1.701\n2.048\n2.467\n2.763\n3.408\n3.674\n\n\n29\n0.000\n0.683\n0.854\n1.055\n1.311\n1.699\n2.045\n2.462\n2.756\n3.396\n3.659\n\n\n30\n0.000\n0.683\n0.854\n1.055\n1.310\n1.697\n2.042\n2.457\n2.750\n3.385\n3.646\n\n\n40\n0.000\n0.681\n0.851\n1.050\n1.303\n1.684\n2.021\n2.423\n2.704\n3.307\n3.551\n\n\n60\n0.000\n0.679\n0.848\n1.045\n1.296\n1.671\n2.000\n2.390\n2.660\n3.232\n3.460\n\n\n80\n0.000\n0.678\n0.846\n1.043\n1.292\n1.664\n1.990\n2.374\n2.639\n3.195\n3.416\n\n\n100\n0.000\n0.677\n0.845\n1.042\n1.290\n1.660\n1.984\n2.364\n2.626\n3.174\n3.390\n\n\n1000\n0.000\n0.675\n0.842\n1.037\n1.282\n1.646\n1.962\n2.330\n2.581\n3.098\n3.300\n\n\nZ\n0.000\n0.674\n0.842\n1.036\n1.282\n1.645\n1.960\n2.326\n2.576\n3.090\n3.291\n\n\n\n\nBack to Exercise 3.1 Exercise 3.3 Exercise 3.4"
   },
   {
     "objectID": "04_OVB_IV_review.html",
@@ -1288,347 +1547,39 @@
     "text": "Exercise 12.1-f\nDiscuss how unobserved heterogeneity might affect the estimates in the pooled OLS and random effects models, particularly regarding the industry variable. Why might the fixed effects model provide more reliable estimates in the presence of unobserved heterogeneity?\n\nUnobserved firm-specific characteristics (e.g., management quality, innovation culture) that are time-invariant and affect R&D expenditure may be correlated with regressors like profit, capital, and industry. Pooled OLS does not adequately control for unobserved heterogeneity if it is correlated with the regressors. This can lead to biased and inconsistent estimates.\nFixed Effects controls for all time-invariant unobserved heterogeneity by using within-firm variation. This provides consistent estimates even when unobserved firm-specific effects are correlated with the regressors.\nRegarding industry variables: In Pooled OLS model, the effect of industry may capture both observed and unobserved industry characteristics. If unobserved heterogeneity is present, the estimates for industry may still be biased in these models."
   },
   {
-    "objectID": "R.html#the-first-thing-to-do",
-    "href": "R.html#the-first-thing-to-do",
-    "title": "Regression with R",
-    "section": "The first thing to do",
-    "text": "The first thing to do\nThe first thing to do is to clean the environment\n\nrm(list = ls())\n\n\nUse with CAUTION: this will delete everything in your environment"
-  },
-  {
-    "objectID": "R.html#load-libraries",
-    "href": "R.html#load-libraries",
-    "title": "Regression with R",
-    "section": "Load libraries",
-    "text": "Load libraries\nYou do not need to this immediately, but it is good practice. For this lecture, we need to load the following packages:\n\nlibrary(tidyverse)\nlibrary(stargazer)\nlibrary(skimr)\nlibrary(caret)\nlibrary(xtable)\nlibrary(GGally)\nlibrary(ggthemes)\nlibrary(car)"
-  },
-  {
-    "objectID": "R.html#install-libraries",
-    "href": "R.html#install-libraries",
-    "title": "Regression with R",
-    "section": "Install libraries",
-    "text": "Install libraries\nIf you fail to load one of these libraries, you can install it with:\n\ninstall.packages{'tidyverse'}\n\nFor example, with this we install the library tidyverse"
-  },
-  {
-    "objectID": "R.html#set-working-directory",
-    "href": "R.html#set-working-directory",
-    "title": "Regression with R",
-    "section": "Set working directory",
-    "text": "Set working directory\nIn here, we will tell R where our files (data) are, and by default, where it will store any file we might want to export (images for example.)\n\nsetwd(\"/the/path/to/your/files\")"
-  },
-  {
-    "objectID": "R.html#load-and-work-data",
-    "href": "R.html#load-and-work-data",
-    "title": "Regression with R",
-    "section": "Load and work data",
-    "text": "Load and work data\n\nDM &lt;- read.csv('DirectMarketing.csv')\nskim_without_charts(DM)\nDM$History[is.na(DM$History)] &lt;- \"No past purchases\"\nDM$PastPurchases &lt;- ifelse(DM$History == \"No past purchases\",\n    \"No past purchases\", \"Past purchases\")"
-  },
-  {
-    "objectID": "R.html#quick-summary-statistics-table",
-    "href": "R.html#quick-summary-statistics-table",
-    "title": "Regression with R",
-    "section": "Quick summary statistics table",
-    "text": "Quick summary statistics table\n\nstargazer(as.data.frame(DM), type = \"text\", title=\"Descriptive stats\")\nstargazer(as.data.frame(DM), type = \"html\",\n    title=\"Descriptive stats\", out=\"DS.html\")"
-  },
-  {
-    "objectID": "R.html#if-you-have-non-numeric-data",
-    "href": "R.html#if-you-have-non-numeric-data",
-    "title": "Regression with R",
-    "section": "If you have non-numeric data",
-    "text": "If you have non-numeric data\n\nDM_aux &lt;- dummyVars(\" ~ .\", data = DM)\nDM_num &lt;- data.frame(predict(DM_aux, newdata = DM))\nstargazer(as.data.frame(DM_num), type = \"text\", \n          title=\"Descriptive stats: all numeric data\")\n\nstargazer(as.data.frame(DM_num), type = \"html\", \n          title=\"Descriptive stats: all numeric data\",\n          out=\"DS2.html\")"
-  },
-  {
-    "objectID": "R.html#correlation-matrix",
-    "href": "R.html#correlation-matrix",
-    "title": "Regression with R",
-    "section": "Correlation matrix",
-    "text": "Correlation matrix\n\ncorrDM = cor(DM[,c(\"AmountSpent\", \"Salary\", \"Catalogs\", \"Children\")])\n\nstargazer(corrDM, title=\"Correlation Matrix\", \n          digits = 2, type=\"text\")\n\nstargazer(corrDM, title=\"Correlation Matrix\", \n          digits = 2, type=\"html\",\n          out=\"corr.html\")"
-  },
-  {
-    "objectID": "R.html#histogram",
-    "href": "R.html#histogram",
-    "title": "Regression with R",
-    "section": "Histogram",
-    "text": "Histogram\n\nggplot(data = DM, aes(x = AmountSpent)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Salary)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Catalogs)) +\n    geom_histogram()\nggplot(data = DM, aes(x = Children)) +\n    geom_histogram()"
-  },
-  {
-    "objectID": "R.html#data-distribution",
-    "href": "R.html#data-distribution",
-    "title": "Regression with R",
-    "section": "Data distribution",
-    "text": "Data distribution\n\nggplot(data = DM, aes(x = factor(Gender), y = AmountSpent)) +\n    geom_boxplot() + \n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(Location), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(Age), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))\nggplot(data = DM, aes(x = factor(History), y = AmountSpent)) +\n    geom_boxplot() +\n    theme(text = element_text(size = 25))"
-  },
-  {
-    "objectID": "R.html#scatterplots",
-    "href": "R.html#scatterplots",
-    "title": "Regression with R",
-    "section": "Scatterplots",
-    "text": "Scatterplots\n\nggplot(data = DM, aes(x = Salary, y = AmountSpent)) +\n    geom_point() + \n    stat_smooth(method = lm) +\n    theme(text = element_text(size = 18))"
-  },
-  {
-    "objectID": "R.html#linear-regression",
-    "href": "R.html#linear-regression",
-    "title": "Regression with R",
-    "section": "Linear Regression",
-    "text": "Linear Regression\n\nlm1 &lt;- lm(AmountSpent ~ Salary, data = DM)\n\nstargazer(lm1, type = \"text\", no.space = TRUE, digits=3, \n          title = \"Impact of Salary on Amount Spent\")\n\nstargazer(lm1, type = \"html\", no.space = TRUE, digits=3, \n          title = \"Impact of Salary on Amount Spent\",\n          out=\"SLR.html\")"
-  },
-  {
-    "objectID": "R.html#work-with-the-coefficients",
-    "href": "R.html#work-with-the-coefficients",
-    "title": "Regression with R",
-    "section": "Work with the coefficients",
-    "text": "Work with the coefficients\n\nlm1.coeffs &lt;- coefficients(lm1)\nlm1.coeffs\n\nlm1.coeffs[1] + lm1.coeffs[2]*100000"
-  },
-  {
-    "objectID": "R.html#predicted-values-haty-hatu",
-    "href": "R.html#predicted-values-haty-hatu",
-    "title": "Regression with R",
-    "section": "Predicted values (\\(\\hat{y}\\), \\(\\hat{u}\\))",
-    "text": "Predicted values (\\(\\hat{y}\\), \\(\\hat{u}\\))\nThis add a new variable to our original dataset:\n\nDM$lm1_y = predict(lm1)\nDM$lm1_u = residuals(lm1)"
-  },
-  {
-    "objectID": "R.html#linear-regression-with-more-htan-one-variable",
-    "href": "R.html#linear-regression-with-more-htan-one-variable",
-    "title": "Regression with R",
-    "section": "Linear regression with more htan one variable",
-    "text": "Linear regression with more htan one variable\nYou can store the models, and estimate them later.\n\nm1 &lt;- AmountSpent ~ Salary \nm2 &lt;- AmountSpent ~ Salary + Catalogs + Children \nm3 &lt;- AmountSpent ~ Salary + Catalogs + Children +\n    Gender + History + Location"
-  },
-  {
-    "objectID": "R.html#estimate-models",
-    "href": "R.html#estimate-models",
-    "title": "Regression with R",
-    "section": "Estimate models",
-    "text": "Estimate models\n\nlm.spend1 &lt;- lm(m1, data = DM)\nlm.spend2 &lt;- lm(m2, data = DM)\nlm.spend3 &lt;- lm(m3, data = DM)"
-  },
-  {
-    "objectID": "R.html#output-table-with-models-1-to-3",
-    "href": "R.html#output-table-with-models-1-to-3",
-    "title": "Regression with R",
-    "section": "Output table with Models 1 to 3",
-    "text": "Output table with Models 1 to 3\n\nstargazer(lm.spend1, lm.spend2, lm.spend3, \n          header = FALSE , type = \"text\", column.sep.width = \"1pt\", \n          no.space = TRUE, df = FALSE, digits = 2, \n          title = \"Regression Analysis - Determinants of Amount Spent\")\n\nstargazer(lm.spend1, lm.spend2, lm.spend3, \n          header = FALSE , type = \"html\", column.sep.width = \"1pt\", \n          no.space = TRUE, df = FALSE, digits = 2, \n          title = \"Regression Analysis - Determinants of Amount Spent\",\n          out=\"MLR.html\")"
-  },
-  {
-    "objectID": "R.html#running-some-tests-on-the-models",
-    "href": "R.html#running-some-tests-on-the-models",
-    "title": "Regression with R",
-    "section": "Running some tests on the models:",
-    "text": "Running some tests on the models:\n\nlinearHypothesis(lm.spend2, c(\"Salary=0\"))\nlinearHypothesis(lm.spend2, c(\"4*Catalogs=-Children\"))\nlinearHypothesis(lm.spend2, c(\"Catalogs=0\",\"Children=0\"))"
-  },
-  {
-    "objectID": "theory_time_series.html#assumptions",
-    "href": "theory_time_series.html#assumptions",
-    "title": "Time Series 3",
-    "section": "Assumptions",
-    "text": "Assumptions\n\n\n\n\nSLR\nMLR\nTS\n\n\n\n\nLinearity in \\(\\beta\\)\nSLR1\nMLR1\nTS1\n\n\nRandom sampling\nSLR2\nMLR2\n\n\n\nSample variation in \\(X\\)\nSLR3\n\n\n\n\nNo perfect collinearity\n\nMLR4\nTS2\n\n\n\\(E[u|X]=0\\)\nSLR4\nMLR4\nTS3\n\n\n\\(V[u|X]=\\sigma^2\\)\nSLR5\nMLR5\nTS4\n\n\n\\(Corr[u_su_t|X]=0\\) for \\(t\\neq s\\)\n\n\nTS5"
-  },
-  {
-    "objectID": "theory_time_series.html#the-problem",
-    "href": "theory_time_series.html#the-problem",
-    "title": "Time Series 3",
-    "section": "The problem",
-    "text": "The problem\nLarge samples in time series (normal frequency time series) are hard to come by!\n\nWhy we need large samples? to use large sample approximations results (asymptotics for example)."
-  },
-  {
-    "objectID": "theory_time_series.html#stationary-process",
-    "href": "theory_time_series.html#stationary-process",
-    "title": "Time Series 3",
-    "section": "Stationary Process",
-    "text": "Stationary Process\n\n\n\n\n\n\nStationary process\n\n\nThe stochastic process \\(\\{x_t\\}_{t\\in\\mathbb{N}}\\) is stationray if for any monotonically increasing function \\(g:\\mathbb{N}\\mapsto\\mathbb{N}\\), the joint distribution of \\[(x_{g(1)},x_{g(2)},\\dots,x_{g(m)})\\] is equal to the distribution of \\[(x_{g(1)+h},x_{g(2)+h},\\dots,x_{g(m)}+h)\\] for any \\(h\\in\\mathbb{N}\\).\n\n\n\n\nMaybe it helps the plot with a time series, take a subset, shift it with a different color and illustrate the consequence. A stationary process implies that the probability distributions of the data are stable over time. If we take some data points in our sample, and we shift it by \\(h\\) the joint probability of the data remains unchanged."
-  },
-  {
-    "objectID": "theory_time_series.html#stationary-process-2",
-    "href": "theory_time_series.html#stationary-process-2",
-    "title": "Time Series 3",
-    "section": "Stationary Process",
-    "text": "Stationary Process\nA stochastic process that is not stationary is said to be nonstationary.🥁\nIt is difficult to identify a stationary process because you do not have all the data! However it can be very simple to identify a non-stationary process, for example a time series with a trend.\n\nFor some results, a weaker form of stationary is enough…\n\nAnother way to read a stationary stochastic process is to say that it is identically distributed, but it says even more, for example the joint distribution of \\((x_1,x_2)\\) is the same as for \\((x_t,x_{t+1})\\) \\(\\forall t\\)."
-  },
-  {
-    "objectID": "theory_time_series.html#covariance-stationary-process",
-    "href": "theory_time_series.html#covariance-stationary-process",
-    "title": "Time Series 3",
-    "section": "Covariance Stationary Process",
-    "text": "Covariance Stationary Process\n\n\n\n\n\n\nImportant\n\n\nA stochastic process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) with a finite second moment \\(E[x_t^2]&lt;\\infty\\), is covariance stationary if:\n\n\\(E[x_t]\\) is constant\n\\(V[x_t]\\) is constant\n\\(\\forall t,h\\in\\mathbb{N}\\) we have \\(Cov(x_t,x_{t+h})=\\phi(h)\\), i.e. it depends only on \\(h\\), and not \\(t\\).\n\n\n\n\n\nCovariance stationarity focuses only on the first two moments of a stochastic process: the mean and variance, and the covariance is constant in the same distance between two terms of the sequence, not its location. Obviously this carries to the correlation as well."
-  },
-  {
-    "objectID": "theory_time_series.html#covariance-stationary-process-1",
-    "href": "theory_time_series.html#covariance-stationary-process-1",
-    "title": "Time Series 3",
-    "section": "Covariance Stationary Process",
-    "text": "Covariance Stationary Process\nIf a stationary process has a finite second moment, then it is Covariance Stationary as well. Note that converse is not true, i.e. a Covariance Stationary Process needs not be Stationary.\n\nThe intuition on why we need these things to do econometrics in time series is that we need to learn from the data!, if what happened with the data in the past is no good to tell anything on how the data will behave in the future there is no point in trying to learn. We need to expect some kind of regularity or stability with the data.\nOn a technical leve, we need these to use the asymptotic results, the law of large numbers and the central limit theorem.\nNote that TS4 (homoskedasticity) and TS5(no serial correlation) imply some kind of stationarity!"
-  },
-  {
-    "objectID": "theory_time_series.html#weakly-dependent-time-series",
-    "href": "theory_time_series.html#weakly-dependent-time-series",
-    "title": "Time Series 3",
-    "section": "Weakly dependent Time Series",
-    "text": "Weakly dependent Time Series\n\n\n\n\n\n\nImportant\n\n\nA stationary time series process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) is said to be weakly dependent if \\(x_t\\) and \\(x_{t+h}\\) are “almost independent” as \\(h\\rightarrow\\infty\\).\n\n\n\n\nWe could say that intuitively a time series is weakly dependent if the correlation between \\(x_t\\) and \\(x_{t+h}\\) gets smaller and smaller as \\(h\\) increases.\n\nThe definition is vague, because no good and rigorous mathematical definition covers all the cases that can be of interest. There are many specific forms of weak dependence, but those are beyond the scope of this course."
-  },
-  {
-    "objectID": "theory_time_series.html#weakly-dependent-time-series-1",
-    "href": "theory_time_series.html#weakly-dependent-time-series-1",
-    "title": "Time Series 3",
-    "section": "Weakly dependent Time Series",
-    "text": "Weakly dependent Time Series\n\n\n\n\n\n\nImportant\n\n\nA stochastic process \\(\\{x_t, t\\in\\mathbb{N}\\}\\) is said to be asymtotically uncorrelated if\n\\[Corr(x_t,x_{t+h})\\underset{h\\rightarrow\\infty}{\\rightarrow}0\\]\n\n\n\nThis is basically how we can characterize weakly dependnece.\n\nWhy is this important? Well, essentially it replaces the assumption of random sampling in implying that the law of large numbers LLN and hte central limit theorem CLT hold. Themost well-known CLT for time series data requires stationarity and some form of weak dependence."
-  },
-  {
-    "objectID": "theory_time_series.html#moving-average-process",
-    "href": "theory_time_series.html#moving-average-process",
-    "title": "Time Series 3",
-    "section": "Moving average process",
-    "text": "Moving average process\nThe moving average process is an example of a weakly dependent process:\n\\[x_t = e_t + \\alpha_1 e_{t-1},\\quad t\\in\\mathbb{N}\\]\nwhere \\(\\{e_t\\}_{t\\in\\mathbb{N}}\\) is an iid sequence with zero mean and variance \\(\\sigma_e^2\\). In particular, this process is called a moving average proces of order one MA(1)\n\nWe can see that \\(x_t\\) is a weighted avreage of \\(e_t\\) and \\(e_{t-1}\\), in the next period we drop \\(x_{t-1}\\) and incorporate \\(e_{t+1}\\).\nCheck that MA(1) is weakly dependent:\n\n\\(Cov(x_t,x_{t+1})=\\alpha_1\\sigma_2^2\\) and then it does not depend on \\(t\\).\nIt follows that \\(Corr(x_t,x_{t+1})=\\alpha_1/(1+\\alpha_1^2)\\).\nCheck that \\(x_{t}\\) and \\(x_{t+3}\\) for example is zero.\n\nConclude that given \\(e_t\\) is identically distributed, this can be shown to be actually stationary. Then the LLN and CLT can be applied to this."
-  },
-  {
-    "objectID": "theory_time_series.html#autoregressive-processes",
-    "href": "theory_time_series.html#autoregressive-processes",
-    "title": "Time Series 3",
-    "section": "Autoregressive processes",
-    "text": "Autoregressive processes\nConsider now the following process\n\n\n\n\n\n\nImportant\n\n\n##Autoregressive procees of order one AR(1) \\[y_t=\\rho y_{t-1}+e_t,\\quad t\\in\\mathbb{N}\\] with \\(e_t\\) and iid sequence with \\(E[e]=0\\) and \\(V[e]=\\sigma_e^2\\). Let \\(e_t\\) be independent of \\(y_0\\) and \\(E[y_0]=0\\). This is called an autoregressive process of order one AR(1)\nWe need a crucial assumption for the weak dependence of the AR(1) process, which is \\(|\\rho|&lt;1\\). In this case we say \\(\\{y_t\\}\\) is a stable AR(1) process.\n\n\n\n\nTo see that a stable AR(1) is asymptotically uncorrelated, it is useful to assume that the process is covariance stationary. In fact it can generally be shown that \\(\\{y_t\\}\\) is strictly stationary. Then \\(E[y_t]=E[y_{t-1}]\\) and with \\(\\rho\\neq 1\\) this happens only if \\(E[y_t]=0\\). Take the variance of the AR(1) and show that \\(\\sigma_y^2=\\rho^2\\sigma_y^2+\\sigma_e^2\\), solving for \\(\\sigma_y^2\\) you get \\(\\sigma_2^2/(1-\\rho^2)\\).\nShow before that \\(E[y_t]=0\\) by taking expectation on the AR(1)."
-  },
-  {
-    "objectID": "theory_time_series.html#autoregressive-processes-1",
-    "href": "theory_time_series.html#autoregressive-processes-1",
-    "title": "Time Series 3",
-    "section": "Autoregressive processes",
-    "text": "Autoregressive processes\nwe can show easily that \\[Corr(y_t,y_{t+h})=\\frac{Cov(y_t,y_{t+h})}{\\sigma_y^2}=\\rho_1^h\\]\nNote that a consequence of this is that for any \\(t\\) \\(Corr(y_t,y_{t+1})=\\rho\\)! and moreover, as \\(|\\rho|&lt;1\\), \\(\\rho^h\\underset{h\\rightarrow\\infty}{\\rightarrow}0\\).\nWe have that the AR(1) process is weakly dependent.\n\nFor that write \\(y_{t+h}=\\rho y_{t+h-1}+e_{t+h}\\). Replace \\(y_{t+h-1}\\) recursively, \\(\\rho(\\rho y_{t+h-2}+e_{t+h-1})+e_{t+h}\\) which equals \\(\\rho^2 y_{t+h-2}+\\rho e_{t+h-1} + e_{t+h}\\) doing it again and again until we get \\(\\rho^{h}y_t + \\rho^{h-1}e_{t+1}+\\dots+\\rho e_{t+h-1}+e_{t+h}\\)\nThen multiply by \\(y_t\\) and take expectation, because \\(E[y]=0\\) this is the covariance, and \\(E[ye]=0\\), so you end up with \\(\\rho ^h \\sigma^y^2\\)."
-  },
-  {
-    "objectID": "theory_time_series.html#random-walk",
-    "href": "theory_time_series.html#random-walk",
-    "title": "Time Series 3",
-    "section": "Random Walk",
-    "text": "Random Walk\nWhat happens if in the AR(1) model \\(|\\rho|\\geq 1\\)? We needed that for weakly dependence…\nSadly, many economic series are characterized with a \\(\\rho = 1\\). Was it all for nothing then?\n\nLet’s see, the model would be something like\n\\[ y_t = y_{t-1}+e_t\\] with a well behaved error term. This process is known as a random walk."
-  },
-  {
-    "objectID": "theory_time_series.html#random-walk-1",
-    "href": "theory_time_series.html#random-walk-1",
-    "title": "Time Series 3",
-    "section": "Random Walk",
-    "text": "Random Walk\nLet’s characterize this process, what is \\(E[y_t]\\)?\n\\[y_t=y_{t-1}+e_t\\quad \\Rightarrow\\quad E[y_t]=E[y_0],\\ V[y_t]=\\sigma_e^2 t\\]\nNote the consequences of this! \\(y_0\\) affects all the future values of \\(y\\), and moreover, the best predition for the future is the current value, \\(E[y_{t+h}|y_t]=y_t\\).\nAlso, the variance explodes! It can be shown further that \\[Corr(y_t,y_{t+h})=\\sqrt{\\frac{t}{(t+h)}}\\]\n\nFor expected value, use substitution for \\(y_{t-1}\\) and take expectation, that kills all the \\(e\\)\nFor variance, the same thing, but take variance. Note that \\(V[y_0]=0\\) as it is fixed.\nContast with the prediction in the AR(1) \\(E[y_{t+h}|y_t]=\\rho^h y_t\\), so it goes to zero as \\(h\\) increasese (the unconditional mean of \\(y\\)), and \\(y_t\\) loses importance.\nAlso it is clear that the correlation approaches 1 as \\(h\\rightarrow\\infty\\)."
-  },
-  {
-    "objectID": "theory_time_series.html#random-walk-2",
-    "href": "theory_time_series.html#random-walk-2",
-    "title": "Time Series 3",
-    "section": "Random Walk",
-    "text": "Random Walk\nA random walk does not satisfy the requirement of an asymptotically uncorrelated sequence.\nIndeed, a random walk is a special case of what is known as unit root process (so \\(\\rho=1\\) in an AR(1) model).\nRemember that a trending and a highly persisten series are not the same, however many times time series have both features, they are highly persistent and they have a trend. let’s see an exmaple of this."
-  },
-  {
-    "objectID": "theory_time_series.html#random-walk-with-drift",
-    "href": "theory_time_series.html#random-walk-with-drift",
-    "title": "Time Series 3",
-    "section": "Random walk with drift",
-    "text": "Random walk with drift\nA random walk with drift is a time series process characterized by the following expression:\n\\[ y_t = \\alpha_0 + y_{t-1} + e_t,\\quad t\\in\\mathbb{N}\\]\nLet \\(\\{e_t\\}\\) and \\(y_0\\) satisfy the properties for the normal random walk process model. Now if we iterate as we did previously:\n\\[y_t = \\alpha_0 t + e_t + e_{t-1}+\\dots+e_1+y_0\\] and if \\(y_0=0\\), \\(E[y_t]=\\alpha_0 t\\). That is, the expected value of \\(y_t\\) is growing with \\(t\\) (or decreasing if \\(\\alpha_0&lt;1\\))\n\nNote that \\(E[y_{t+h|y_t}=\\alpha_0 h + y_t]\\) and so the best prediction for \\(y_{t+h}\\) at \\(t\\) is \\(y_t\\) plus the drift \\(\\alpha_0 h\\). The variance suffers no change, as \\(\\alpha\\) is a constant."
-  },
-  {
-    "objectID": "theory_time_series.html#references",
-    "href": "theory_time_series.html#references",
-    "title": "Time Series 3",
-    "section": "References",
-    "text": "References\nYou can find these contents and examples in chapter 11, sections 1 and 3 of the book."
-  },
-  {
-    "objectID": "materials.html",
-    "href": "materials.html",
-    "title": "Material",
-    "section": "",
-    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\n\nR Extra\nDummies and IV\nR notebook"
-  },
-  {
-    "objectID": "materials.html#slides",
-    "href": "materials.html#slides",
-    "title": "Material",
-    "section": "",
-    "text": "Statistical Revision\nSLR\nMLR\nInference\nOVB_IV\nDummies\nIV 2SLS\nHeteroskedasticity\nR\nTime Series\nTime Series - Panel\n\n\nR Extra\nDummies and IV\nR notebook"
-  },
-  {
-    "objectID": "materials.html#notes",
-    "href": "materials.html#notes",
-    "title": "Material",
-    "section": "Notes",
-    "text": "Notes\n\nSLR\nMLR\nOVB IV\nIV 2SLS\nHeteroskedasticity"
-  },
-  {
-    "objectID": "01_SLR.html#review-1",
-    "href": "01_SLR.html#review-1",
-    "title": "SLR",
-    "section": "Review",
-    "text": "Review\n\nSLR\nLog transformations\n\\(SST = SSR + SSE\\)"
-  },
-  {
-    "objectID": "01_SLR.html#exercises",
-    "href": "01_SLR.html#exercises",
-    "title": "SLR",
-    "section": "Exercises",
-    "text": "Exercises\nhttps://moodle.novasbe.pt/mod/folder/view.php?id=4021"
-  },
-  {
-    "objectID": "01_SLR.html#question-1.1-1",
-    "href": "01_SLR.html#question-1.1-1",
-    "title": "SLR",
-    "section": "Question 1.1",
-    "text": "Question 1.1\nEurope is in the midst of an unprecedented human migration with hundreds of thousands flocking to Europe’s shores. You want to study the root causes of this issue and decide to do some research."
-  },
-  {
-    "objectID": "01_SLR.html#question-1.1-2",
-    "href": "01_SLR.html#question-1.1-2",
-    "title": "SLR",
-    "section": "Question 1.1",
-    "text": "Question 1.1\n\nWrite an equation that would allow you to test whether a country’s GDP has a linear influence in its number of asylum seekers.\nCan you say there is an exact linear relationship between both variables?\nCan you easily compute the population parameters for the regression model you presented before?\nWhat do you suggest then?\n\n\n\n\\(num_asy_i=\\beta_0+\\beta_1 GDP_i + u_i\\)\nIt is unlikely that if we get \\(\\beta_0\\) and \\(\\beta_1\\) we would obtain the exact number of asylum seekers. There might be many other factors influencing this.\nCan never get the population, then \\(\\beta_0\\) and \\(\\beta_1\\) are unknown.\nGet a sample, and estimate \\(\\beta_0\\) and \\(\\beta_1\\)."
-  },
-  {
-    "objectID": "01_SLR.html#question-1.2-1",
-    "href": "01_SLR.html#question-1.2-1",
-    "title": "SLR",
-    "section": "Question 1.2",
-    "text": "Question 1.2\nYou move on with your endeavour and collect a set of cross-sectional data for 166 countries on their number of asylum seekers and GDP per capita in 1999 and estimate the following models by OLS:"
-  },
-  {
-    "objectID": "01_SLR.html#question-1.2-2",
-    "href": "01_SLR.html#question-1.2-2",
-    "title": "SLR",
-    "section": "Question 1.2",
-    "text": "Question 1.2"
-  },
-  {
-    "objectID": "01_SLR.html#question-1.2-3",
-    "href": "01_SLR.html#question-1.2-3",
-    "title": "SLR",
-    "section": "Question 1.2",
-    "text": "Question 1.2\n\nLevel-level: \\(\\widehat{asylum}=2,569-0.12 GDP\\) with \\(n=166\\) and \\(R^2=0.0447\\)\nLog-level : \\(\\widehat{log(asylum)}=5.64-0.0002 GDP\\) with \\(n=166\\) and \\(R^2=0.2585\\)\nLevel-log : \\(\\widehat{asylum}=7,804-731.97 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.0368\\)\nLog-log : \\(\\widehat{log(asylum)}=17.56-1.65 log(GDP)\\) with \\(n=166\\) and \\(R^2=0.2673\\)"
-  },
-  {
-    "objectID": "01_SLR.html#question-1.2-4",
-    "href": "01_SLR.html#question-1.2-4",
-    "title": "SLR",
-    "section": "Question 1.2",
-    "text": "Question 1.2\n\nInterpret the coefficient on the regressor of each model.\n\n\n\nIf \\(GDP_pc\\) increases by $1, the number of asylum seekers decreases by 0.12 persons, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by $1, the number of asylum seekers decreases by 0.02%, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by 1%, the number of asylum seekers decreases by 7.32 persons, on average, ceteris paribus.\nIf \\(GDP_pc\\) increases by 1%, the number of asylum seekers decreases by 1.64%, on average, ceteris paribus."
-  },
-  {
-    "objectID": "01_SLR.html#question-1.5-1",
-    "href": "01_SLR.html#question-1.5-1",
-    "title": "SLR",
-    "section": "Question 1.5",
-    "text": "Question 1.5\n\nShow that \\(E[u|inc] = 0\\), so that the key zero conditional mean assumption (SLR.4) is satisfied. [Hint: If \\(e\\) is independent of \\(inc\\), then \\(E[e|inc] = E[e]\\)].\nSuppose now that \\(E[u] = \\alpha \\neq 0\\). Show that the model can always be rewritten with the same slope, but a new intercept and error, where the new error has a zero expected value.\nShow that \\(V[u|inc] = \\sigma_e^2 inc\\), so that homoskedasticity (SLR.5) is violated. In particular, the variance of \\(sav\\) increases with \\(inc\\). [Hint: \\(V[e|inc] = V[e]\\), if \\(e\\) and \\(inc\\) are independent.]\n\n\n\n\\(E[u|inc]=E[e\\sqrt{inc}|inc]=\\sqrt{inc}E[e|inc]=\\sqrt{inc}0=0\\)\n\\(sav=\\beta_0+\\beta_1 inc + u = \\beta_0+\\beta_1 inc + u +\\alpha-\\alpha =(\\beta_0+\\alpha)+\\beta_1inc +(u-\\alpha)\\)\n\\(V[u|inc]=V[e\\sqrt{inc}|inc]=inc V[e|inc]=inc V[e]=inc \\sigma_e^2\\)"
-  },
-  {
-    "objectID": "01_SLR.html#question-1.5-2",
-    "href": "01_SLR.html#question-1.5-2",
-    "title": "SLR",
-    "section": "Question 1.5",
-    "text": "Question 1.5\n\nProvide a discussion that supports the assumption that the variance of savings increases with family income. Do you find evidence of that in the graph below?\n\n\n\n\n\nPoor households (do not have enough money to make a living and just buy necessities) vs Richer households (have more discretion)."
-  },
-  {
-    "objectID": "01_SLR.html#question-1.9",
-    "href": "01_SLR.html#question-1.9",
-    "title": "SLR",
-    "section": "Question 1.9",
-    "text": "Question 1.9\nConsider the standard SLR model \\(y=\\beta_0+\\beta_1 x + u\\) under all the GM assumptions. Let \\(\\tilde{\\beta}_1\\) be the estimator of \\(\\beta_1\\) obtained by assuming \\(\\beta_0=0\\).\n\nCompute \\(\\tilde{\\beta}_1\\) by OLS.\nCheck if and when \\(\\tilde{\\beta}_1\\) is unbiased.\nFind \\(V[\\tilde{\\beta}_1]\\) (always conditional on \\(X\\))\nShow that \\(V[\\tilde{\\beta}_1]\\leq V[\\hat{\\beta}_1]\\) where \\(\\hat{\\beta}\\) is the traditional estimator for \\(\\beta_1\\) under OLS.\nDiscuss the tradeoff between \\(\\tilde{\\beta}_1\\) and \\(\\hat{\\beta}_1\\) regarding bias and variance."
-  },
-  {
     "objectID": "R_SLR_Lecture_Slides.html#roadmap",
     "href": "R_SLR_Lecture_Slides.html#roadmap",
     "title": "Simple Linear Regression",
     "section": "Roadmap",
     "text": "Roadmap\nIn the previous lectures we covered the algebra of Simple Linear Regression on the whiteboard.\nToday we bring it to life with data, code, and simulations.\n\nKaggle\nQuick R warm-up\nExploring a real dataset\nThe OLS estimator — by hand\nUsing lm() — R does it for us\nInference — by hand vs. summary()\n⭐ Simulation: \\(\\hat{\\beta}_1\\) is a random variable\nWhat affects precision?\nResidual diagnostics\nConfidence and prediction bands"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#this-lecture",
+    "href": "R_SLR_Lecture_Slides.html#this-lecture",
+    "title": "Simple Linear Regression",
+    "section": "This lecture",
+    "text": "This lecture\n\nlibrary(qrcode)\n\nplot(qr_code('https://pfagandini.github.io/novasbe_econometrics/R_SLR_Lecture_Slides.html'))"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle",
+    "href": "R_SLR_Lecture_Slides.html#kaggle",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nGo to this website, and login however you like, I log in with my google account.\n\nhttps://www.kaggle.com"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle-1",
+    "href": "R_SLR_Lecture_Slides.html#kaggle-1",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nClick in “Create”\n\nAnd select “Notebook”"
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#kaggle-2",
+    "href": "R_SLR_Lecture_Slides.html#kaggle-2",
+    "title": "Simple Linear Regression",
+    "section": "Kaggle",
+    "text": "Kaggle\nSometimes it defaults to Python, but it learns your preference (use R often and it will start creating R notebooks by default)\nTo check/set an R environment:\n\nGo to the File menu\nSelect Language\nChose R\nClick the Start Session icon (a circle with a vertical line, top right corner of the notebook)"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#vectors-the-building-block-of-r",
@@ -1706,6 +1657,13 @@
     "title": "Simple Linear Regression",
     "section": "Step 4: The estimates",
     "text": "Step 4: The estimates\n\nbeta1_hat &lt;- Sxy / Sxx\nbeta0_hat &lt;- y_bar - beta1_hat * x_bar\n\ncat(\"β̂₀ =\", round(beta0_hat, 4), \"\\n\")\n\nβ̂₀ = 37.2851 \n\ncat(\"β̂₁ =\", round(beta1_hat, 4), \"\\n\")\n\nβ̂₁ = -5.3445 \n\ncat(\"\\nFor each additional 1000 lbs of weight,\\n\")\n\n\nFor each additional 1000 lbs of weight,\n\ncat(\"mpg decreases by\", round(abs(beta1_hat), 2), \"miles per gallon\\n\")\n\nmpg decreases by 5.34 miles per gallon\n\ncat(\"on average, ceteris paribus.\")\n\non average, ceteris paribus."
+  },
+  {
+    "objectID": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
+    "href": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
+    "title": "Simple Linear Regression",
+    "section": "Parenthesis: Let’s check LA",
+    "text": "Parenthesis: Let’s check LA\n\nX_vect &lt;- cbind(1, mtcars$wt)\n\n# OLS\nbeta_hat &lt;- solve(t(X_vect) %*% X_vect) %*% t(X_vect) %*% y\nbeta_hat\n\n          [,1]\n[1,] 37.285126\n[2,] -5.344472\n\n\n\nsolve() is the inverse.\nt() is the traspose\n%*% is matrix/vector multiplication."
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#the-fitted-line",
@@ -1799,6 +1757,13 @@
     "text": "\\(R^2\\) decomposition\n\nSST &lt;- sum((y - y_bar)^2)\nSSE &lt;- sum((y_hat - y_bar)^2)\nR2 &lt;- 1 - SSR / SST\ncat(\"R² =\", round(R2, 4), \"\\n\")\n\nR² = 0.7528 \n\ncat(\"Weight explains\", round(R2 * 100, 1), \"% of the variation in mpg.\\n\")\n\nWeight explains 75.3 % of the variation in mpg."
   },
   {
+    "objectID": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
+    "href": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
+    "title": "Simple Linear Regression",
+    "section": "\\(R^2\\) decomposition",
+    "text": "\\(R^2\\) decomposition\n\n\nCode\npar(mar = c(4, 4, 3, 1))\nbarplot(c(SST = SST, SSE = SSE, SSR = SSR),\n        col = c(\"gray70\", \"steelblue\", \"coral\"),\n        main = \"Decomposition: SST = SSE + SSR\", ylab = \"Sum of Squares\", border = NA)\ntext(0.7, SST/2, paste0(\"SST\\n\", round(SST, 1)), cex = 1, font = 2)\ntext(1.9, SSE/2, paste0(\"SSE\\n\", round(SSE, 1), \"\\n(\", round(SSE/SST*100,1), \"%)\"),\n     cex = 1, font = 2)\ntext(3.1, SSR/2, paste0(\"SSR\\n\", round(SSR, 1), \"\\n(\", round(SSR/SST*100,1), \"%)\"),\n     cex = 1, font = 2)"
+  },
+  {
     "objectID": "R_SLR_Lecture_Slides.html#the-key-insight",
     "href": "R_SLR_Lecture_Slides.html#the-key-insight",
     "title": "Simple Linear Regression",
@@ -1813,11 +1778,11 @@
     "text": "Running the simulation\n\nbeta0_true &lt;- 5;  beta1_true &lt;- 3;  sigma_true &lt;- 4\nset.seed(42)\n\nn_sim &lt;- 1000;  n_obs &lt;- 50\nx_sim &lt;- runif(n_obs, min = 0, max = 10)\n\nbeta1_estimates &lt;- numeric(n_sim)\nbeta0_estimates &lt;- numeric(n_sim)\n\nfor (i in 1:n_sim) {\n  u &lt;- rnorm(n_obs, mean = 0, sd = sigma_true)\n  y_sim &lt;- beta0_true + beta1_true * x_sim + u\n  fit &lt;- lm(y_sim ~ x_sim)\n  beta0_estimates[i] &lt;- coef(fit)[1]\n  beta1_estimates[i] &lt;- coef(fit)[2]\n}\n\ncat(\"Done:\", n_sim, \"regressions, each with n =\", n_obs, \"observations.\\n\")\n\nDone: 1000 regressions, each with n = 50 observations."
   },
   {
-    "objectID": "R_SLR_Lecture_Slides.html#different-samples-20-different-lines",
-    "href": "R_SLR_Lecture_Slides.html#different-samples-20-different-lines",
+    "objectID": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
+    "href": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
     "title": "Simple Linear Regression",
-    "section": "20 different samples → 20 different lines",
-    "text": "20 different samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
+    "section": "20 samples → 20 different lines",
+    "text": "20 samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
   },
   {
     "objectID": "R_SLR_Lecture_Slides.html#the-sampling-distribution-of-hatbeta_1",
@@ -1904,27 +1869,6 @@
     "text": "Interpretation\nConfidence interval (blue): Where the true regression line likely is. Narrower near \\(\\bar{x}\\).\nPrediction interval (orange): Where a new observation would fall. Always wider because it includes both line uncertainty and the noise \\(\\sigma^2\\)."
   },
   {
-    "objectID": "R_SLR_Lecture_Slides.html#does-95-confidence-really-mean-95",
-    "href": "R_SLR_Lecture_Slides.html#does-95-confidence-really-mean-95",
-    "title": "Simple Linear Regression",
-    "section": "Does “95% confidence” really mean 95%?",
-    "text": "Does “95% confidence” really mean 95%?\n\nset.seed(789)\nn_cover &lt;- 200;  nn_cov &lt;- 50\nx_cov &lt;- runif(nn_cov, 0, 10)\n\nci_lower &lt;- ci_upper &lt;- numeric(n_cover)\nfor (i in 1:n_cover) {\n  u_cov &lt;- rnorm(nn_cov, 0, sigma_true)\n  y_cov &lt;- beta0_true + beta1_true * x_cov + u_cov\n  fit_cov &lt;- lm(y_cov ~ x_cov)\n  ci &lt;- confint(fit_cov, \"x_cov\", level = 0.95)\n  ci_lower[i] &lt;- ci[1]; ci_upper[i] &lt;- ci[2]\n}\ncovers &lt;- (ci_lower &lt;= beta1_true) & (ci_upper &gt;= beta1_true)\ncat(\"Coverage:\", sum(covers), \"/\", n_cover, \"=\", mean(covers)*100, \"%\\n\")\n\nCoverage: 188 / 200 = 94 %"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#visualizing-50-confidence-intervals",
-    "href": "R_SLR_Lecture_Slides.html#visualizing-50-confidence-intervals",
-    "title": "Simple Linear Regression",
-    "section": "Visualizing 50 confidence intervals",
-    "text": "Visualizing 50 confidence intervals\n\nn_show &lt;- 50\nplot(NULL, xlim = c(min(ci_lower[1:n_show]) - 0.2, max(ci_upper[1:n_show]) + 0.2),\n     ylim = c(1, n_show),\n     main = paste0(\"50 Confidence Intervals for β₁  (coverage: \",\n                   round(mean(covers)*100, 1), \"%)\"),\n     xlab = expression(hat(beta)[1]), ylab = \"Simulation #\", yaxt = \"n\")\nabline(v = beta1_true, col = \"red\", lwd = 2)\nfor (i in 1:n_show) {\n  col_i &lt;- ifelse(covers[i], \"steelblue\", \"red\")\n  segments(ci_lower[i], i, ci_upper[i], i, col = col_i, lwd = 1.5)\n  points((ci_lower[i] + ci_upper[i])/2, i, pch = 19, col = col_i, cex = 0.6)\n}\nlegend(\"topleft\",\n       legend = c(paste0(\"Contains β₁ = \", beta1_true), \"Misses β₁\"),\n       col = c(\"steelblue\", \"red\"), lwd = 2, bty = \"n\")"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#what-95-confidence-means",
-    "href": "R_SLR_Lecture_Slides.html#what-95-confidence-means",
-    "title": "Simple Linear Regression",
-    "section": "What “95% confidence” means",
-    "text": "What “95% confidence” means\nEach horizontal line = one CI from one sample.\n~95% (blue) contain the true \\(\\beta_1 = 3\\).\n~5% (red) miss — by design.\nThis is what “95% confidence” means: if we repeated the procedure many times, about 95% of the intervals would contain the true parameter."
-  },
-  {
     "objectID": "R_SLR_Lecture_Slides.html#key-r-functions",
     "href": "R_SLR_Lecture_Slides.html#key-r-functions",
     "title": "Simple Linear Regression",
@@ -1939,87 +1883,73 @@
     "text": "Takeaways\n\nOLS minimizes the sum of squared residuals\n\\(\\hat{\\beta}_1\\) is a random variable — it changes with the sample\nUnbiasedness: \\(E[\\hat{\\beta}_1] = \\beta_1\\) — on average, OLS gets it right\nStandard errors decrease with more data and less noise\nt-tests and CIs follow from the sampling distribution\nR makes all of this easy — but understanding what’s behind it is essential!"
   },
   {
-    "objectID": "R_SLR_Lecture_Slides.html#kaggle",
-    "href": "R_SLR_Lecture_Slides.html#kaggle",
-    "title": "Simple Linear Regression",
-    "section": "Kaggle",
-    "text": "Kaggle\nGo to this website, and login however you like, I log in with my google account.\n\nhttps://www.kaggle.com"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#kaggle-1",
-    "href": "R_SLR_Lecture_Slides.html#kaggle-1",
-    "title": "Simple Linear Regression",
-    "section": "Kaggle",
-    "text": "Kaggle\nClick in “Create”\n\nAnd select “Notebook”"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#kaggle-2",
-    "href": "R_SLR_Lecture_Slides.html#kaggle-2",
-    "title": "Simple Linear Regression",
-    "section": "Kaggle",
-    "text": "Kaggle\nSometimes it defaults to Python, but it learns your preference (use R often and it will start creating R notebooks by default)\nTo check/set an R environment:\n\nGo to the File menu\nSelect Language\nChose R\nClick the Start Session icon (a circle with a vertical line, top right corner of the notebook)"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
-    "href": "R_SLR_Lecture_Slides.html#r2-decomposition-1",
-    "title": "Simple Linear Regression",
-    "section": "\\(R^2\\) decomposition",
-    "text": "\\(R^2\\) decomposition\n\n\nCode\npar(mar = c(4, 4, 3, 1))\nbarplot(c(SST = SST, SSE = SSE, SSR = SSR),\n        col = c(\"gray70\", \"steelblue\", \"coral\"),\n        main = \"Decomposition: SST = SSE + SSR\", ylab = \"Sum of Squares\", border = NA)\ntext(0.7, SST/2, paste0(\"SST\\n\", round(SST, 1)), cex = 1, font = 2)\ntext(1.9, SSE/2, paste0(\"SSE\\n\", round(SSE, 1), \"\\n(\", round(SSE/SST*100,1), \"%)\"),\n     cex = 1, font = 2)\ntext(3.1, SSR/2, paste0(\"SSR\\n\", round(SSR, 1), \"\\n(\", round(SSR/SST*100,1), \"%)\"),\n     cex = 1, font = 2)"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
-    "href": "R_SLR_Lecture_Slides.html#samples-20-different-lines",
-    "title": "Simple Linear Regression",
-    "section": "20 samples → 20 different lines",
-    "text": "20 samples → 20 different lines\n\n\nCode\nplot(NULL, xlim = c(0, 10), ylim = c(-5, 45),\n     main = \"20 Different Samples → 20 Different Regression Lines\",\n     xlab = \"x\", ylab = \"y\")\nfor (i in 1:20) {\n  abline(a = beta0_estimates[i], b = beta1_estimates[i],\n         col = rgb(0.3, 0.3, 0.8, 0.3), lwd = 1.5)\n}\nabline(a = beta0_true, b = beta1_true, col = \"red\", lwd = 3)\nlegend(\"topleft\",\n       legend = c(\"True line: y = 5 + 3x\", \"Estimated lines (one per sample)\"),\n       col = c(\"red\", rgb(0.3, 0.3, 0.8, 0.5)), lwd = c(3, 2), bty = \"n\")\ngrid()"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#this-lecture",
-    "href": "R_SLR_Lecture_Slides.html#this-lecture",
-    "title": "Simple Linear Regression",
-    "section": "This lecture",
-    "text": "This lecture\n\nlibrary(qrcode)\n\nplot(qr_code('https://pfagandini.github.io/novasbe_econometrics/R_SLR_Lecture_Slides.html'))"
-  },
-  {
-    "objectID": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
-    "href": "R_SLR_Lecture_Slides.html#parenthesis-lets-check-la",
-    "title": "Simple Linear Regression",
-    "section": "Parenthesis: Let’s check LA",
-    "text": "Parenthesis: Let’s check LA\n\nX_vect &lt;- cbind(1, mtcars$wt)\n\n# OLS\nbeta_hat &lt;- solve(t(X_vect) %*% X_vect) %*% t(X_vect) %*% y\nbeta_hat\n\n          [,1]\n[1,] 37.285126\n[2,] -5.344472\n\n\n\nsolve() is the inverse.\nt() is the traspose\n%*% is matrix/vector multiplication."
-  },
-  {
-    "objectID": "rlecture.html",
-    "href": "rlecture.html",
-    "title": "Lecture about R",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "temp",
     "section": "",
-    "text": "In this lecture we will try the linear probability models, and do some tests that might be useful to you with your project."
+    "text": "This website has the materials for the practical lectures of Econometrics at the bachelor programs at Nova SBE."
   },
   {
-    "objectID": "rlecture.html#regressionok-enough-of-studying-the-data-and-lets-run-some-regressions.-the-command-for-r-to-run-a-linear-regression-is-the-linear-model-lmyx1x2...-data-data-function.-in-this-case-our-y-is-ecobuy-if-the-customer-bought-or-not-an-eco-product.-we-are-regressing-this-on-ecoprc-regprc-faminc-hhsize-educ-and-age.-of-course-our-data-is-stored-in-the-dataframe-mydata.-our-model-will-be-the-followingecobuybeta_0beta_1-ecoprcbeta_2-regprc-beta_3-famincbeta_4-hhsizebeta_5-educbeta_6-ageu-in-order-to-see-the-output-we-will-use-summary-again.-we-will-store-our-linear-model-into-the-variable-ols.",
-    "href": "rlecture.html#regressionok-enough-of-studying-the-data-and-lets-run-some-regressions.-the-command-for-r-to-run-a-linear-regression-is-the-linear-model-lmyx1x2...-data-data-function.-in-this-case-our-y-is-ecobuy-if-the-customer-bought-or-not-an-eco-product.-we-are-regressing-this-on-ecoprc-regprc-faminc-hhsize-educ-and-age.-of-course-our-data-is-stored-in-the-dataframe-mydata.-our-model-will-be-the-followingecobuybeta_0beta_1-ecoprcbeta_2-regprc-beta_3-famincbeta_4-hhsizebeta_5-educbeta_6-ageu-in-order-to-see-the-output-we-will-use-summary-again.-we-will-store-our-linear-model-into-the-variable-ols.",
-    "title": "Lecture about R",
-    "section": "Regression!Ok, enough of studying the data and let’s run some regressions. The command for R to run a linear regression is the linear model lm(y~x1+x2+..., data= data) function. In this case our \\(y\\) is ecobuy, if the customer bought or not an eco product. We are regressing this on ecoprc, regprc, faminc, hhsize, educ, and age. Of course, our data is stored in the dataframe mydata. Our model will be the following:\\[ecobuy=\\beta_0+\\beta_1 ecoprc+\\beta_2 regprc+ \\beta_3 faminc+\\beta_4 hhsize+\\beta_5 educ+\\beta_6 age+u\\] in order to see the output we will use summary() again. We will store our linear model into the variable ols.",
-    "text": "Regression!Ok, enough of studying the data and let’s run some regressions. The command for R to run a linear regression is the linear model lm(y~x1+x2+..., data= data) function. In this case our \\(y\\) is ecobuy, if the customer bought or not an eco product. We are regressing this on ecoprc, regprc, faminc, hhsize, educ, and age. Of course, our data is stored in the dataframe mydata. Our model will be the following:\\[ecobuy=\\beta_0+\\beta_1 ecoprc+\\beta_2 regprc+ \\beta_3 faminc+\\beta_4 hhsize+\\beta_5 educ+\\beta_6 age+u\\] in order to see the output we will use summary() again. We will store our linear model into the variable ols.\n\nols &lt;- lm(ecobuy~ecoprc+regprc+faminc+hhsize+educ+age, data = mydata)summary(ols)\n\nWe can again use stargazer to store the results of our regression:\n\nstargazer(ols, type = \"html\", out =\"ols.html\")\n\n\nF-test of joint significance testsWe might be interested to check if ecoprc and regprc are both 0 simoultaneously. For that we know we need to run an \\(F\\) test. We will need the car library, that we also need to install as Google Colab does not have it by default.\n\ninstall.packages('car')library(\"car\")\n\nWe now can run some joint significance tests! Let’s test if \\(\\beta_1=\\beta_2=0\\). To do that, we need to use the function linearHypothesis(model, c(hypotheses)). In R c() is a vector, and we need to use strings to include our restrictions, in this case we will say that \"ecoprc=0\" and \"regprc=0\". Note that we are refering to the betas of these variables in the regression.\n\nlinearHypothesis(ols, c(\"ecoprc=0\",\"regprc=0\"))\n\nWe see clearly that we can reject our hypothesis.We can also test if one effect is the symmetric of the other, and this works very literally! in this case we would need to use the restriction \"ecoprc=-regprc\"\n\nlinearHypothesis(ols, c(\"ecoprc=-regprc\"))\n\nWe cannot reject the null hypothesis, or the fact that one is the negative of the other."
+    "objectID": "renv.html",
+    "href": "renv.html",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "A quick reference for using renv (R package management) from the terminal without RStudio.\n\n\n# Start R in your project directory\nR\n\n# In R console, initialize renv\nrenv::init()\n\n# Exit R\nquit()\n\n\n\n# Activate environment (if not auto-activated)\nR -e \"renv::activate()\"\n\n# Install packages (in R console)\nR\n&gt; install.packages(\"package_name\")\n&gt; renv::snapshot()  # Save current state\n&gt; quit()\n\n# Restore environment from lockfile\nR -e \"renv::restore()\"\n\n\n\nRun these commands in the R console:\nrenv::status()      # Check project status\nrenv::snapshot()    # Update lockfile with current packages\nrenv::restore()     # Install packages from lockfile\nrenv::clean()       # Remove unused packages\nrenv::deactivate()  # Deactivate renv for this session\nrenv::activate()    # Reactivate renv\n\n\n\nyour_project/\n├── renv.lock        # Package versions (like requirements.txt)\n├── .Rprofile        # Auto-activates renv\n└── renv/            # Private library directory\n    ├── library/     # Project-specific packages\n    └── settings.dcf # renv settings\n\n\n\n\nrenv.lock: Contains exact package versions and dependencies (commit to git)\n.Rprofile: Auto-activates renv when starting R in the project directory\nrenv/: Private library where packages are stored\n\n\n\n\n# 1. Create new project\nmkdir my_r_project && cd my_r_project\n\n# 2. Initialize renv\nR -e \"renv::init()\"\n\n# 3. Install packages\nR -e \"install.packages(c('dplyr', 'ggplot2')); renv::snapshot()\"\n\n# 4. Work on your project with any editor\n# Your R scripts will use the renv environment automatically\n\n# 5. Share project - others run:\nR -e \"renv::restore()\"\n\n\n\n\nAlways run renv::snapshot() after installing new packages\nThe .Rprofile file automatically activates renv when you start R\nUse renv::status() to check if packages need to be snapshotted\nShare renv.lock with collaborators (like requirements.txt in Python)\nKeep renv/ folder out of version control (add to .gitignore)\nUse renv::clean() periodically to remove unused packages\n\n\n\n\n# If renv isn't working properly\nrenv::diagnostics()\n\n# Reset renv (use with caution)\nrenv::init(force = TRUE)\n\n# Check renv version\nrenv::version()"
   },
   {
-    "objectID": "rlecture.html#getting-haty-and-more-stuff-from-a-linear-regressionwhen-we-ran-the-linear-model-and-stored-it-in-ols-what-we-did-was-to-store-a-bunch-of-stuff-into-it.-in-particular-we-stored-the-fitted-values-and-the-residuals.-well-these-fitteed-values-are-haty.-using-names-we-can-see-all-we-can-obtain-from-our-linear-model.",
-    "href": "rlecture.html#getting-haty-and-more-stuff-from-a-linear-regressionwhen-we-ran-the-linear-model-and-stored-it-in-ols-what-we-did-was-to-store-a-bunch-of-stuff-into-it.-in-particular-we-stored-the-fitted-values-and-the-residuals.-well-these-fitteed-values-are-haty.-using-names-we-can-see-all-we-can-obtain-from-our-linear-model.",
-    "title": "Lecture about R",
-    "section": "Getting \\(\\hat{y}\\) and more stuff from a linear regressionWhen we ran the linear model and stored it in ols, what we did was to store a bunch of stuff into it. In particular we stored the fitted values and the residuals. Well, these fitteed values are \\(\\hat{y}\\). Using names() we can see all we can obtain from our linear model.",
-    "text": "Getting \\(\\hat{y}\\) and more stuff from a linear regressionWhen we ran the linear model and stored it in ols, what we did was to store a bunch of stuff into it. In particular we stored the fitted values and the residuals. Well, these fitteed values are \\(\\hat{y}\\). Using names() we can see all we can obtain from our linear model.\n\nnames(ols)\n\nNow let’s save the \\(\\hat{y}\\)\n\nmydata$yhat.ols &lt;- ols$fitted.values\n\nIf we want to see the interval for our \\(\\hat{y}\\) we use the function range()\n\nrange(mydata$yhat.ols)\n\nWhat is the problem with these values?\n\nsum(mydata$yhat.ols&gt;1)"
+    "objectID": "renv.html#basic-setup",
+    "href": "renv.html#basic-setup",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "# Start R in your project directory\nR\n\n# In R console, initialize renv\nrenv::init()\n\n# Exit R\nquit()"
   },
   {
-    "objectID": "rlecture.html#homoskedasticitywe-will-have-to-deal-with-homoskedasticity-in-our-model-be-it-testing-for-it-or-fixing-our-standard-errors.-we-will-be-using-some-libraries-to-do-so-lmtest-and-skedastic.",
-    "href": "rlecture.html#homoskedasticitywe-will-have-to-deal-with-homoskedasticity-in-our-model-be-it-testing-for-it-or-fixing-our-standard-errors.-we-will-be-using-some-libraries-to-do-so-lmtest-and-skedastic.",
-    "title": "Lecture about R",
-    "section": "HomoskedasticityWe will have to deal with homoskedasticity in our model, be it testing for it, or fixing our standard errors. We will be using some libraries to do so: lmtest and skedastic.",
-    "text": "HomoskedasticityWe will have to deal with homoskedasticity in our model, be it testing for it, or fixing our standard errors. We will be using some libraries to do so: lmtest and skedastic.\nlmtest will provide us with a function to do a Breusch-Pagan test, named bptest(model) where model stands for the name of our regression.\n\ninstall.packages('lmtest')library(lmtest)\n\n\nbptest(ols)\n\nWe see that we can reject the null, it seems we might have heteroskedasticity! Let’s try now the white test. For that we use skedastic’s function white(model, interactions = BOOLEAN) where we can include or exclude the interactions. In this case we will include them, using TRUE in the function.\n\ninstall.packages('skedastic')library(skedastic)\n\n\nwhite(ols, interactions = TRUE)\n\nRemember to be careful with the degrees of freedom as you lose a lot with this test!\n\nThe Lazy White test.This test unfortunately we need to do it by hand. On the good side, it is fairly yeasy to do so. First, we need to use our \\(\\hat{y}\\), square them, and then regress the squared residuals \\(\\hat{u}^2\\) on \\(\\hat{y}\\) and \\(\\hat{y}^2\\).\n\nmydata$yhat.ols_sq&lt;-(ols$fitted.values)^2mydata$ols.residualssq &lt;- (ols$residuals)^2\n\nNow we can regress \\[\\hat{u}^2=\\alpha_0+\\alpha_1 \\hat{y}+\\alpha_2\\hat{y}^2+\\epsilon\\] let’s call this linear model lazy_white and check the output with summary()\n\nlazy_white&lt;-lm(ols.residualssq~yhat.ols+yhat.ols_sq, data=mydata)summary(lazy_white)\n\nNow we need to check the significance. Remember, we want to do an \\(F\\) test, for that we can use the \\(n\\times R^2\\) test, that is distributed \\(\\chi^2_2\\). To get the \\(R^2\\) we can reuse the data that is in the summary of our regression. Let’s check.\n\nnames(summary(lazy_white))\n\nNow we can use the r.squared and nobs to see our statistic \\(nR^2\\).\n\ns &lt;- summary(lazy_white)$r.squared*nobs(lazy_white)s\n\nTo find the critical value, we can use the qchisq(quartile, dof) function. In this case we could use qchisq(0.95,2).\n\nqchisq(0.95,2)\n\nAlternatively we could use the function pchisq() where we give a value for \\(x\\), the \\(dof\\) and we obtain the probability associated to that distribution. We stressed further here that we do not want to have the lower tail, although this is unnecessary, as the default is the cumulative function.\n\npchisq(q=s, df=2, lower.tail=FALSE)\n\nSo we cannot reject the null, and have heteroskedasticity."
+    "objectID": "renv.html#daily-workflow",
+    "href": "renv.html#daily-workflow",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "# Activate environment (if not auto-activated)\nR -e \"renv::activate()\"\n\n# Install packages (in R console)\nR\n&gt; install.packages(\"package_name\")\n&gt; renv::snapshot()  # Save current state\n&gt; quit()\n\n# Restore environment from lockfile\nR -e \"renv::restore()\""
   },
   {
-    "objectID": "rlecture.html#fixing-the-problem-weighted-least-squareswe-can-try-to-fix-the-issue-here-using-wls.-first-lets-fix-the-situations-where-we-had-out-of-range-predicted-data.-also-preventing-dividing-by-0.",
-    "href": "rlecture.html#fixing-the-problem-weighted-least-squareswe-can-try-to-fix-the-issue-here-using-wls.-first-lets-fix-the-situations-where-we-had-out-of-range-predicted-data.-also-preventing-dividing-by-0.",
-    "title": "Lecture about R",
-    "section": "Fixing the problem### Weighted least squaresWe can try to fix the issue here using WLS. First, lets fix the situations where we had out of range predicted data. Also preventing dividing by 0.",
-    "text": "Fixing the problem### Weighted least squaresWe can try to fix the issue here using WLS. First, lets fix the situations where we had out of range predicted data. Also preventing dividing by 0.\n\nmydata$fit &lt;- mydata$yhat.ols\n\n\nmydata$fit[mydata$fit&lt;=0] &lt;- 0.01mydata$fit[mydata$fit&gt;=1] &lt;- 0.99\n\n\nrange(mydata$fit)\n\nNow we need to compute the weights, for that we need to compute the variance of the predicted variable \\(p(1-p)\\) so we can devide our regression on both sides by it. Note that \\(V[y|x]=V[u|x]\\) because \\(X\\beta\\) is deterministic, and then, conditional on \\(X\\), it does not have a variance.\n\nmydata$hi&lt;-((mydata$fit)*(1-mydata$fit))mydata$weight_h &lt;- 1/(mydata$hi)\n\nTo run a wls, we use the same function we used for ols, the difference is that we add the argument weight=weight_h indicating which weights we want to use in our regression.\n\nwls = lm(ecobuy~ecoprc+regprc+faminc+hhsize+educ+age, weight=weight_h, data = mydata)summary(wls)\n\nWe can trust in these standard errors and make inference on this.\n\nRobust standard errorsWe can compute robust standard errors\n\ninstall.packages('sandwich')library(sandwich)\n\nThe command vcocvHC() generates, from a regression, ols in this case, the matrix \\[\\frac{n}{n-k} (X'X)^{-1}X'\\hat{\\Omega}X(X'X)^{-1}\\] \\(HC1\\) indicates the multiplication at the begining, so we adjust for small samples and avoid a biased estimator (like when dividing by \\(n-1\\) for the sample variance). In this case \\(\\hat{\\Omega}=diag(\\hat{u}_1^2,...\\hat{u}^2_n)\\)\n\nvcHC &lt;- vcovHC(ols, type = \"HC1\")\n\nNow we can obtain the robust standard errors by taking the square root (from variance to standard deviation)\n\nrobust_se &lt;- sqrt(diag(vcHC))\n\nFinally, let’s compare the models. Note that we are giving now 3: \\(ols\\) twice, and \\(wls\\). Note that in the argumnet se=list(NULL,robust_se,NULL) we are telling to use, in the second ols model, the robust standard errors we just computed above!\n\nstargazer(ols, ols,wls, type = \"text\",          se= list(NULL, robust_se, NULL), column.labels = c(\"OLS\", \"OLS Robust s.e.\", \"WLS\"))\n\nLet’s store this into a file now.\n\nstargazer(ols, ols,wls, type = \"html\", out =\"ols&robust&wls.html\",          se= list(NULL, robust_se, NULL), column.labels = c(\"OLS\", \"OLS Robust s.e.\", \"WLS\"))"
+    "objectID": "renv.html#key-commands",
+    "href": "renv.html#key-commands",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "Run these commands in the R console:\nrenv::status()      # Check project status\nrenv::snapshot()    # Update lockfile with current packages\nrenv::restore()     # Install packages from lockfile\nrenv::clean()       # Remove unused packages\nrenv::deactivate()  # Deactivate renv for this session\nrenv::activate()    # Reactivate renv"
+  },
+  {
+    "objectID": "renv.html#file-structure-created",
+    "href": "renv.html#file-structure-created",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "your_project/\n├── renv.lock        # Package versions (like requirements.txt)\n├── .Rprofile        # Auto-activates renv\n└── renv/            # Private library directory\n    ├── library/     # Project-specific packages\n    └── settings.dcf # renv settings"
+  },
+  {
+    "objectID": "renv.html#important-files",
+    "href": "renv.html#important-files",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "renv.lock: Contains exact package versions and dependencies (commit to git)\n.Rprofile: Auto-activates renv when starting R in the project directory\nrenv/: Private library where packages are stored"
+  },
+  {
+    "objectID": "renv.html#common-workflow-example",
+    "href": "renv.html#common-workflow-example",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "# 1. Create new project\nmkdir my_r_project && cd my_r_project\n\n# 2. Initialize renv\nR -e \"renv::init()\"\n\n# 3. Install packages\nR -e \"install.packages(c('dplyr', 'ggplot2')); renv::snapshot()\"\n\n# 4. Work on your project with any editor\n# Your R scripts will use the renv environment automatically\n\n# 5. Share project - others run:\nR -e \"renv::restore()\""
+  },
+  {
+    "objectID": "renv.html#tips-best-practices",
+    "href": "renv.html#tips-best-practices",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "Always run renv::snapshot() after installing new packages\nThe .Rprofile file automatically activates renv when you start R\nUse renv::status() to check if packages need to be snapshotted\nShare renv.lock with collaborators (like requirements.txt in Python)\nKeep renv/ folder out of version control (add to .gitignore)\nUse renv::clean() periodically to remove unused packages"
+  },
+  {
+    "objectID": "renv.html#troubleshooting",
+    "href": "renv.html#troubleshooting",
+    "title": "renv Terminal Cheat Sheet",
+    "section": "",
+    "text": "# If renv isn't working properly\nrenv::diagnostics()\n\n# Reset renv (use with caution)\nrenv::init(force = TRUE)\n\n# Check renv version\nrenv::version()"
   }
 ]

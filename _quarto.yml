@@ -1,12 +1,11 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
+    - "!*.ipynb"
   resources:
-    - "*.ipynb"  # Include notebooks as static resources
-
-render:
-  - "*.qmd"
-  - "!*.ipynb"  # Don't render .ipynb files
+    - "*.ipynb"
 
 website:
   title: "Econometrics - Nova SBE"
