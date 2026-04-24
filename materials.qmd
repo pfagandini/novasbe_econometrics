@@ -18,7 +18,7 @@ title: "Material"
 
 * [R Extra](R_SLR_Lecture_Slides.qmd)
 * [Dummies and IV](econometrics_classes_06_07.pdf)
-* <a href="rlecture.ipynb" download>Download the Notebook</a>
+* [R notebook](rlecture.ipynb)
 <!-- 
 ## Notes
 
