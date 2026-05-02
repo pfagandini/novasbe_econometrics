@@ -19,6 +19,8 @@ title: "Material"
 * [R Extra](R_SLR_Lecture_Slides.qmd)
 * [Dummies and IV](econometrics_classes_06_07.pdf)
 * [Time Series](econometrics_novasbe_lec11.pdf)
+* [Time Series II](econometrics_novasbe_lec12.pdf)
+<!-- * [Time Series III](econometrics_novasbe_lec13.pdf) -->
 * [R notebook](rlecture.ipynb)
 <!-- 
 ## Notes
